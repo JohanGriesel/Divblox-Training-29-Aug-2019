@@ -24,6 +24,8 @@
  * @property dxDateTime $CreatedDate the value for dttCreatedDate 
  * @property-read string $LastUpdated the value for strLastUpdated (Read-Only Timestamp)
  * @property integer $ObjectOwner the value for intObjectOwner 
+ * @property-read PhotoSubmission $_PhotoSubmissionAsFileDocument the value for the private _objPhotoSubmissionAsFileDocument (Read-Only) if set due to an expansion on the PhotoSubmission.FileDocument reverse relationship
+ * @property-read PhotoSubmission[] $_PhotoSubmissionAsFileDocumentArray the value for the private _objPhotoSubmissionAsFileDocumentArray (Read-Only) if set due to an ExpandAsArray on the PhotoSubmission.FileDocument reverse relationship
  * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
  */
 class FileDocumentGen extends dxBaseClass implements IteratorAggregate {
@@ -107,6 +109,22 @@ class FileDocumentGen extends dxBaseClass implements IteratorAggregate {
     protected $intObjectOwner;
     const ObjectOwnerDefault = null;
 
+
+    /**
+     * Private member variable that stores a reference to a single PhotoSubmissionAsFileDocument object
+     * (of type PhotoSubmission), if this FileDocument object was restored with
+     * an expansion on the PhotoSubmission association table.
+     * @var PhotoSubmission _objPhotoSubmissionAsFileDocument;
+     */
+    private $_objPhotoSubmissionAsFileDocument;
+
+    /**
+     * Private member variable that stores a reference to an array of PhotoSubmissionAsFileDocument objects
+     * (of type PhotoSubmission[]), if this FileDocument object was restored with
+     * an ExpandAsArray on the PhotoSubmission association table.
+     * @var PhotoSubmission[] _objPhotoSubmissionAsFileDocumentArray;
+     */
+    private $_objPhotoSubmissionAsFileDocumentArray = null;
 
     /**
      * Protected array of virtual attributes for this object (e.g. extra/other calculated and/or non-object bound
@@ -593,6 +611,15 @@ class FileDocumentGen extends dxBaseClass implements IteratorAggregate {
             $objPreviousItemArray = (!empty ($objPreviousItemArray[$key]) ? $objPreviousItemArray[$key] : null);
         }
 
+        // See if we're doing an array expansion on the previous item
+        if ($objExpandAsArrayNode &&
+                is_array($objPreviousItemArray) &&
+                ProjectFunctions::getDataSetSize($objPreviousItemArray)) {
+
+            if (FileDocument::ExpandArray ($objDbRow, $strAliasPrefix, $objExpandAsArrayNode, $objPreviousItemArray, $strColumnAliasArray)) {
+                return false; // db row was used but no new object was created
+            }
+        }
 
         // Create a new instance of the FileDocument object
         $objToReturn = new FileDocument();
@@ -657,6 +684,21 @@ class FileDocumentGen extends dxBaseClass implements IteratorAggregate {
 
 
 
+
+        // Check for PhotoSubmissionAsFileDocument Virtual Binding
+        $strAlias = $strAliasPrefix . 'photosubmissionasfiledocument__Id';
+        $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
+        $objExpansionNode = (empty($objExpansionAliasArray['photosubmissionasfiledocument']) ? null : $objExpansionAliasArray['photosubmissionasfiledocument']);
+        $blnExpanded = ($objExpansionNode && $objExpansionNode->ExpandAsArray);
+        if ($blnExpanded && null === $objToReturn->_objPhotoSubmissionAsFileDocumentArray)
+            $objToReturn->_objPhotoSubmissionAsFileDocumentArray = array();
+        if (!is_null($objDbRow->GetColumn($strAliasName))) {
+            if ($blnExpanded) {
+                $objToReturn->_objPhotoSubmissionAsFileDocumentArray[] = PhotoSubmission::InstantiateDbRow($objDbRow, $strAliasPrefix . 'photosubmissionasfiledocument__', $objExpansionNode, null, $strColumnAliasArray);
+            } elseif (is_null($objToReturn->_objPhotoSubmissionAsFileDocument)) {
+                $objToReturn->_objPhotoSubmissionAsFileDocument = PhotoSubmission::InstantiateDbRow($objDbRow, $strAliasPrefix . 'photosubmissionasfiledocument__', $objExpansionNode, null, $strColumnAliasArray);
+            }
+        }
 
         return $objToReturn;
     }
@@ -1157,6 +1199,22 @@ class FileDocumentGen extends dxBaseClass implements IteratorAggregate {
             // (If restored via a "Many-to" expansion)
             ////////////////////////////
 
+            case '_PhotoSubmissionAsFileDocument':
+                /**
+                 * Gets the value for the private _objPhotoSubmissionAsFileDocument (Read-Only)
+                 * if set due to an expansion on the PhotoSubmission.FileDocument reverse relationship
+                 * @return PhotoSubmission
+                 */
+                return $this->_objPhotoSubmissionAsFileDocument;
+
+            case '_PhotoSubmissionAsFileDocumentArray':
+                /**
+                 * Gets the value for the private _objPhotoSubmissionAsFileDocumentArray (Read-Only)
+                 * if set due to an ExpandAsArray on the PhotoSubmission.FileDocument reverse relationship
+                 * @return PhotoSubmission[]
+                 */
+                return $this->_objPhotoSubmissionAsFileDocumentArray;
+
 
             case '__Restored':
                 return $this->__blnRestored;
@@ -1302,6 +1360,155 @@ class FileDocumentGen extends dxBaseClass implements IteratorAggregate {
     // ASSOCIATED OBJECTS' METHODS
     ///////////////////////////////
 
+
+
+    // Related Objects' Methods for PhotoSubmissionAsFileDocument
+    //-------------------------------------------------------------------
+
+    /**
+     * Gets all associated PhotoSubmissionsAsFileDocument as an array of PhotoSubmission objects
+     * @param dxQueryClause[] $objOptionalClauses additional optional dxQueryClause objects for this query
+     * @return PhotoSubmission[]
+    */
+    public function GetPhotoSubmissionAsFileDocumentArray($objOptionalClauses = null) {
+        if ((is_null($this->intId)))
+            return array();
+
+        try {
+            return PhotoSubmission::LoadArrayByFileDocument($this->intId, $objOptionalClauses);
+        } catch (dxCallerException $objExc) {
+            $objExc->IncrementOffset();
+            throw $objExc;
+        }
+    }
+
+    /**
+     * Counts all associated PhotoSubmissionsAsFileDocument
+     * @return int
+    */
+    public function CountPhotoSubmissionsAsFileDocument() {
+        if ((is_null($this->intId)))
+            return 0;
+
+        return PhotoSubmission::CountByFileDocument($this->intId);
+    }
+
+    /**
+     * Associates a PhotoSubmissionAsFileDocument
+     * @param PhotoSubmission $objPhotoSubmission
+     * @return void
+    */
+    public function AssociatePhotoSubmissionAsFileDocument(PhotoSubmission $objPhotoSubmission) {
+        if ((is_null($this->intId)))
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociatePhotoSubmissionAsFileDocument on this unsaved FileDocument.');
+        if ((is_null($objPhotoSubmission->Id)))
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociatePhotoSubmissionAsFileDocument on this FileDocument with an unsaved PhotoSubmission.');
+
+        // Get the Database Object for this Class
+        $objDatabase = FileDocument::GetDatabase();
+
+        // Perform the SQL Query
+        $objDatabase->NonQuery('
+            UPDATE
+                `PhotoSubmission`
+            SET
+                `FileDocument` = ' . $objDatabase->SqlVariable($this->intId) . '
+            WHERE
+                `Id` = ' . $objDatabase->SqlVariable($objPhotoSubmission->Id) . '
+        ');
+    }
+
+    /**
+     * Unassociates a PhotoSubmissionAsFileDocument
+     * @param PhotoSubmission $objPhotoSubmission
+     * @return void
+    */
+    public function UnassociatePhotoSubmissionAsFileDocument(PhotoSubmission $objPhotoSubmission) {
+        if ((is_null($this->intId)))
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePhotoSubmissionAsFileDocument on this unsaved FileDocument.');
+        if ((is_null($objPhotoSubmission->Id)))
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePhotoSubmissionAsFileDocument on this FileDocument with an unsaved PhotoSubmission.');
+
+        // Get the Database Object for this Class
+        $objDatabase = FileDocument::GetDatabase();
+
+        // Perform the SQL Query
+        $objDatabase->NonQuery('
+            UPDATE
+                `PhotoSubmission`
+            SET
+                `FileDocument` = null
+            WHERE
+                `Id` = ' . $objDatabase->SqlVariable($objPhotoSubmission->Id) . ' AND
+                `FileDocument` = ' . $objDatabase->SqlVariable($this->intId) . '
+        ');
+    }
+
+    /**
+     * Unassociates all PhotoSubmissionsAsFileDocument
+     * @return void
+    */
+    public function UnassociateAllPhotoSubmissionsAsFileDocument() {
+        if ((is_null($this->intId)))
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePhotoSubmissionAsFileDocument on this unsaved FileDocument.');
+
+        // Get the Database Object for this Class
+        $objDatabase = FileDocument::GetDatabase();
+
+        // Perform the SQL Query
+        $objDatabase->NonQuery('
+            UPDATE
+                `PhotoSubmission`
+            SET
+                `FileDocument` = null
+            WHERE
+                `FileDocument` = ' . $objDatabase->SqlVariable($this->intId) . '
+        ');
+    }
+
+    /**
+     * Deletes an associated PhotoSubmissionAsFileDocument
+     * @param PhotoSubmission $objPhotoSubmission
+     * @return void
+    */
+    public function DeleteAssociatedPhotoSubmissionAsFileDocument(PhotoSubmission $objPhotoSubmission) {
+        if ((is_null($this->intId)))
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePhotoSubmissionAsFileDocument on this unsaved FileDocument.');
+        if ((is_null($objPhotoSubmission->Id)))
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePhotoSubmissionAsFileDocument on this FileDocument with an unsaved PhotoSubmission.');
+
+        // Get the Database Object for this Class
+        $objDatabase = FileDocument::GetDatabase();
+
+        // Perform the SQL Query
+        $objDatabase->NonQuery('
+            DELETE FROM
+                `PhotoSubmission`
+            WHERE
+                `Id` = ' . $objDatabase->SqlVariable($objPhotoSubmission->Id) . ' AND
+                `FileDocument` = ' . $objDatabase->SqlVariable($this->intId) . '
+        ');
+    }
+
+    /**
+     * Deletes all associated PhotoSubmissionsAsFileDocument
+     * @return void
+    */
+    public function DeleteAllPhotoSubmissionsAsFileDocument() {
+        if ((is_null($this->intId)))
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePhotoSubmissionAsFileDocument on this unsaved FileDocument.');
+
+        // Get the Database Object for this Class
+        $objDatabase = FileDocument::GetDatabase();
+
+        // Perform the SQL Query
+        $objDatabase->NonQuery('
+            DELETE FROM
+                `PhotoSubmission`
+            WHERE
+                `FileDocument` = ' . $objDatabase->SqlVariable($this->intId) . '
+        ');
+    }
 
 
     
@@ -1479,6 +1686,7 @@ class FileDocumentGen extends dxBaseClass implements IteratorAggregate {
      * @property-read dxQueryNode $ObjectOwner
      *
      *
+     * @property-read dxQueryReverseReferenceNodePhotoSubmission $PhotoSubmissionAsFileDocument
 
      * @property-read dxQueryNode $_PrimaryKeyNode
      **/
@@ -1506,6 +1714,8 @@ class FileDocumentGen extends dxBaseClass implements IteratorAggregate {
 					return new dxQueryNode('LastUpdated', 'LastUpdated', 'VarChar', $this);
 				case 'ObjectOwner':
 					return new dxQueryNode('ObjectOwner', 'ObjectOwner', 'Integer', $this);
+				case 'PhotoSubmissionAsFileDocument':
+					return new dxQueryReverseReferenceNodePhotoSubmission($this, 'photosubmissionasfiledocument', 'reverse_reference', 'FileDocument', 'PhotoSubmissionAsFileDocument');
 
 				case '_PrimaryKeyNode':
 					return new dxQueryNode('Id', 'Id', 'Integer', $this);
@@ -1532,6 +1742,7 @@ class FileDocumentGen extends dxBaseClass implements IteratorAggregate {
      * @property-read dxQueryNode $ObjectOwner
      *
      *
+     * @property-read dxQueryReverseReferenceNodePhotoSubmission $PhotoSubmissionAsFileDocument
 
      * @property-read dxQueryNode $_PrimaryKeyNode
      **/
@@ -1559,6 +1770,8 @@ class FileDocumentGen extends dxBaseClass implements IteratorAggregate {
 					return new dxQueryNode('LastUpdated', 'LastUpdated', 'string', $this);
 				case 'ObjectOwner':
 					return new dxQueryNode('ObjectOwner', 'ObjectOwner', 'integer', $this);
+				case 'PhotoSubmissionAsFileDocument':
+					return new dxQueryReverseReferenceNodePhotoSubmission($this, 'photosubmissionasfiledocument', 'reverse_reference', 'FileDocument', 'PhotoSubmissionAsFileDocument');
 
 				case '_PrimaryKeyNode':
 					return new dxQueryNode('Id', 'Id', 'integer', $this);

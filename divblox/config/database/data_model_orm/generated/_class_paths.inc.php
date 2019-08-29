@@ -54,10 +54,25 @@
     ProjectFunctions::$ClassFile['dxquerynodepasswordreset'] = DATA_MODEL_ORM_PATH_STR.'/PasswordReset.class.php';
     ProjectFunctions::$ClassFile['dxreversereferencenodepasswordreset'] = DATA_MODEL_ORM_PATH_STR.'/PasswordReset.class.php';
 
+	// ClassPaths for the PhotoSubmission class
+    ProjectFunctions::$ClassFile['photosubmission'] = DATA_MODEL_ORM_PATH_STR.'/PhotoSubmission.class.php';
+    ProjectFunctions::$ClassFile['dxquerynodephotosubmission'] = DATA_MODEL_ORM_PATH_STR.'/PhotoSubmission.class.php';
+    ProjectFunctions::$ClassFile['dxreversereferencenodephotosubmission'] = DATA_MODEL_ORM_PATH_STR.'/PhotoSubmission.class.php';
+
 	// ClassPaths for the PushRegistration class
     ProjectFunctions::$ClassFile['pushregistration'] = DATA_MODEL_ORM_PATH_STR.'/PushRegistration.class.php';
     ProjectFunctions::$ClassFile['dxquerynodepushregistration'] = DATA_MODEL_ORM_PATH_STR.'/PushRegistration.class.php';
     ProjectFunctions::$ClassFile['dxreversereferencenodepushregistration'] = DATA_MODEL_ORM_PATH_STR.'/PushRegistration.class.php';
+
+	// ClassPaths for the RequestStatus class
+    ProjectFunctions::$ClassFile['requeststatus'] = DATA_MODEL_ORM_PATH_STR.'/RequestStatus.class.php';
+    ProjectFunctions::$ClassFile['dxquerynoderequeststatus'] = DATA_MODEL_ORM_PATH_STR.'/RequestStatus.class.php';
+    ProjectFunctions::$ClassFile['dxreversereferencenoderequeststatus'] = DATA_MODEL_ORM_PATH_STR.'/RequestStatus.class.php';
+
+	// ClassPaths for the StockPhotoRequest class
+    ProjectFunctions::$ClassFile['stockphotorequest'] = DATA_MODEL_ORM_PATH_STR.'/StockPhotoRequest.class.php';
+    ProjectFunctions::$ClassFile['dxquerynodestockphotorequest'] = DATA_MODEL_ORM_PATH_STR.'/StockPhotoRequest.class.php';
+    ProjectFunctions::$ClassFile['dxreversereferencenodestockphotorequest'] = DATA_MODEL_ORM_PATH_STR.'/StockPhotoRequest.class.php';
 
 	// ClassPaths for the UserRole class
     ProjectFunctions::$ClassFile['userrole'] = DATA_MODEL_ORM_PATH_STR.'/UserRole.class.php';

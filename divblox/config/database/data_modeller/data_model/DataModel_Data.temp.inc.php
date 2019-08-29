@@ -4,12 +4,28 @@
 	  Modeller is used to update the project's data model, this file will be regenerated and all local changes might be lost
 	- This file is used to provide the data model data to the DataModel class */
 abstract class DataModelData {
-	public static $ProjectEntityArray = array();
-	public static $ProjectEntityAttributeArray = array();
-	public static $ProjectEntityAttributeTypeArray = array();
-	public static $ProjectEntitySingleRelationshipArray = array();
+	public static $ProjectEntityArray = array("StockPhotoRequest","RequestStatus","PhotoSubmission");
+	public static $ProjectEntityAttributeArray = array(
+        "StockPhotoRequest"
+            => array("RequestText","CreatedDateTime"),
+        "RequestStatus"
+            => array("StatusLabel"),
+        "PhotoSubmission"
+            => array("IsAccepted","CreatedDateTime","PhotoFilePath"));
+	public static $ProjectEntityAttributeTypeArray = array(
+        "StockPhotoRequest"
+            => array("TEXT","DATETIME"),
+        "RequestStatus"
+            => array("VARCHAR(10)"),
+        "PhotoSubmission"
+            => array("BOOLEAN","DATETIME","TEXT"));
+	public static $ProjectEntitySingleRelationshipArray = array(
+        "StockPhotoRequest"
+            => array("Account","RequestStatus"),
+        "PhotoSubmission"
+            => array("Account","StockPhotoRequest","FileDocument"));
 	public static $UserRoleArray = array("Administrator","User");
     public static $ModuleArray = array(
-    "Main" => array("Account","AdditionalAccountInformation","AuditLogEntry","BackgroundProcess","BackgroundProcessUpdate","ClientAuthenticationToken","ClientConnection","EmailMessage","FileDocument","PageView","PasswordReset","PushRegistration","UserRole",));
+    "Main" => array("Account","AdditionalAccountInformation","AuditLogEntry","BackgroundProcess","BackgroundProcessUpdate","ClientAuthenticationToken","ClientConnection","EmailMessage","FileDocument","PageView","PasswordReset","PhotoSubmission","PushRegistration","RequestStatus","StockPhotoRequest","UserRole",));
 }
 ?>

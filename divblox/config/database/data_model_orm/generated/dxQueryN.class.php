@@ -67,10 +67,28 @@ class dxQueryN {
         return new dxQueryNodePasswordReset('PasswordReset', null, null);
     }
     /**
+     * @return dxQueryNodePhotoSubmission
+     */
+    static public function PhotoSubmission() {
+        return new dxQueryNodePhotoSubmission('PhotoSubmission', null, null);
+    }
+    /**
      * @return dxQueryNodePushRegistration
      */
     static public function PushRegistration() {
         return new dxQueryNodePushRegistration('PushRegistration', null, null);
+    }
+    /**
+     * @return dxQueryNodeRequestStatus
+     */
+    static public function RequestStatus() {
+        return new dxQueryNodeRequestStatus('RequestStatus', null, null);
+    }
+    /**
+     * @return dxQueryNodeStockPhotoRequest
+     */
+    static public function StockPhotoRequest() {
+        return new dxQueryNodeStockPhotoRequest('StockPhotoRequest', null, null);
     }
     /**
      * @return dxQueryNodeUserRole

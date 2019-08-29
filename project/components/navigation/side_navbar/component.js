@@ -28,6 +28,10 @@ if (typeof component_classes['navigation_side_navbar'] === "undefined") {
 				loadPageComponent("my_profile");
 				return false;
 			});
+            getComponentElementById(this,'navigation_item_feed').on("click", function () {
+				loadPageComponent("feed");
+				return false;
+			});
 			registerEventHandler('.sidebar_toggle_left',"click");
 		}
 	}

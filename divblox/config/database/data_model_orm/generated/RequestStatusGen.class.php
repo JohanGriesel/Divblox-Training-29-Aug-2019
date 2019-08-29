@@ -1,38 +1,36 @@
 <?php
 /**
- * The abstract BackgroundProcessUpdateGen class defined here is
+ * The abstract RequestStatusGen class defined here is
  * code-generated and contains all the basic CRUD-type functionality as well as
  * basic methods to handle relationships and index-based loading.
  *
- * To use, you should use the BackgroundProcessUpdate subclass which
- * extends this BackgroundProcessUpdateGen class.
+ * To use, you should use the RequestStatus subclass which
+ * extends this RequestStatusGen class.
  *
  * Because subsequent re-code generations will overwrite any changes to this
  * file, you should leave this file unaltered to prevent yourself from losing
  * any information or code changes.  All customizations should be done by
  * overriding existing or implementing new methods, properties and variables
- * in the BackgroundProcessUpdate class.
+ * in the RequestStatus class.
  *
  * @package divblox_app
  * @subpackage GeneratedDataObjects
  * @property-read integer $Id the value for intId (Read-Only PK)
- * @property dxDateTime $UpdateDateTime the value for dttUpdateDateTime 
- * @property string $UpdateMessage the value for strUpdateMessage 
+ * @property string $StatusLabel the value for strStatusLabel 
  * @property-read string $LastUpdated the value for strLastUpdated (Read-Only Timestamp)
- * @property integer $BackgroundProcess the value for intBackgroundProcess 
- * @property string $SearchMetaInfo the value for strSearchMetaInfo 
  * @property integer $ObjectOwner the value for intObjectOwner 
- * @property Backgroundprocess $BackgroundProcessObject the value for the Backgroundprocess object referenced by intBackgroundProcess 
+ * @property-read StockPhotoRequest $_StockPhotoRequestAsRequestStatus the value for the private _objStockPhotoRequestAsRequestStatus (Read-Only) if set due to an expansion on the StockPhotoRequest.RequestStatus reverse relationship
+ * @property-read StockPhotoRequest[] $_StockPhotoRequestAsRequestStatusArray the value for the private _objStockPhotoRequestAsRequestStatusArray (Read-Only) if set due to an ExpandAsArray on the StockPhotoRequest.RequestStatus reverse relationship
  * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
  */
-class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregate {
+class RequestStatusGen extends dxBaseClass implements IteratorAggregate {
 
     ///////////////////////////////////////////////////////////////////////
     // PROTECTED MEMBER VARIABLES and TEXT FIELD MAXLENGTHS (if applicable)
     ///////////////////////////////////////////////////////////////////////
 
     /**
-     * Protected member variable that maps to the database PK Identity column BackgroundProcessUpdate.Id
+     * Protected member variable that maps to the database PK Identity column RequestStatus.Id
      * @var integer intId
      */
     protected $intId;
@@ -40,23 +38,16 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
 
 
     /**
-     * Protected member variable that maps to the database column BackgroundProcessUpdate.UpdateDateTime
-     * @var dxDateTime dttUpdateDateTime
+     * Protected member variable that maps to the database column RequestStatus.StatusLabel
+     * @var string strStatusLabel
      */
-    protected $dttUpdateDateTime;
-    const UpdateDateTimeDefault = null;
+    protected $strStatusLabel;
+    const StatusLabelMaxLength = 10;
+    const StatusLabelDefault = null;
 
 
     /**
-     * Protected member variable that maps to the database column BackgroundProcessUpdate.UpdateMessage
-     * @var string strUpdateMessage
-     */
-    protected $strUpdateMessage;
-    const UpdateMessageDefault = null;
-
-
-    /**
-     * Protected member variable that maps to the database column BackgroundProcessUpdate.LastUpdated
+     * Protected member variable that maps to the database column RequestStatus.LastUpdated
      * @var string strLastUpdated
      */
     protected $strLastUpdated;
@@ -64,28 +55,28 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
 
 
     /**
-     * Protected member variable that maps to the database column BackgroundProcessUpdate.BackgroundProcess
-     * @var integer intBackgroundProcess
-     */
-    protected $intBackgroundProcess;
-    const BackgroundProcessDefault = null;
-
-
-    /**
-     * Protected member variable that maps to the database column BackgroundProcessUpdate.SearchMetaInfo
-     * @var string strSearchMetaInfo
-     */
-    protected $strSearchMetaInfo;
-    const SearchMetaInfoDefault = null;
-
-
-    /**
-     * Protected member variable that maps to the database column BackgroundProcessUpdate.ObjectOwner
+     * Protected member variable that maps to the database column RequestStatus.ObjectOwner
      * @var integer intObjectOwner
      */
     protected $intObjectOwner;
     const ObjectOwnerDefault = null;
 
+
+    /**
+     * Private member variable that stores a reference to a single StockPhotoRequestAsRequestStatus object
+     * (of type StockPhotoRequest), if this RequestStatus object was restored with
+     * an expansion on the StockPhotoRequest association table.
+     * @var StockPhotoRequest _objStockPhotoRequestAsRequestStatus;
+     */
+    private $_objStockPhotoRequestAsRequestStatus;
+
+    /**
+     * Private member variable that stores a reference to an array of StockPhotoRequestAsRequestStatus objects
+     * (of type StockPhotoRequest[]), if this RequestStatus object was restored with
+     * an ExpandAsArray on the StockPhotoRequest association table.
+     * @var StockPhotoRequest[] _objStockPhotoRequestAsRequestStatusArray;
+     */
+    private $_objStockPhotoRequestAsRequestStatusArray = null;
 
     /**
      * Protected array of virtual attributes for this object (e.g. extra/other calculated and/or non-object bound
@@ -106,28 +97,15 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
     // PROTECTED MEMBER OBJECTS
     ///////////////////////////////
 
-    /**
-     * Protected member variable that contains the object pointed by the reference
-     * in the database column BackgroundProcessUpdate.BackgroundProcess.
-     *
-     * NOTE: Always use the BackgroundProcessObject property getter to correctly retrieve this Backgroundprocess object.
-     * (Because this class implements late binding, this variable reference MAY be null.)
-     * @var Backgroundprocess objBackgroundProcessObject
-     */
-    protected $objBackgroundProcessObject;
-
 
     /**
      * Initialize each property with default values from database definition
      */
     public function Initialize() {
-        $this->intId = BackgroundProcessUpdate::IdDefault;
-        $this->dttUpdateDateTime = (BackgroundProcessUpdate::UpdateDateTimeDefault === null)?null:new dxDateTime(BackgroundProcessUpdate::UpdateDateTimeDefault);
-        $this->strUpdateMessage = BackgroundProcessUpdate::UpdateMessageDefault;
-        $this->strLastUpdated = BackgroundProcessUpdate::LastUpdatedDefault;
-        $this->intBackgroundProcess = BackgroundProcessUpdate::BackgroundProcessDefault;
-        $this->strSearchMetaInfo = BackgroundProcessUpdate::SearchMetaInfoDefault;
-        $this->intObjectOwner = BackgroundProcessUpdate::ObjectOwnerDefault;
+        $this->intId = RequestStatus::IdDefault;
+        $this->strStatusLabel = RequestStatus::StatusLabelDefault;
+        $this->strLastUpdated = RequestStatus::LastUpdatedDefault;
+        $this->intObjectOwner = RequestStatus::ObjectOwnerDefault;
     }
 
     ///////////////////////////////
@@ -143,24 +121,24 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
     }
 
     /**
-     * Load a BackgroundProcessUpdate from PK Info
+     * Load a RequestStatus from PK Info
      * @param integer $intId
      * @param dxQueryClause[] $objOptionalClauses additional optional dxQueryClause objects for this query
-     * @return BackgroundProcessUpdate
+     * @return RequestStatus
      */
     public static function Load($intId, $objOptionalClauses = null) {
         $strCacheKey = false;
         if (ProjectFunctions::$objCacheProvider && !$objOptionalClauses && ProjectFunctions::$Database[1]->Caching) {
-            $strCacheKey = ProjectFunctions::$objCacheProvider->CreateKey(ProjectFunctions::$Database[1]->Database, 'BackgroundProcessUpdate', $intId);
+            $strCacheKey = ProjectFunctions::$objCacheProvider->CreateKey(ProjectFunctions::$Database[1]->Database, 'RequestStatus', $intId);
             $objCachedObject = ProjectFunctions::$objCacheProvider->Get($strCacheKey);
             if ($objCachedObject !== false) {
                 return $objCachedObject;
             }
         }
         // Use QuerySingle to Perform the Query
-        $objToReturn = BackgroundProcessUpdate::QuerySingle(
+        $objToReturn = RequestStatus::QuerySingle(
             dxQuery::AndCondition(
-                dxQuery::Equal(dxQueryN::BackgroundProcessUpdate()->Id, $intId)
+                dxQuery::Equal(dxQueryN::RequestStatus()->Id, $intId)
             ),
             $objOptionalClauses
         );
@@ -171,17 +149,17 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
     }
 
     /**
-     * Load all BackgroundProcessUpdates
+     * Load all RequestStatuses
      * @param dxQueryClause[] $objOptionalClauses additional optional dxQueryClause objects for this query
-     * @return BackgroundProcessUpdate[]
+     * @return RequestStatus[]
      */
     public static function LoadAll($objOptionalClauses = null) {
         if (func_num_args() > 1) {
             throw new dxCallerException("LoadAll must be called with an array of optional clauses as a single argument");
         }
-        // Call BackgroundProcessUpdate::QueryArray to perform the LoadAll query
+        // Call RequestStatus::QueryArray to perform the LoadAll query
         try {
-            return BackgroundProcessUpdate::QueryArray(dxQuery::All(), $objOptionalClauses);
+            return RequestStatus::QueryArray(dxQuery::All(), $objOptionalClauses);
         } catch (dxCallerException $objExc) {
             $objExc->IncrementOffset();
             throw $objExc;
@@ -189,12 +167,12 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
     }
 
     /**
-     * Count all BackgroundProcessUpdates
+     * Count all RequestStatuses
      * @return int
      */
     public static function CountAll() {
-        // Call BackgroundProcessUpdate::QueryCount to perform the CountAll query
-        return BackgroundProcessUpdate::QueryCount(dxQuery::All());
+        // Call RequestStatus::QueryCount to perform the CountAll query
+        return RequestStatus::QueryCount(dxQuery::All());
     }
 
     ///////////////////////////////
@@ -213,10 +191,10 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
      */
     protected static function BuildQueryStatement(&$objQueryBuilder, dxQueryCondition $objConditions, $objOptionalClauses, $mixParameterArray, $blnCountOnly) {
         // Get the Database Object for this Class
-        $objDatabase = BackgroundProcessUpdate::GetDatabase();
+        $objDatabase = RequestStatus::GetDatabase();
 
-        // Create/Build out the QueryBuilder object with BackgroundProcessUpdate-specific SELET and FROM fields
-        $objQueryBuilder = new dxQueryBuilder($objDatabase, 'BackgroundProcessUpdate');
+        // Create/Build out the QueryBuilder object with RequestStatus-specific SELET and FROM fields
+        $objQueryBuilder = new dxQueryBuilder($objDatabase, 'RequestStatus');
 
         $blnAddAllFieldsToSelect = true;
         if ($objDatabase->OnlyFullGroupBy) {
@@ -235,9 +213,9 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
             }
         }
         if ($blnAddAllFieldsToSelect) {
-            BackgroundProcessUpdate::GetSelectFields($objQueryBuilder, null, dxQuery::extractSelectClause($objOptionalClauses));
+            RequestStatus::GetSelectFields($objQueryBuilder, null, dxQuery::extractSelectClause($objOptionalClauses));
         }
-        $objQueryBuilder->AddFromItem('BackgroundProcessUpdate');
+        $objQueryBuilder->AddFromItem('RequestStatus');
 
         // Set "CountOnly" option (if applicable)
         if ($blnCountOnly)
@@ -284,23 +262,23 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
     }
 
     /**
-     * Static divblox Query method to query for a single BackgroundProcessUpdate object.
+     * Static divblox Query method to query for a single RequestStatus object.
      * Uses BuildQueryStatment to perform most of the work.
      * @param dxQueryCondition $objConditions any conditions on the query, itself
      * @param dxQueryClause[] $objOptionalClausees additional optional dxQueryClause objects for this query
      * @param mixed[] $mixParameterArray a array of name-value pairs to perform PrepareStatement with
-     * @return BackgroundProcessUpdate the queried object
+     * @return RequestStatus the queried object
      */
     public static function QuerySingle(dxQueryCondition $objConditions, $objOptionalClauses = null, $mixParameterArray = null) {
         // Get the Query Statement
         try {
-            $strQuery = BackgroundProcessUpdate::BuildQueryStatement($objQueryBuilder, $objConditions, $objOptionalClauses, $mixParameterArray, false);
+            $strQuery = RequestStatus::BuildQueryStatement($objQueryBuilder, $objConditions, $objOptionalClauses, $mixParameterArray, false);
         } catch (dxCallerException $objExc) {
             $objExc->IncrementOffset();
             throw $objExc;
         }
 
-        // Perform the Query, Get the First Row, and Instantiate a new BackgroundProcessUpdate object
+        // Perform the Query, Get the First Row, and Instantiate a new RequestStatus object
         $objDbResult = $objQueryBuilder->Database->Query($strQuery);
 
         // Do we have to expand anything?
@@ -308,7 +286,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
             $objToReturn = array();
             $objPrevItemArray = array();
             while ($objDbRow = $objDbResult->GetNextRow()) {
-                $objItem = BackgroundProcessUpdate::InstantiateDbRow($objDbRow, null, $objQueryBuilder->ExpandAsArrayNode, $objPrevItemArray, $objQueryBuilder->ColumnAliasArray);
+                $objItem = RequestStatus::InstantiateDbRow($objDbRow, null, $objQueryBuilder->ExpandAsArrayNode, $objPrevItemArray, $objQueryBuilder->ColumnAliasArray);
                 if ($objItem) {
                     $objToReturn[] = $objItem;
                     $objPrevItemArray[$objItem->intId][] = $objItem;
@@ -325,22 +303,22 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
             $objDbRow = $objDbResult->GetNextRow();
             if(null === $objDbRow)
                 return null;
-            return BackgroundProcessUpdate::InstantiateDbRow($objDbRow, null, null, null, $objQueryBuilder->ColumnAliasArray);
+            return RequestStatus::InstantiateDbRow($objDbRow, null, null, null, $objQueryBuilder->ColumnAliasArray);
         }
     }
 
     /**
-     * Static divblox Query method to query for an array of BackgroundProcessUpdate objects.
+     * Static divblox Query method to query for an array of RequestStatus objects.
      * Uses BuildQueryStatment to perform most of the work.
      * @param dxQueryCondition $objConditions any conditions on the query, itself
      * @param dxQueryClause[] $objOptionalClausees additional optional dxQueryClause objects for this query
      * @param mixed[] $mixParameterArray a array of name-value pairs to perform PrepareStatement with
-     * @return BackgroundProcessUpdate[] the queried objects as an array
+     * @return RequestStatus[] the queried objects as an array
      */
     public static function QueryArray(dxQueryCondition $objConditions, $objOptionalClauses = null, $mixParameterArray = null) {
         // Get the Query Statement
         try {
-            $strQuery = BackgroundProcessUpdate::BuildQueryStatement($objQueryBuilder, $objConditions, $objOptionalClauses, $mixParameterArray, false);
+            $strQuery = RequestStatus::BuildQueryStatement($objQueryBuilder, $objConditions, $objOptionalClauses, $mixParameterArray, false);
         } catch (dxCallerException $objExc) {
             $objExc->IncrementOffset();
             throw $objExc;
@@ -348,7 +326,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
 
         // Perform the Query and Instantiate the Array Result
         $objDbResult = $objQueryBuilder->Database->Query($strQuery);
-        return BackgroundProcessUpdate::InstantiateDbResult($objDbResult, $objQueryBuilder->ExpandAsArrayNode, $objQueryBuilder->ColumnAliasArray);
+        return RequestStatus::InstantiateDbResult($objDbResult, $objQueryBuilder->ExpandAsArrayNode, $objQueryBuilder->ColumnAliasArray);
     }
 
     /**
@@ -362,7 +340,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
     public static function QueryCursor(dxQueryCondition $objConditions, $objOptionalClauses = null, $mixParameterArray = null) {
         // Get the query statement
         try {
-            $strQuery = BackgroundProcessUpdate::BuildQueryStatement($objQueryBuilder, $objConditions, $objOptionalClauses, $mixParameterArray, false);
+            $strQuery = RequestStatus::BuildQueryStatement($objQueryBuilder, $objConditions, $objOptionalClauses, $mixParameterArray, false);
         } catch (dxCallerException $objExc) {
             $objExc->IncrementOffset();
             throw $objExc;
@@ -377,7 +355,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
     }
 
     /**
-     * Static divblox Query method to query for a count of BackgroundProcessUpdate objects.
+     * Static divblox Query method to query for a count of RequestStatus objects.
      * Uses BuildQueryStatment to perform most of the work.
      * @param dxQueryCondition $objConditions any conditions on the query, itself
      * @param dxQueryClause[] $objOptionalClausees additional optional dxQueryClause objects for this query
@@ -387,7 +365,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
     public static function QueryCount(dxQueryCondition $objConditions, $objOptionalClauses = null, $mixParameterArray = null) {
         // Get the Query Statement
         try {
-            $strQuery = BackgroundProcessUpdate::BuildQueryStatement($objQueryBuilder, $objConditions, $objOptionalClauses, $mixParameterArray, true);
+            $strQuery = RequestStatus::BuildQueryStatement($objQueryBuilder, $objConditions, $objOptionalClauses, $mixParameterArray, true);
         } catch (dxCallerException $objExc) {
             $objExc->IncrementOffset();
             throw $objExc;
@@ -428,16 +406,16 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
 
     public static function QueryArrayCached(dxQueryCondition $objConditions, $objOptionalClauses = null, $mixParameterArray = null, $blnForceUpdate = false) {
         // Get the Database Object for this Class
-        $objDatabase = BackgroundProcessUpdate::GetDatabase();
+        $objDatabase = RequestStatus::GetDatabase();
 
-        $strQuery = BackgroundProcessUpdate::BuildQueryStatement($objQueryBuilder, $objConditions, $objOptionalClauses, $mixParameterArray, false);
+        $strQuery = RequestStatus::BuildQueryStatement($objQueryBuilder, $objConditions, $objOptionalClauses, $mixParameterArray, false);
 
-        $objCache = new dxCache('dxquery/backgroundprocessupdate', $strQuery);
+        $objCache = new dxCache('dxquery/requeststatus', $strQuery);
         $cacheData = $objCache->GetData();
 
         if (!$cacheData || $blnForceUpdate) {
             $objDbResult = $objQueryBuilder->Database->Query($strQuery);
-            $arrResult = BackgroundProcessUpdate::InstantiateDbResult($objDbResult, $objQueryBuilder->ExpandAsArrayNode, $objQueryBuilder->ColumnAliasArray);
+            $arrResult = RequestStatus::InstantiateDbResult($objDbResult, $objQueryBuilder->ExpandAsArrayNode, $objQueryBuilder->ColumnAliasArray);
             $objCache->SaveData(serialize($arrResult));
         } else {
             $arrResult = unserialize($cacheData);
@@ -447,7 +425,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
     }
 
     /**
-     * Updates a dxQueryBuilder with the SELECT fields for this BackgroundProcessUpdate
+     * Updates a dxQueryBuilder with the SELECT fields for this RequestStatus
      * @param dxQueryBuilder $objBuilder the Query Builder object to update
      * @param string $strPrefix optional prefix to add to the SELECT fields
      */
@@ -456,7 +434,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
             $strTableName = $strPrefix;
             $strAliasPrefix = $strPrefix . '__';
         } else {
-            $strTableName = 'BackgroundProcessUpdate';
+            $strTableName = 'RequestStatus';
             $strAliasPrefix = '';
         }
 
@@ -465,11 +443,8 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
             $objSelect->AddSelectItems($objBuilder, $strTableName, $strAliasPrefix);
         } else {
             $objBuilder->AddSelectItem($strTableName, 'Id', $strAliasPrefix . 'Id');
-            $objBuilder->AddSelectItem($strTableName, 'UpdateDateTime', $strAliasPrefix . 'UpdateDateTime');
-            $objBuilder->AddSelectItem($strTableName, 'UpdateMessage', $strAliasPrefix . 'UpdateMessage');
+            $objBuilder->AddSelectItem($strTableName, 'StatusLabel', $strAliasPrefix . 'StatusLabel');
             $objBuilder->AddSelectItem($strTableName, 'LastUpdated', $strAliasPrefix . 'LastUpdated');
-            $objBuilder->AddSelectItem($strTableName, 'BackgroundProcess', $strAliasPrefix . 'BackgroundProcess');
-            $objBuilder->AddSelectItem($strTableName, 'SearchMetaInfo', $strAliasPrefix . 'SearchMetaInfo');
             $objBuilder->AddSelectItem($strTableName, 'ObjectOwner', $strAliasPrefix . 'ObjectOwner');
         }
     }
@@ -555,16 +530,16 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
     }
 
     /**
-     * Instantiate a BackgroundProcessUpdate from a Database Row.
+     * Instantiate a RequestStatus from a Database Row.
      * Takes in an optional strAliasPrefix, used in case another Object::InstantiateDbRow
-     * is calling this BackgroundProcessUpdate::InstantiateDbRow in order to perform
+     * is calling this RequestStatus::InstantiateDbRow in order to perform
      * early binding on referenced objects.
      * @param DatabaseRowBase $objDbRow
      * @param string $strAliasPrefix
      * @param dxQueryBaseNode $objExpandAsArrayNode
      * @param dxBaseClass $arrPreviousItem
      * @param string[] $strColumnAliasArray
-     * @return mixed Either a BackgroundProcessUpdate, or false to indicate the dbrow was used in an expansion, or null to indicate that this leaf is a duplicate.
+     * @return mixed Either a RequestStatus, or false to indicate the dbrow was used in an expansion, or null to indicate that this leaf is a duplicate.
     */
     public static function InstantiateDbRow($objDbRow, $strAliasPrefix = null, $objExpandAsArrayNode = null, $objPreviousItemArray = null, $strColumnAliasArray = array()) {
         // If blank row, return null
@@ -583,33 +558,24 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
                 is_array($objPreviousItemArray) &&
                 ProjectFunctions::getDataSetSize($objPreviousItemArray)) {
 
-            if (BackgroundProcessUpdate::ExpandArray ($objDbRow, $strAliasPrefix, $objExpandAsArrayNode, $objPreviousItemArray, $strColumnAliasArray)) {
+            if (RequestStatus::ExpandArray ($objDbRow, $strAliasPrefix, $objExpandAsArrayNode, $objPreviousItemArray, $strColumnAliasArray)) {
                 return false; // db row was used but no new object was created
             }
         }
 
-        // Create a new instance of the BackgroundProcessUpdate object
-        $objToReturn = new BackgroundProcessUpdate();
+        // Create a new instance of the RequestStatus object
+        $objToReturn = new RequestStatus();
         $objToReturn->__blnRestored = true;
 
         $strAlias = $strAliasPrefix . 'Id';
         $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
         $objToReturn->intId = $objDbRow->GetColumn($strAliasName, 'Integer');
-        $strAlias = $strAliasPrefix . 'UpdateDateTime';
+        $strAlias = $strAliasPrefix . 'StatusLabel';
         $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
-        $objToReturn->dttUpdateDateTime = $objDbRow->GetColumn($strAliasName, 'DateTime');
-        $strAlias = $strAliasPrefix . 'UpdateMessage';
-        $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
-        $objToReturn->strUpdateMessage = $objDbRow->GetColumn($strAliasName, 'Blob');
+        $objToReturn->strStatusLabel = $objDbRow->GetColumn($strAliasName, 'VarChar');
         $strAlias = $strAliasPrefix . 'LastUpdated';
         $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
         $objToReturn->strLastUpdated = $objDbRow->GetColumn($strAliasName, 'VarChar');
-        $strAlias = $strAliasPrefix . 'BackgroundProcess';
-        $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
-        $objToReturn->intBackgroundProcess = $objDbRow->GetColumn($strAliasName, 'Integer');
-        $strAlias = $strAliasPrefix . 'SearchMetaInfo';
-        $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
-        $objToReturn->strSearchMetaInfo = $objDbRow->GetColumn($strAliasName, 'Blob');
         $strAlias = $strAliasPrefix . 'ObjectOwner';
         $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
         $objToReturn->intObjectOwner = $objDbRow->GetColumn($strAliasName, 'Integer');
@@ -641,27 +607,35 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
         }
 
         if (!$strAliasPrefix)
-            $strAliasPrefix = 'BackgroundProcessUpdate__';
+            $strAliasPrefix = 'RequestStatus__';
 
-        // Check for BackgroundProcessObject Early Binding
-        $strAlias = $strAliasPrefix . 'BackgroundProcess__Id';
+
+
+
+        // Check for StockPhotoRequestAsRequestStatus Virtual Binding
+        $strAlias = $strAliasPrefix . 'stockphotorequestasrequeststatus__Id';
         $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
+        $objExpansionNode = (empty($objExpansionAliasArray['stockphotorequestasrequeststatus']) ? null : $objExpansionAliasArray['stockphotorequestasrequeststatus']);
+        $blnExpanded = ($objExpansionNode && $objExpansionNode->ExpandAsArray);
+        if ($blnExpanded && null === $objToReturn->_objStockPhotoRequestAsRequestStatusArray)
+            $objToReturn->_objStockPhotoRequestAsRequestStatusArray = array();
         if (!is_null($objDbRow->GetColumn($strAliasName))) {
-            $objExpansionNode = (empty($objExpansionAliasArray['BackgroundProcess']) ? null : $objExpansionAliasArray['BackgroundProcess']);
-            $objToReturn->objBackgroundProcessObject = Backgroundprocess::InstantiateDbRow($objDbRow, $strAliasPrefix . 'BackgroundProcess__', $objExpansionNode, null, $strColumnAliasArray);
+            if ($blnExpanded) {
+                $objToReturn->_objStockPhotoRequestAsRequestStatusArray[] = StockPhotoRequest::InstantiateDbRow($objDbRow, $strAliasPrefix . 'stockphotorequestasrequeststatus__', $objExpansionNode, null, $strColumnAliasArray);
+            } elseif (is_null($objToReturn->_objStockPhotoRequestAsRequestStatus)) {
+                $objToReturn->_objStockPhotoRequestAsRequestStatus = StockPhotoRequest::InstantiateDbRow($objDbRow, $strAliasPrefix . 'stockphotorequestasrequeststatus__', $objExpansionNode, null, $strColumnAliasArray);
+            }
         }
-
-
 
         return $objToReturn;
     }
 
     /**
-     * Instantiate an array of BackgroundProcessUpdates from a Database Result
+     * Instantiate an array of RequestStatuses from a Database Result
      * @param DatabaseResultBase $objDbResult
      * @param dxQueryBaseNode $objExpandAsArrayNode
      * @param string[] $strColumnAliasArray
-     * @return BackgroundProcessUpdate[]
+     * @return RequestStatus[]
      */
     public static function InstantiateDbResult(dxDatabaseResultBase $objDbResult, $objExpandAsArrayNode = null, $strColumnAliasArray = null) {
         $objToReturn = array();
@@ -678,7 +652,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
             $objToReturn = array();
             $objPrevItemArray = array();
             while ($objDbRow = $objDbResult->GetNextRow()) {
-                $objItem = BackgroundProcessUpdate::InstantiateDbRow($objDbRow, null, $objExpandAsArrayNode, $objPrevItemArray, $strColumnAliasArray);
+                $objItem = RequestStatus::InstantiateDbRow($objDbRow, null, $objExpandAsArrayNode, $objPrevItemArray, $strColumnAliasArray);
                 if ($objItem) {
                     $objToReturn[] = $objItem;
                     $objPrevItemArray[$objItem->intId][] = $objItem;
@@ -686,7 +660,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
             }
         } else {
             while ($objDbRow = $objDbResult->GetNextRow())
-                $objToReturn[] = BackgroundProcessUpdate::InstantiateDbRow($objDbRow, null, null, null, $strColumnAliasArray);
+                $objToReturn[] = RequestStatus::InstantiateDbRow($objDbRow, null, null, null, $strColumnAliasArray);
         }
 
         return $objToReturn;
@@ -694,11 +668,11 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
 
 
     /**
-     * Instantiate a single BackgroundProcessUpdate object from a query cursor (e.g. a DB ResultSet).
+     * Instantiate a single RequestStatus object from a query cursor (e.g. a DB ResultSet).
      * Cursor is automatically moved to the "next row" of the result set.
      * Will return NULL if no cursor or if the cursor has no more rows in the resultset.
      * @param dxDatabaseResultBase $objDbResult cursor resource
-     * @return BackgroundProcessUpdate next row resulting from the query
+     * @return RequestStatus next row resulting from the query
      */
     public static function InstantiateCursor(dxDatabaseResultBase $objDbResult) {
         // If blank resultset, then return empty result
@@ -719,7 +693,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
         }
 
         // Load up the return result with a row and return it
-        return BackgroundProcessUpdate::InstantiateDbRow($objDbRow, null, null, null, $strColumnAliasArray);
+        return RequestStatus::InstantiateDbRow($objDbRow, null, null, null, $strColumnAliasArray);
     }
 
     ///////////////////////////////////////////////////
@@ -727,50 +701,18 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
     ///////////////////////////////////////////////////
 
     /**
-     * Load a single BackgroundProcessUpdate object,
+     * Load a single RequestStatus object,
      * by Id Index(es)
      * @param integer $intId
      * @param dxQueryClause[] $objOptionalClauses additional optional dxQueryClause objects for this query
-     * @return BackgroundProcessUpdate
+     * @return RequestStatus
     */
     public static function LoadById($intId, $objOptionalClauses = null) {
-        return BackgroundProcessUpdate::QuerySingle(
+        return RequestStatus::QuerySingle(
             dxQuery::AndCondition(
-                dxQuery::Equal(dxQueryN::BackgroundProcessUpdate()->Id, $intId)
+                dxQuery::Equal(dxQueryN::RequestStatus()->Id, $intId)
             ),
             $objOptionalClauses
-        );
-    }
-
-    /**
-     * Load an array of BackgroundProcessUpdate objects,
-     * by BackgroundProcess Index(es)
-     * @param integer $intBackgroundProcess
-     * @param dxQueryClause[] $objOptionalClauses additional optional dxQueryClause objects for this query
-     * @return BackgroundProcessUpdate[]
-    */
-    public static function LoadArrayByBackgroundProcess($intBackgroundProcess, $objOptionalClauses = null) {
-        // Call BackgroundProcessUpdate::QueryArray to perform the LoadArrayByBackgroundProcess query
-        try {
-            return BackgroundProcessUpdate::QueryArray(
-                dxQuery::Equal(dxQueryN::BackgroundProcessUpdate()->BackgroundProcess, $intBackgroundProcess),
-                $objOptionalClauses);
-        } catch (dxCallerException $objExc) {
-            $objExc->IncrementOffset();
-            throw $objExc;
-        }
-    }
-
-    /**
-     * Count BackgroundProcessUpdates
-     * by BackgroundProcess Index(es)
-     * @param integer $intBackgroundProcess
-     * @return int
-    */
-    public static function CountByBackgroundProcess($intBackgroundProcess) {
-        // Call BackgroundProcessUpdate::QueryCount to perform the CountByBackgroundProcess query
-        return BackgroundProcessUpdate::QueryCount(
-            dxQuery::Equal(dxQueryN::BackgroundProcessUpdate()->BackgroundProcess, $intBackgroundProcess)
         );
     }
     ////////////////////////////////////////////////////
@@ -783,34 +725,31 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
     //////////////////////////
 
     /**
-    * Save this BackgroundProcessUpdate
+    * Save this RequestStatus
     * @param bool $blnForceInsert
     * @param bool $blnForceUpdate
     * @return int
     */
     public function Save($blnForceInsert = false, $blnForceUpdate = false) {
-        $ObjectAccessArray = ProjectAccessManager::getObjectAccess(ProjectFunctions::getCurrentAccountId(),"BackgroundProcessUpdate",$this->intId);
+        $ObjectAccessArray = ProjectAccessManager::getObjectAccess(ProjectFunctions::getCurrentAccountId(),"RequestStatus",$this->intId);
         // Get the Database Object for this Class
-        $objDatabase = BackgroundProcessUpdate::GetDatabase();
+        $objDatabase = RequestStatus::GetDatabase();
         $mixToReturn = null;
         if (!is_numeric($this->intObjectOwner)) {
             $this->intObjectOwner = ProjectFunctions::getCurrentAccountId();
         }
-        $ExistingObj = BackgroundProcessUpdate::Load($this->intId);
+        $ExistingObj = RequestStatus::Load($this->intId);
         $newAuditLogEntry = new AuditLogEntry();
         $ChangedArray = array();
         $newAuditLogEntry->EntryTimeStamp = dxDateTime::Now();
         $newAuditLogEntry->ObjectId = $this->intId;
-        $newAuditLogEntry->ObjectName = 'BackgroundProcessUpdate';
+        $newAuditLogEntry->ObjectName = 'RequestStatus';
         $newAuditLogEntry->UserEmail = ProjectFunctions::getCurrentUserEmailForAudit();
         if (!$ExistingObj) {
             $newAuditLogEntry->ModificationType = 'Create';
             $ChangedArray = array_merge($ChangedArray,array("Id" => $this->intId));
-            $ChangedArray = array_merge($ChangedArray,array("UpdateDateTime" => $this->dttUpdateDateTime));
-            $ChangedArray = array_merge($ChangedArray,array("UpdateMessage" => $this->strUpdateMessage));
+            $ChangedArray = array_merge($ChangedArray,array("StatusLabel" => $this->strStatusLabel));
             $ChangedArray = array_merge($ChangedArray,array("LastUpdated" => $this->strLastUpdated));
-            $ChangedArray = array_merge($ChangedArray,array("BackgroundProcess" => $this->intBackgroundProcess));
-            $ChangedArray = array_merge($ChangedArray,array("SearchMetaInfo" => $this->strSearchMetaInfo));
             $ChangedArray = array_merge($ChangedArray,array("ObjectOwner" => $this->intObjectOwner));
             $newAuditLogEntry->AuditLogEntryDetail = json_encode($ChangedArray);
         } else {
@@ -824,20 +763,12 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
                 //$ChangedArray = array_merge($ChangedArray,array("Id" => "From: ".$ExistingValueStr." to: ".$this->intId));
             }
             $ExistingValueStr = "NULL";
-            if (!is_null($ExistingObj->UpdateDateTime)) {
-                $ExistingValueStr = $ExistingObj->UpdateDateTime;
+            if (!is_null($ExistingObj->StatusLabel)) {
+                $ExistingValueStr = $ExistingObj->StatusLabel;
             }
-            if ($ExistingObj->UpdateDateTime != $this->dttUpdateDateTime) {
-                $ChangedArray = array_merge($ChangedArray,array("UpdateDateTime" => array("Before" => $ExistingValueStr,"After" => $this->dttUpdateDateTime)));
-                //$ChangedArray = array_merge($ChangedArray,array("UpdateDateTime" => "From: ".$ExistingValueStr." to: ".$this->dttUpdateDateTime));
-            }
-            $ExistingValueStr = "NULL";
-            if (!is_null($ExistingObj->UpdateMessage)) {
-                $ExistingValueStr = $ExistingObj->UpdateMessage;
-            }
-            if ($ExistingObj->UpdateMessage != $this->strUpdateMessage) {
-                $ChangedArray = array_merge($ChangedArray,array("UpdateMessage" => array("Before" => $ExistingValueStr,"After" => $this->strUpdateMessage)));
-                //$ChangedArray = array_merge($ChangedArray,array("UpdateMessage" => "From: ".$ExistingValueStr." to: ".$this->strUpdateMessage));
+            if ($ExistingObj->StatusLabel != $this->strStatusLabel) {
+                $ChangedArray = array_merge($ChangedArray,array("StatusLabel" => array("Before" => $ExistingValueStr,"After" => $this->strStatusLabel)));
+                //$ChangedArray = array_merge($ChangedArray,array("StatusLabel" => "From: ".$ExistingValueStr." to: ".$this->strStatusLabel));
             }
             $ExistingValueStr = "NULL";
             if (!is_null($ExistingObj->LastUpdated)) {
@@ -846,22 +777,6 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
             if ($ExistingObj->LastUpdated != $this->strLastUpdated) {
                 $ChangedArray = array_merge($ChangedArray,array("LastUpdated" => array("Before" => $ExistingValueStr,"After" => $this->strLastUpdated)));
                 //$ChangedArray = array_merge($ChangedArray,array("LastUpdated" => "From: ".$ExistingValueStr." to: ".$this->strLastUpdated));
-            }
-            $ExistingValueStr = "NULL";
-            if (!is_null($ExistingObj->BackgroundProcess)) {
-                $ExistingValueStr = $ExistingObj->BackgroundProcess;
-            }
-            if ($ExistingObj->BackgroundProcess != $this->intBackgroundProcess) {
-                $ChangedArray = array_merge($ChangedArray,array("BackgroundProcess" => array("Before" => $ExistingValueStr,"After" => $this->intBackgroundProcess)));
-                //$ChangedArray = array_merge($ChangedArray,array("BackgroundProcess" => "From: ".$ExistingValueStr." to: ".$this->intBackgroundProcess));
-            }
-            $ExistingValueStr = "NULL";
-            if (!is_null($ExistingObj->SearchMetaInfo)) {
-                $ExistingValueStr = $ExistingObj->SearchMetaInfo;
-            }
-            if ($ExistingObj->SearchMetaInfo != $this->strSearchMetaInfo) {
-                $ChangedArray = array_merge($ChangedArray,array("SearchMetaInfo" => array("Before" => $ExistingValueStr,"After" => $this->strSearchMetaInfo)));
-                //$ChangedArray = array_merge($ChangedArray,array("SearchMetaInfo" => "From: ".$ExistingValueStr." to: ".$this->strSearchMetaInfo));
             }
             $ExistingValueStr = "NULL";
             if (!is_null($ExistingObj->ObjectOwner)) {
@@ -877,51 +792,42 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
             if ((!$this->__blnRestored) || ($blnForceInsert)) {
                 if (!in_array(AccessOperation::CREATE_STR,$ObjectAccessArray)) {
                     // This user is not allowed to create an object of this type
-                    throw new Exception("User is not allowed to perform operation ".AccessOperation::CREATE_STR." on entity of type 'BackgroundProcessUpdate'. Allowed access is ".json_encode($ObjectAccessArray));
+                    throw new Exception("User is not allowed to perform operation ".AccessOperation::CREATE_STR." on entity of type 'RequestStatus'. Allowed access is ".json_encode($ObjectAccessArray));
                 }
                 // Perform an INSERT query
                 $objDatabase->NonQuery('
-                INSERT INTO `BackgroundProcessUpdate` (
-							`UpdateDateTime`,
-							`UpdateMessage`,
-							`BackgroundProcess`,
-							`SearchMetaInfo`,
+                INSERT INTO `RequestStatus` (
+							`StatusLabel`,
 							`ObjectOwner`
 						) VALUES (
-							' . $objDatabase->SqlVariable($this->dttUpdateDateTime) . ',
-							' . $objDatabase->SqlVariable($this->strUpdateMessage) . ',
-							' . $objDatabase->SqlVariable($this->intBackgroundProcess) . ',
-							' . $objDatabase->SqlVariable($this->strSearchMetaInfo) . ',
+							' . $objDatabase->SqlVariable($this->strStatusLabel) . ',
 							' . $objDatabase->SqlVariable($this->intObjectOwner) . '
 						)
                 ');
 					// Update Identity column and return its value
-                $mixToReturn = $this->intId = $objDatabase->InsertId('BackgroundProcessUpdate', 'Id');
+                $mixToReturn = $this->intId = $objDatabase->InsertId('RequestStatus', 'Id');
             } else {
                 // Perform an UPDATE query
                 // First checking for Optimistic Locking constraints (if applicable)
                 if (!in_array(AccessOperation::UPDATE_STR,$ObjectAccessArray)) {
                     // This user is not allowed to create an object of this type
-                    throw new Exception("User is not allowed to perform operation ".AccessOperation::UPDATE_STR." on entity of type 'BackgroundProcessUpdate'. Allowed access is ".json_encode($ObjectAccessArray));
+                    throw new Exception("User is not allowed to perform operation ".AccessOperation::UPDATE_STR." on entity of type 'RequestStatus'. Allowed access is ".json_encode($ObjectAccessArray));
                 }
                 if (!$blnForceUpdate) {
                     // Perform the Optimistic Locking check
                     $objResult = $objDatabase->Query('
-                    SELECT `LastUpdated` FROM `BackgroundProcessUpdate` WHERE
+                    SELECT `LastUpdated` FROM `RequestStatus` WHERE
 							`Id` = ' . $objDatabase->SqlVariable($this->intId) . '');
 
                 $objRow = $objResult->FetchArray();
                 if ($objRow[0] != $this->strLastUpdated)
-                    throw new dxOptimisticLockingException('BackgroundProcessUpdate');
+                    throw new dxOptimisticLockingException('RequestStatus');
             }
 
             // Perform the UPDATE query
             $objDatabase->NonQuery('
-            UPDATE `BackgroundProcessUpdate` SET
-							`UpdateDateTime` = ' . $objDatabase->SqlVariable($this->dttUpdateDateTime) . ',
-							`UpdateMessage` = ' . $objDatabase->SqlVariable($this->strUpdateMessage) . ',
-							`BackgroundProcess` = ' . $objDatabase->SqlVariable($this->intBackgroundProcess) . ',
-							`SearchMetaInfo` = ' . $objDatabase->SqlVariable($this->strSearchMetaInfo) . ',
+            UPDATE `RequestStatus` SET
+							`StatusLabel` = ' . $objDatabase->SqlVariable($this->strStatusLabel) . ',
 							`ObjectOwner` = ' . $objDatabase->SqlVariable($this->intObjectOwner) . '
             WHERE
 							`Id` = ' . $objDatabase->SqlVariable($this->intId) . '');
@@ -935,14 +841,14 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
             $newAuditLogEntry->ObjectId = $this->intId;
             $newAuditLogEntry->Save();
         } catch(dxCallerException $e) {
-            error_log('Could not save audit log while saving BackgroundProcessUpdate. Details: '.$newAuditLogEntry->getJson().'<br>Error details: '.$e->getMessage());
+            error_log('Could not save audit log while saving RequestStatus. Details: '.$newAuditLogEntry->getJson().'<br>Error details: '.$e->getMessage());
         }
         // Update __blnRestored and any Non-Identity PK Columns (if applicable)
         $this->__blnRestored = true;
 
         // Update Local Timestamp
         $objResult = $objDatabase->Query('SELECT `LastUpdated` FROM
-                                            `BackgroundProcessUpdate` WHERE
+                                            `RequestStatus` WHERE
                 							`Id` = ' . $objDatabase->SqlVariable($this->intId) . '');
 
         $objRow = $objResult->FetchArray();
@@ -954,46 +860,43 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
         return $mixToReturn;
     }
     /**
-     * Delete this BackgroundProcessUpdate
+     * Delete this RequestStatus
      * @return void
      */
     public function Delete() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Cannot delete this BackgroundProcessUpdate with an unset primary key.');
+            throw new dxUndefinedPrimaryKeyException('Cannot delete this RequestStatus with an unset primary key.');
 
-        $ObjectAccessArray = ProjectAccessManager::getObjectAccess(ProjectFunctions::getCurrentAccountId(),"BackgroundProcessUpdate",$this->intId);
+        $ObjectAccessArray = ProjectAccessManager::getObjectAccess(ProjectFunctions::getCurrentAccountId(),"RequestStatus",$this->intId);
         if (!in_array(AccessOperation::DELETE_STR,$ObjectAccessArray)) {
             // This user is not allowed to delete an object of this type
-            throw new Exception("User is not allowed to perform operation ".AccessOperation::DELETE_STR." on entity of type 'BackgroundProcessUpdate'. Allowed access is ".json_encode($ObjectAccessArray));
+            throw new Exception("User is not allowed to perform operation ".AccessOperation::DELETE_STR." on entity of type 'RequestStatus'. Allowed access is ".json_encode($ObjectAccessArray));
         }
 
         // Get the Database Object for this Class
-        $objDatabase = BackgroundProcessUpdate::GetDatabase();
+        $objDatabase = RequestStatus::GetDatabase();
         $newAuditLogEntry = new AuditLogEntry();
         $ChangedArray = array();
         $newAuditLogEntry->EntryTimeStamp = dxDateTime::Now();
         $newAuditLogEntry->ObjectId = $this->intId;
-        $newAuditLogEntry->ObjectName = 'BackgroundProcessUpdate';
+        $newAuditLogEntry->ObjectName = 'RequestStatus';
         $newAuditLogEntry->UserEmail = ProjectFunctions::getCurrentUserEmailForAudit();
         $newAuditLogEntry->ModificationType = 'Delete';
         $ChangedArray = array_merge($ChangedArray,array("Id" => $this->intId));
-        $ChangedArray = array_merge($ChangedArray,array("UpdateDateTime" => $this->dttUpdateDateTime));
-        $ChangedArray = array_merge($ChangedArray,array("UpdateMessage" => $this->strUpdateMessage));
+        $ChangedArray = array_merge($ChangedArray,array("StatusLabel" => $this->strStatusLabel));
         $ChangedArray = array_merge($ChangedArray,array("LastUpdated" => $this->strLastUpdated));
-        $ChangedArray = array_merge($ChangedArray,array("BackgroundProcess" => $this->intBackgroundProcess));
-        $ChangedArray = array_merge($ChangedArray,array("SearchMetaInfo" => $this->strSearchMetaInfo));
         $ChangedArray = array_merge($ChangedArray,array("ObjectOwner" => $this->intObjectOwner));
         $newAuditLogEntry->AuditLogEntryDetail = json_encode($ChangedArray);
         try {
             $newAuditLogEntry->Save();
         } catch(dxCallerException $e) {
-            error_log('Could not save audit log while deleting BackgroundProcessUpdate. Details: '.$newAuditLogEntry->getJson().'<br>Error details: '.$e->getMessage());
+            error_log('Could not save audit log while deleting RequestStatus. Details: '.$newAuditLogEntry->getJson().'<br>Error details: '.$e->getMessage());
         }
 
         // Perform the SQL Query
         $objDatabase->NonQuery('
             DELETE FROM
-                `BackgroundProcessUpdate`
+                `RequestStatus`
             WHERE
                 `Id` = ' . $objDatabase->SqlVariable($this->intId) . '');
 
@@ -1001,28 +904,28 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
     }
 
     /**
-     * Delete this BackgroundProcessUpdate ONLY from the cache
+     * Delete this RequestStatus ONLY from the cache
      * @return void
      */
     public function DeleteCache() {
         if (ProjectFunctions::$objCacheProvider && ProjectFunctions::$Database[1]->Caching) {
-            $strCacheKey = ProjectFunctions::$objCacheProvider->CreateKey(ProjectFunctions::$Database[1]->Database, 'BackgroundProcessUpdate', $this->intId);
+            $strCacheKey = ProjectFunctions::$objCacheProvider->CreateKey(ProjectFunctions::$Database[1]->Database, 'RequestStatus', $this->intId);
             ProjectFunctions::$objCacheProvider->Delete($strCacheKey);
         }
     }
 
     /**
-     * Delete all BackgroundProcessUpdates
+     * Delete all RequestStatuses
      * @return void
      */
     public static function DeleteAll() {
         // Get the Database Object for this Class
-        $objDatabase = BackgroundProcessUpdate::GetDatabase();
+        $objDatabase = RequestStatus::GetDatabase();
 
         // Perform the Query
         $objDatabase->NonQuery('
             DELETE FROM
-                `BackgroundProcessUpdate`');
+                `RequestStatus`');
 
         if (ProjectFunctions::$objCacheProvider && ProjectFunctions::$Database[1]->Caching) {
             ProjectFunctions::$objCacheProvider->DeleteAll();
@@ -1030,41 +933,38 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
     }
 
     /**
-     * Truncate BackgroundProcessUpdate table
+     * Truncate RequestStatus table
      * @return void
      */
     public static function Truncate() {
         // Get the Database Object for this Class
-        $objDatabase = BackgroundProcessUpdate::GetDatabase();
+        $objDatabase = RequestStatus::GetDatabase();
 
         // Perform the Query
         $objDatabase->NonQuery('
-            TRUNCATE `BackgroundProcessUpdate`');
+            TRUNCATE `RequestStatus`');
 
         if (ProjectFunctions::$objCacheProvider && ProjectFunctions::$Database[1]->Caching) {
             ProjectFunctions::$objCacheProvider->DeleteAll();
         }
     }
     /**
-     * Reload this BackgroundProcessUpdate from the database.
+     * Reload this RequestStatus from the database.
      * @return void
      */
     public function Reload() {
         // Make sure we are actually Restored from the database
         if (!$this->__blnRestored)
-            throw new dxCallerException('Cannot call Reload() on a new, unsaved BackgroundProcessUpdate object.');
+            throw new dxCallerException('Cannot call Reload() on a new, unsaved RequestStatus object.');
 
         $this->DeleteCache();
 
         // Reload the Object
-        $objReloaded = BackgroundProcessUpdate::Load($this->intId);
+        $objReloaded = RequestStatus::Load($this->intId);
 
         // Update $this's local variables to match
-        $this->dttUpdateDateTime = $objReloaded->dttUpdateDateTime;
-        $this->strUpdateMessage = $objReloaded->strUpdateMessage;
+        $this->strStatusLabel = $objReloaded->strStatusLabel;
         $this->strLastUpdated = $objReloaded->strLastUpdated;
-        $this->BackgroundProcess = $objReloaded->BackgroundProcess;
-        $this->strSearchMetaInfo = $objReloaded->strSearchMetaInfo;
         $this->intObjectOwner = $objReloaded->intObjectOwner;
     }
     ////////////////////
@@ -1090,19 +990,12 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
                  */
                 return $this->intId;
 
-            case 'UpdateDateTime':
+            case 'StatusLabel':
                 /**
-                 * Gets the value for dttUpdateDateTime 
-                 * @return dxDateTime
-                 */
-                return $this->dttUpdateDateTime;
-
-            case 'UpdateMessage':
-                /**
-                 * Gets the value for strUpdateMessage 
+                 * Gets the value for strStatusLabel 
                  * @return string
                  */
-                return $this->strUpdateMessage;
+                return $this->strStatusLabel;
 
             case 'LastUpdated':
                 /**
@@ -1110,20 +1003,6 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
                  * @return string
                  */
                 return $this->strLastUpdated;
-
-            case 'BackgroundProcess':
-                /**
-                 * Gets the value for intBackgroundProcess 
-                 * @return integer
-                 */
-                return $this->intBackgroundProcess;
-
-            case 'SearchMetaInfo':
-                /**
-                 * Gets the value for strSearchMetaInfo 
-                 * @return string
-                 */
-                return $this->strSearchMetaInfo;
 
             case 'ObjectOwner':
                 /**
@@ -1136,25 +1015,27 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
             ///////////////////
             // Member Objects
             ///////////////////
-            case 'BackgroundProcessObject':
-                /**
-                 * Gets the value for the Backgroundprocess object referenced by intBackgroundProcess 
-                 * @return Backgroundprocess
-                 */
-                try {
-                    if ((!$this->objBackgroundProcessObject) && (!is_null($this->intBackgroundProcess)))
-                        $this->objBackgroundProcessObject = Backgroundprocess::Load($this->intBackgroundProcess);
-                    return $this->objBackgroundProcessObject;
-                } catch (dxCallerException $objExc) {
-                    $objExc->IncrementOffset();
-                    throw $objExc;
-                }
-
 
             ////////////////////////////
             // Virtual Object References (Many to Many and Reverse References)
             // (If restored via a "Many-to" expansion)
             ////////////////////////////
+
+            case '_StockPhotoRequestAsRequestStatus':
+                /**
+                 * Gets the value for the private _objStockPhotoRequestAsRequestStatus (Read-Only)
+                 * if set due to an expansion on the StockPhotoRequest.RequestStatus reverse relationship
+                 * @return StockPhotoRequest
+                 */
+                return $this->_objStockPhotoRequestAsRequestStatus;
+
+            case '_StockPhotoRequestAsRequestStatusArray':
+                /**
+                 * Gets the value for the private _objStockPhotoRequestAsRequestStatusArray (Read-Only)
+                 * if set due to an ExpandAsArray on the StockPhotoRequest.RequestStatus reverse relationship
+                 * @return StockPhotoRequest[]
+                 */
+                return $this->_objStockPhotoRequestAsRequestStatusArray;
 
 
             case '__Restored':
@@ -1182,54 +1063,14 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
             ///////////////////
             // Member Variables
             ///////////////////
-            case 'UpdateDateTime':
+            case 'StatusLabel':
                 /**
-                 * Sets the value for dttUpdateDateTime 
-                 * @param dxDateTime $mixValue
-                 * @return dxDateTime
-                 */
-                try {
-                    return ($this->dttUpdateDateTime = dxType::Cast($mixValue, dxType::DateTime));
-                } catch (dxCallerException $objExc) {
-                    $objExc->IncrementOffset();
-                    throw $objExc;
-                }
-
-            case 'UpdateMessage':
-                /**
-                 * Sets the value for strUpdateMessage 
+                 * Sets the value for strStatusLabel 
                  * @param string $mixValue
                  * @return string
                  */
                 try {
-                    return ($this->strUpdateMessage = dxType::Cast($mixValue, dxType::String));
-                } catch (dxCallerException $objExc) {
-                    $objExc->IncrementOffset();
-                    throw $objExc;
-                }
-
-            case 'BackgroundProcess':
-                /**
-                 * Sets the value for intBackgroundProcess 
-                 * @param integer $mixValue
-                 * @return integer
-                 */
-                try {
-                    $this->objBackgroundProcessObject = null;
-                    return ($this->intBackgroundProcess = dxType::Cast($mixValue, dxType::Integer));
-                } catch (dxCallerException $objExc) {
-                    $objExc->IncrementOffset();
-                    throw $objExc;
-                }
-
-            case 'SearchMetaInfo':
-                /**
-                 * Sets the value for strSearchMetaInfo 
-                 * @param string $mixValue
-                 * @return string
-                 */
-                try {
-                    return ($this->strSearchMetaInfo = dxType::Cast($mixValue, dxType::String));
+                    return ($this->strStatusLabel = dxType::Cast($mixValue, dxType::String));
                 } catch (dxCallerException $objExc) {
                     $objExc->IncrementOffset();
                     throw $objExc;
@@ -1252,38 +1093,6 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
             ///////////////////
             // Member Objects
             ///////////////////
-            case 'BackgroundProcessObject':
-                /**
-                 * Sets the value for the Backgroundprocess object referenced by intBackgroundProcess 
-                 * @param Backgroundprocess $mixValue
-                 * @return Backgroundprocess
-                 */
-                if (is_null($mixValue)) {
-                    $this->intBackgroundProcess = null;
-                    $this->objBackgroundProcessObject = null;
-                    return null;
-                } else {
-                    // Make sure $mixValue actually is a Backgroundprocess object
-                    try {
-                        $mixValue = dxType::Cast($mixValue, 'Backgroundprocess');
-                    } catch (dxInvalidCastException $objExc) {
-                        $objExc->IncrementOffset();
-                        throw $objExc;
-                    }
-
-                    // Make sure $mixValue is a SAVED Backgroundprocess object
-                    if (is_null($mixValue->Id))
-                        throw new dxCallerException('Unable to set an unsaved BackgroundProcessObject for this BackgroundProcessUpdate');
-
-                    // Update Local Member Variables
-                    $this->objBackgroundProcessObject = $mixValue;
-                    $this->intBackgroundProcess = $mixValue->Id;
-
-                    // Return $mixValue
-                    return $mixValue;
-                }
-                break;
-
             default:
                 try {
                     return parent::__set($strName, $mixValue);
@@ -1310,6 +1119,155 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
 
 
 
+    // Related Objects' Methods for StockPhotoRequestAsRequestStatus
+    //-------------------------------------------------------------------
+
+    /**
+     * Gets all associated StockPhotoRequestsAsRequestStatus as an array of StockPhotoRequest objects
+     * @param dxQueryClause[] $objOptionalClauses additional optional dxQueryClause objects for this query
+     * @return StockPhotoRequest[]
+    */
+    public function GetStockPhotoRequestAsRequestStatusArray($objOptionalClauses = null) {
+        if ((is_null($this->intId)))
+            return array();
+
+        try {
+            return StockPhotoRequest::LoadArrayByRequestStatus($this->intId, $objOptionalClauses);
+        } catch (dxCallerException $objExc) {
+            $objExc->IncrementOffset();
+            throw $objExc;
+        }
+    }
+
+    /**
+     * Counts all associated StockPhotoRequestsAsRequestStatus
+     * @return int
+    */
+    public function CountStockPhotoRequestsAsRequestStatus() {
+        if ((is_null($this->intId)))
+            return 0;
+
+        return StockPhotoRequest::CountByRequestStatus($this->intId);
+    }
+
+    /**
+     * Associates a StockPhotoRequestAsRequestStatus
+     * @param StockPhotoRequest $objStockPhotoRequest
+     * @return void
+    */
+    public function AssociateStockPhotoRequestAsRequestStatus(StockPhotoRequest $objStockPhotoRequest) {
+        if ((is_null($this->intId)))
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateStockPhotoRequestAsRequestStatus on this unsaved RequestStatus.');
+        if ((is_null($objStockPhotoRequest->Id)))
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateStockPhotoRequestAsRequestStatus on this RequestStatus with an unsaved StockPhotoRequest.');
+
+        // Get the Database Object for this Class
+        $objDatabase = RequestStatus::GetDatabase();
+
+        // Perform the SQL Query
+        $objDatabase->NonQuery('
+            UPDATE
+                `StockPhotoRequest`
+            SET
+                `RequestStatus` = ' . $objDatabase->SqlVariable($this->intId) . '
+            WHERE
+                `Id` = ' . $objDatabase->SqlVariable($objStockPhotoRequest->Id) . '
+        ');
+    }
+
+    /**
+     * Unassociates a StockPhotoRequestAsRequestStatus
+     * @param StockPhotoRequest $objStockPhotoRequest
+     * @return void
+    */
+    public function UnassociateStockPhotoRequestAsRequestStatus(StockPhotoRequest $objStockPhotoRequest) {
+        if ((is_null($this->intId)))
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequestAsRequestStatus on this unsaved RequestStatus.');
+        if ((is_null($objStockPhotoRequest->Id)))
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequestAsRequestStatus on this RequestStatus with an unsaved StockPhotoRequest.');
+
+        // Get the Database Object for this Class
+        $objDatabase = RequestStatus::GetDatabase();
+
+        // Perform the SQL Query
+        $objDatabase->NonQuery('
+            UPDATE
+                `StockPhotoRequest`
+            SET
+                `RequestStatus` = null
+            WHERE
+                `Id` = ' . $objDatabase->SqlVariable($objStockPhotoRequest->Id) . ' AND
+                `RequestStatus` = ' . $objDatabase->SqlVariable($this->intId) . '
+        ');
+    }
+
+    /**
+     * Unassociates all StockPhotoRequestsAsRequestStatus
+     * @return void
+    */
+    public function UnassociateAllStockPhotoRequestsAsRequestStatus() {
+        if ((is_null($this->intId)))
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequestAsRequestStatus on this unsaved RequestStatus.');
+
+        // Get the Database Object for this Class
+        $objDatabase = RequestStatus::GetDatabase();
+
+        // Perform the SQL Query
+        $objDatabase->NonQuery('
+            UPDATE
+                `StockPhotoRequest`
+            SET
+                `RequestStatus` = null
+            WHERE
+                `RequestStatus` = ' . $objDatabase->SqlVariable($this->intId) . '
+        ');
+    }
+
+    /**
+     * Deletes an associated StockPhotoRequestAsRequestStatus
+     * @param StockPhotoRequest $objStockPhotoRequest
+     * @return void
+    */
+    public function DeleteAssociatedStockPhotoRequestAsRequestStatus(StockPhotoRequest $objStockPhotoRequest) {
+        if ((is_null($this->intId)))
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequestAsRequestStatus on this unsaved RequestStatus.');
+        if ((is_null($objStockPhotoRequest->Id)))
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequestAsRequestStatus on this RequestStatus with an unsaved StockPhotoRequest.');
+
+        // Get the Database Object for this Class
+        $objDatabase = RequestStatus::GetDatabase();
+
+        // Perform the SQL Query
+        $objDatabase->NonQuery('
+            DELETE FROM
+                `StockPhotoRequest`
+            WHERE
+                `Id` = ' . $objDatabase->SqlVariable($objStockPhotoRequest->Id) . ' AND
+                `RequestStatus` = ' . $objDatabase->SqlVariable($this->intId) . '
+        ');
+    }
+
+    /**
+     * Deletes all associated StockPhotoRequestsAsRequestStatus
+     * @return void
+    */
+    public function DeleteAllStockPhotoRequestsAsRequestStatus() {
+        if ((is_null($this->intId)))
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequestAsRequestStatus on this unsaved RequestStatus.');
+
+        // Get the Database Object for this Class
+        $objDatabase = RequestStatus::GetDatabase();
+
+        // Perform the SQL Query
+        $objDatabase->NonQuery('
+            DELETE FROM
+                `StockPhotoRequest`
+            WHERE
+                `RequestStatus` = ' . $objDatabase->SqlVariable($this->intId) . '
+        ');
+    }
+
+
     
 ///////////////////////////////
     // METHODS TO EXTRACT INFO ABOUT THE CLASS
@@ -1320,7 +1278,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
      * @return string Name of the table from which this class has been created.
      */
     public static function GetTableName() {
-        return "BackgroundProcessUpdate";
+        return "RequestStatus";
     }
 
     /**
@@ -1328,7 +1286,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
      * @return string Name of the table from which this class has been created.
      */
     public static function GetDatabaseName() {
-        return ProjectFunctions::$Database[BackgroundProcessUpdate::GetDatabaseIndex()]->Database;
+        return ProjectFunctions::$Database[RequestStatus::GetDatabaseIndex()]->Database;
     }
 
     /**
@@ -1347,13 +1305,10 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
     ////////////////////////////////////////
 
     public static function GetSoapComplexTypeXml() {
-        $strToReturn = '<complexType name="BackgroundProcessUpdate"><sequence>';
+        $strToReturn = '<complexType name="RequestStatus"><sequence>';
         $strToReturn .= '<element name="Id" type="xsd:int"/>';
-        $strToReturn .= '<element name="UpdateDateTime" type="xsd:dateTime"/>';
-        $strToReturn .= '<element name="UpdateMessage" type="xsd:string"/>';
+        $strToReturn .= '<element name="StatusLabel" type="xsd:string"/>';
         $strToReturn .= '<element name="LastUpdated" type="xsd:string"/>';
-        $strToReturn .= '<element name="BackgroundProcessObject" type="xsd1:Backgroundprocess"/>';
-        $strToReturn .= '<element name="SearchMetaInfo" type="xsd:string"/>';
         $strToReturn .= '<element name="ObjectOwner" type="xsd:int"/>';
         $strToReturn .= '<element name="__blnRestored" type="xsd:boolean"/>';
         $strToReturn .= '</sequence></complexType>';
@@ -1361,9 +1316,8 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
     }
 
     public static function AlterSoapComplexTypeArray(&$strComplexTypeArray) {
-        if (!array_key_exists('BackgroundProcessUpdate', $strComplexTypeArray)) {
-            $strComplexTypeArray['BackgroundProcessUpdate'] = BackgroundProcessUpdate::GetSoapComplexTypeXml();
-            Backgroundprocess::AlterSoapComplexTypeArray($strComplexTypeArray);
+        if (!array_key_exists('RequestStatus', $strComplexTypeArray)) {
+            $strComplexTypeArray['RequestStatus'] = RequestStatus::GetSoapComplexTypeXml();
         }
     }
 
@@ -1371,26 +1325,19 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
         $objArrayToReturn = array();
 
         foreach ($objSoapArray as $objSoapObject)
-            array_push($objArrayToReturn, BackgroundProcessUpdate::GetObjectFromSoapObject($objSoapObject));
+            array_push($objArrayToReturn, RequestStatus::GetObjectFromSoapObject($objSoapObject));
 
         return $objArrayToReturn;
     }
 
     public static function GetObjectFromSoapObject($objSoapObject) {
-        $objToReturn = new BackgroundProcessUpdate();
+        $objToReturn = new RequestStatus();
         if (property_exists($objSoapObject, 'Id'))
             $objToReturn->intId = $objSoapObject->Id;
-        if (property_exists($objSoapObject, 'UpdateDateTime'))
-            $objToReturn->dttUpdateDateTime = new dxDateTime($objSoapObject->UpdateDateTime);
-        if (property_exists($objSoapObject, 'UpdateMessage'))
-            $objToReturn->strUpdateMessage = $objSoapObject->UpdateMessage;
+        if (property_exists($objSoapObject, 'StatusLabel'))
+            $objToReturn->strStatusLabel = $objSoapObject->StatusLabel;
         if (property_exists($objSoapObject, 'LastUpdated'))
             $objToReturn->strLastUpdated = $objSoapObject->LastUpdated;
-        if ((property_exists($objSoapObject, 'BackgroundProcessObject')) &&
-            ($objSoapObject->BackgroundProcessObject))
-            $objToReturn->BackgroundProcessObject = Backgroundprocess::GetObjectFromSoapObject($objSoapObject->BackgroundProcessObject);
-        if (property_exists($objSoapObject, 'SearchMetaInfo'))
-            $objToReturn->strSearchMetaInfo = $objSoapObject->SearchMetaInfo;
         if (property_exists($objSoapObject, 'ObjectOwner'))
             $objToReturn->intObjectOwner = $objSoapObject->ObjectOwner;
         if (property_exists($objSoapObject, '__blnRestored'))
@@ -1405,18 +1352,12 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
         $objArrayToReturn = array();
 
         foreach ($objArray as $objObject)
-            array_push($objArrayToReturn, BackgroundProcessUpdate::GetSoapObjectFromObject($objObject, true));
+            array_push($objArrayToReturn, RequestStatus::GetSoapObjectFromObject($objObject, true));
 
         return unserialize(serialize($objArrayToReturn));
     }
 
     public static function GetSoapObjectFromObject($objObject, $blnBindRelatedObjects) {
-        if ($objObject->dttUpdateDateTime)
-            $objObject->dttUpdateDateTime = $objObject->dttUpdateDateTime->qFormat(dxDateTime::FormatSoap);
-        if ($objObject->objBackgroundProcessObject)
-            $objObject->objBackgroundProcessObject = Backgroundprocess::GetSoapObjectFromObject($objObject->objBackgroundProcessObject, false);
-        else if (!$blnBindRelatedObjects)
-            $objObject->intBackgroundProcess = null;
         return $objObject;
     }
 
@@ -1432,11 +1373,8 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
         // Member Variables
         ///////////////////
         $iArray['Id'] = $this->intId;
-        $iArray['UpdateDateTime'] = $this->dttUpdateDateTime;
-        $iArray['UpdateMessage'] = $this->strUpdateMessage;
+        $iArray['StatusLabel'] = $this->strStatusLabel;
         $iArray['LastUpdated'] = $this->strLastUpdated;
-        $iArray['BackgroundProcess'] = $this->intBackgroundProcess;
-        $iArray['SearchMetaInfo'] = $this->strSearchMetaInfo;
         $iArray['ObjectOwner'] = $this->intObjectOwner;
         return new ArrayIterator($iArray);
     }
@@ -1473,40 +1411,31 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
      * @uses dxQueryNode
      *
      * @property-read dxQueryNode $Id
-     * @property-read dxQueryNode $UpdateDateTime
-     * @property-read dxQueryNode $UpdateMessage
+     * @property-read dxQueryNode $StatusLabel
      * @property-read dxQueryNode $LastUpdated
-     * @property-read dxQueryNode $BackgroundProcess
-     * @property-read dxQueryNodeBackgroundprocess $BackgroundProcessObject
-     * @property-read dxQueryNode $SearchMetaInfo
      * @property-read dxQueryNode $ObjectOwner
      *
      *
+     * @property-read dxQueryReverseReferenceNodeStockPhotoRequest $StockPhotoRequestAsRequestStatus
 
      * @property-read dxQueryNode $_PrimaryKeyNode
      **/
-	class dxQueryNodeBackgroundProcessUpdate extends dxQueryNode {
-		protected $strTableName = 'BackgroundProcessUpdate';
+	class dxQueryNodeRequestStatus extends dxQueryNode {
+		protected $strTableName = 'RequestStatus';
 		protected $strPrimaryKey = 'Id';
-		protected $strClassName = 'BackgroundProcessUpdate';
+		protected $strClassName = 'RequestStatus';
 		public function __get($strName) {
 			switch ($strName) {
 				case 'Id':
 					return new dxQueryNode('Id', 'Id', 'Integer', $this);
-				case 'UpdateDateTime':
-					return new dxQueryNode('UpdateDateTime', 'UpdateDateTime', 'DateTime', $this);
-				case 'UpdateMessage':
-					return new dxQueryNode('UpdateMessage', 'UpdateMessage', 'Blob', $this);
+				case 'StatusLabel':
+					return new dxQueryNode('StatusLabel', 'StatusLabel', 'VarChar', $this);
 				case 'LastUpdated':
 					return new dxQueryNode('LastUpdated', 'LastUpdated', 'VarChar', $this);
-				case 'BackgroundProcess':
-					return new dxQueryNode('BackgroundProcess', 'BackgroundProcess', 'Integer', $this);
-				case 'BackgroundProcessObject':
-					return new dxQueryNodeBackgroundprocess('BackgroundProcess', 'BackgroundProcessObject', 'Integer', $this);
-				case 'SearchMetaInfo':
-					return new dxQueryNode('SearchMetaInfo', 'SearchMetaInfo', 'Blob', $this);
 				case 'ObjectOwner':
 					return new dxQueryNode('ObjectOwner', 'ObjectOwner', 'Integer', $this);
+				case 'StockPhotoRequestAsRequestStatus':
+					return new dxQueryReverseReferenceNodeStockPhotoRequest($this, 'stockphotorequestasrequeststatus', 'reverse_reference', 'RequestStatus', 'StockPhotoRequestAsRequestStatus');
 
 				case '_PrimaryKeyNode':
 					return new dxQueryNode('Id', 'Id', 'Integer', $this);
@@ -1523,40 +1452,31 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
 
     /**
      * @property-read dxQueryNode $Id
-     * @property-read dxQueryNode $UpdateDateTime
-     * @property-read dxQueryNode $UpdateMessage
+     * @property-read dxQueryNode $StatusLabel
      * @property-read dxQueryNode $LastUpdated
-     * @property-read dxQueryNode $BackgroundProcess
-     * @property-read dxQueryNodeBackgroundprocess $BackgroundProcessObject
-     * @property-read dxQueryNode $SearchMetaInfo
      * @property-read dxQueryNode $ObjectOwner
      *
      *
+     * @property-read dxQueryReverseReferenceNodeStockPhotoRequest $StockPhotoRequestAsRequestStatus
 
      * @property-read dxQueryNode $_PrimaryKeyNode
      **/
-	class dxQueryReverseReferenceNodeBackgroundProcessUpdate extends dxQueryReverseReferenceNode {
-		protected $strTableName = 'BackgroundProcessUpdate';
+	class dxQueryReverseReferenceNodeRequestStatus extends dxQueryReverseReferenceNode {
+		protected $strTableName = 'RequestStatus';
 		protected $strPrimaryKey = 'Id';
-		protected $strClassName = 'BackgroundProcessUpdate';
+		protected $strClassName = 'RequestStatus';
 		public function __get($strName) {
 			switch ($strName) {
 				case 'Id':
 					return new dxQueryNode('Id', 'Id', 'integer', $this);
-				case 'UpdateDateTime':
-					return new dxQueryNode('UpdateDateTime', 'UpdateDateTime', 'dxDateTime', $this);
-				case 'UpdateMessage':
-					return new dxQueryNode('UpdateMessage', 'UpdateMessage', 'string', $this);
+				case 'StatusLabel':
+					return new dxQueryNode('StatusLabel', 'StatusLabel', 'string', $this);
 				case 'LastUpdated':
 					return new dxQueryNode('LastUpdated', 'LastUpdated', 'string', $this);
-				case 'BackgroundProcess':
-					return new dxQueryNode('BackgroundProcess', 'BackgroundProcess', 'integer', $this);
-				case 'BackgroundProcessObject':
-					return new dxQueryNodeBackgroundprocess('BackgroundProcess', 'BackgroundProcessObject', 'integer', $this);
-				case 'SearchMetaInfo':
-					return new dxQueryNode('SearchMetaInfo', 'SearchMetaInfo', 'string', $this);
 				case 'ObjectOwner':
 					return new dxQueryNode('ObjectOwner', 'ObjectOwner', 'integer', $this);
+				case 'StockPhotoRequestAsRequestStatus':
+					return new dxQueryReverseReferenceNodeStockPhotoRequest($this, 'stockphotorequestasrequeststatus', 'reverse_reference', 'RequestStatus', 'StockPhotoRequestAsRequestStatus');
 
 				case '_PrimaryKeyNode':
 					return new dxQueryNode('Id', 'Id', 'integer', $this);
