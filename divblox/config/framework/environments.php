@@ -1,6 +1,6 @@
 <?php
 $ModuleArray = array(
-    "Main"
+    "Main",
 );
 $ModuleColorArray = array(
     "Main" => "#65a7b6",
@@ -23,17 +23,17 @@ $EnvironmentArray = array(
         "NATIVE_IOS_STATUS_BAR_COLOUR" => "#ffffff",
         "NATIVE_IOS_STATUS_BAR_CONTENT_COLOUR" => "darkcontent",
         "DATABASES" => array(
-        "Main" => array(
-            'server' => 'localhost',
-            'port' => null,
-            'database' => '[not defined]',
-            'username' => '[not defined]',
-            'password' => '[not defined]',
-            'ssl_cert_path' => ''
-            )
+            "Main" => array(
+                'server' => 'localhost',
+                'port' => null,
+                'database' => 'divblox1',
+                'username' => 'dxuser',
+                'password' => '123',
+                'ssl_cert_path' => ''
+            ),
         )
-    )
+    ),
+
 );
 $dxApiKey = "O9nUVu4JXkHFabgRpKxLzc8rlis17Qtwq6NfdA0PZ3oIEWvTDMeCh25YBmjySG";
-
 ?>

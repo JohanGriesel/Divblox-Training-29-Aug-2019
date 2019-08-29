@@ -24,8 +24,8 @@
  * @property string $SearchMetaInfo the value for strSearchMetaInfo 
  * @property integer $ObjectOwner the value for intObjectOwner 
  * @property Account $AccountObject the value for the Account object referenced by intAccount 
- * @property-read ClientAuthenticationToken $_ClientAuthenticationTokenAsClientConnection the value for the private _objClientAuthenticationTokenAsClientConnection (Read-Only) if set due to an expansion on the ClientAuthenticationToken.ClientConnection reverse relationship
- * @property-read ClientAuthenticationToken[] $_ClientAuthenticationTokenAsClientConnectionArray the value for the private _objClientAuthenticationTokenAsClientConnectionArray (Read-Only) if set due to an ExpandAsArray on the ClientAuthenticationToken.ClientConnection reverse relationship
+ * @property-read ClientAuthenticationToken $_ClientAuthenticationToken the value for the private _objClientAuthenticationToken (Read-Only) if set due to an expansion on the ClientAuthenticationToken.ClientConnection reverse relationship
+ * @property-read ClientAuthenticationToken[] $_ClientAuthenticationTokenArray the value for the private _objClientAuthenticationTokenArray (Read-Only) if set due to an ExpandAsArray on the ClientAuthenticationToken.ClientConnection reverse relationship
  * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
  */
 class ClientConnectionGen extends dxBaseClass implements IteratorAggregate {
@@ -101,20 +101,20 @@ class ClientConnectionGen extends dxBaseClass implements IteratorAggregate {
 
 
     /**
-     * Private member variable that stores a reference to a single ClientAuthenticationTokenAsClientConnection object
+     * Private member variable that stores a reference to a single ClientAuthenticationToken object
      * (of type ClientAuthenticationToken), if this ClientConnection object was restored with
      * an expansion on the ClientAuthenticationToken association table.
-     * @var ClientAuthenticationToken _objClientAuthenticationTokenAsClientConnection;
+     * @var ClientAuthenticationToken _objClientAuthenticationToken;
      */
-    private $_objClientAuthenticationTokenAsClientConnection;
+    private $_objClientAuthenticationToken;
 
     /**
-     * Private member variable that stores a reference to an array of ClientAuthenticationTokenAsClientConnection objects
+     * Private member variable that stores a reference to an array of ClientAuthenticationToken objects
      * (of type ClientAuthenticationToken[]), if this ClientConnection object was restored with
      * an ExpandAsArray on the ClientAuthenticationToken association table.
-     * @var ClientAuthenticationToken[] _objClientAuthenticationTokenAsClientConnectionArray;
+     * @var ClientAuthenticationToken[] _objClientAuthenticationTokenArray;
      */
-    private $_objClientAuthenticationTokenAsClientConnectionArray = null;
+    private $_objClientAuthenticationTokenArray = null;
 
     /**
      * Protected array of virtual attributes for this object (e.g. extra/other calculated and/or non-object bound
@@ -687,18 +687,18 @@ class ClientConnectionGen extends dxBaseClass implements IteratorAggregate {
 
 
 
-        // Check for ClientAuthenticationTokenAsClientConnection Virtual Binding
-        $strAlias = $strAliasPrefix . 'clientauthenticationtokenasclientconnection__Id';
+        // Check for ClientAuthenticationToken Virtual Binding
+        $strAlias = $strAliasPrefix . 'clientauthenticationtoken__Id';
         $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
-        $objExpansionNode = (empty($objExpansionAliasArray['clientauthenticationtokenasclientconnection']) ? null : $objExpansionAliasArray['clientauthenticationtokenasclientconnection']);
+        $objExpansionNode = (empty($objExpansionAliasArray['clientauthenticationtoken']) ? null : $objExpansionAliasArray['clientauthenticationtoken']);
         $blnExpanded = ($objExpansionNode && $objExpansionNode->ExpandAsArray);
-        if ($blnExpanded && null === $objToReturn->_objClientAuthenticationTokenAsClientConnectionArray)
-            $objToReturn->_objClientAuthenticationTokenAsClientConnectionArray = array();
+        if ($blnExpanded && null === $objToReturn->_objClientAuthenticationTokenArray)
+            $objToReturn->_objClientAuthenticationTokenArray = array();
         if (!is_null($objDbRow->GetColumn($strAliasName))) {
             if ($blnExpanded) {
-                $objToReturn->_objClientAuthenticationTokenAsClientConnectionArray[] = ClientAuthenticationToken::InstantiateDbRow($objDbRow, $strAliasPrefix . 'clientauthenticationtokenasclientconnection__', $objExpansionNode, null, $strColumnAliasArray);
-            } elseif (is_null($objToReturn->_objClientAuthenticationTokenAsClientConnection)) {
-                $objToReturn->_objClientAuthenticationTokenAsClientConnection = ClientAuthenticationToken::InstantiateDbRow($objDbRow, $strAliasPrefix . 'clientauthenticationtokenasclientconnection__', $objExpansionNode, null, $strColumnAliasArray);
+                $objToReturn->_objClientAuthenticationTokenArray[] = ClientAuthenticationToken::InstantiateDbRow($objDbRow, $strAliasPrefix . 'clientauthenticationtoken__', $objExpansionNode, null, $strColumnAliasArray);
+            } elseif (is_null($objToReturn->_objClientAuthenticationToken)) {
+                $objToReturn->_objClientAuthenticationToken = ClientAuthenticationToken::InstantiateDbRow($objDbRow, $strAliasPrefix . 'clientauthenticationtoken__', $objExpansionNode, null, $strColumnAliasArray);
             }
         }
 
@@ -1226,21 +1226,21 @@ class ClientConnectionGen extends dxBaseClass implements IteratorAggregate {
             // (If restored via a "Many-to" expansion)
             ////////////////////////////
 
-            case '_ClientAuthenticationTokenAsClientConnection':
+            case '_ClientAuthenticationToken':
                 /**
-                 * Gets the value for the private _objClientAuthenticationTokenAsClientConnection (Read-Only)
+                 * Gets the value for the private _objClientAuthenticationToken (Read-Only)
                  * if set due to an expansion on the ClientAuthenticationToken.ClientConnection reverse relationship
                  * @return ClientAuthenticationToken
                  */
-                return $this->_objClientAuthenticationTokenAsClientConnection;
+                return $this->_objClientAuthenticationToken;
 
-            case '_ClientAuthenticationTokenAsClientConnectionArray':
+            case '_ClientAuthenticationTokenArray':
                 /**
-                 * Gets the value for the private _objClientAuthenticationTokenAsClientConnectionArray (Read-Only)
+                 * Gets the value for the private _objClientAuthenticationTokenArray (Read-Only)
                  * if set due to an ExpandAsArray on the ClientAuthenticationToken.ClientConnection reverse relationship
                  * @return ClientAuthenticationToken[]
                  */
-                return $this->_objClientAuthenticationTokenAsClientConnectionArray;
+                return $this->_objClientAuthenticationTokenArray;
 
 
             case '__Restored':
@@ -1409,15 +1409,15 @@ class ClientConnectionGen extends dxBaseClass implements IteratorAggregate {
 
 
 
-    // Related Objects' Methods for ClientAuthenticationTokenAsClientConnection
+    // Related Objects' Methods for ClientAuthenticationToken
     //-------------------------------------------------------------------
 
     /**
-     * Gets all associated ClientAuthenticationTokensAsClientConnection as an array of ClientAuthenticationToken objects
+     * Gets all associated ClientAuthenticationTokens as an array of ClientAuthenticationToken objects
      * @param dxQueryClause[] $objOptionalClauses additional optional dxQueryClause objects for this query
      * @return ClientAuthenticationToken[]
     */
-    public function GetClientAuthenticationTokenAsClientConnectionArray($objOptionalClauses = null) {
+    public function GetClientAuthenticationTokenArray($objOptionalClauses = null) {
         if ((is_null($this->intId)))
             return array();
 
@@ -1430,10 +1430,10 @@ class ClientConnectionGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Counts all associated ClientAuthenticationTokensAsClientConnection
+     * Counts all associated ClientAuthenticationTokens
      * @return int
     */
-    public function CountClientAuthenticationTokensAsClientConnection() {
+    public function CountClientAuthenticationTokens() {
         if ((is_null($this->intId)))
             return 0;
 
@@ -1441,15 +1441,15 @@ class ClientConnectionGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Associates a ClientAuthenticationTokenAsClientConnection
+     * Associates a ClientAuthenticationToken
      * @param ClientAuthenticationToken $objClientAuthenticationToken
      * @return void
     */
-    public function AssociateClientAuthenticationTokenAsClientConnection(ClientAuthenticationToken $objClientAuthenticationToken) {
+    public function AssociateClientAuthenticationToken(ClientAuthenticationToken $objClientAuthenticationToken) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateClientAuthenticationTokenAsClientConnection on this unsaved ClientConnection.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateClientAuthenticationToken on this unsaved ClientConnection.');
         if ((is_null($objClientAuthenticationToken->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateClientAuthenticationTokenAsClientConnection on this ClientConnection with an unsaved ClientAuthenticationToken.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateClientAuthenticationToken on this ClientConnection with an unsaved ClientAuthenticationToken.');
 
         // Get the Database Object for this Class
         $objDatabase = ClientConnection::GetDatabase();
@@ -1466,15 +1466,15 @@ class ClientConnectionGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Unassociates a ClientAuthenticationTokenAsClientConnection
+     * Unassociates a ClientAuthenticationToken
      * @param ClientAuthenticationToken $objClientAuthenticationToken
      * @return void
     */
-    public function UnassociateClientAuthenticationTokenAsClientConnection(ClientAuthenticationToken $objClientAuthenticationToken) {
+    public function UnassociateClientAuthenticationToken(ClientAuthenticationToken $objClientAuthenticationToken) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientAuthenticationTokenAsClientConnection on this unsaved ClientConnection.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientAuthenticationToken on this unsaved ClientConnection.');
         if ((is_null($objClientAuthenticationToken->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientAuthenticationTokenAsClientConnection on this ClientConnection with an unsaved ClientAuthenticationToken.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientAuthenticationToken on this ClientConnection with an unsaved ClientAuthenticationToken.');
 
         // Get the Database Object for this Class
         $objDatabase = ClientConnection::GetDatabase();
@@ -1492,12 +1492,12 @@ class ClientConnectionGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Unassociates all ClientAuthenticationTokensAsClientConnection
+     * Unassociates all ClientAuthenticationTokens
      * @return void
     */
-    public function UnassociateAllClientAuthenticationTokensAsClientConnection() {
+    public function UnassociateAllClientAuthenticationTokens() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientAuthenticationTokenAsClientConnection on this unsaved ClientConnection.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientAuthenticationToken on this unsaved ClientConnection.');
 
         // Get the Database Object for this Class
         $objDatabase = ClientConnection::GetDatabase();
@@ -1514,15 +1514,15 @@ class ClientConnectionGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Deletes an associated ClientAuthenticationTokenAsClientConnection
+     * Deletes an associated ClientAuthenticationToken
      * @param ClientAuthenticationToken $objClientAuthenticationToken
      * @return void
     */
-    public function DeleteAssociatedClientAuthenticationTokenAsClientConnection(ClientAuthenticationToken $objClientAuthenticationToken) {
+    public function DeleteAssociatedClientAuthenticationToken(ClientAuthenticationToken $objClientAuthenticationToken) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientAuthenticationTokenAsClientConnection on this unsaved ClientConnection.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientAuthenticationToken on this unsaved ClientConnection.');
         if ((is_null($objClientAuthenticationToken->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientAuthenticationTokenAsClientConnection on this ClientConnection with an unsaved ClientAuthenticationToken.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientAuthenticationToken on this ClientConnection with an unsaved ClientAuthenticationToken.');
 
         // Get the Database Object for this Class
         $objDatabase = ClientConnection::GetDatabase();
@@ -1538,12 +1538,12 @@ class ClientConnectionGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Deletes all associated ClientAuthenticationTokensAsClientConnection
+     * Deletes all associated ClientAuthenticationTokens
      * @return void
     */
-    public function DeleteAllClientAuthenticationTokensAsClientConnection() {
+    public function DeleteAllClientAuthenticationTokens() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientAuthenticationTokenAsClientConnection on this unsaved ClientConnection.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientAuthenticationToken on this unsaved ClientConnection.');
 
         // Get the Database Object for this Class
         $objDatabase = ClientConnection::GetDatabase();
@@ -1735,7 +1735,7 @@ class ClientConnectionGen extends dxBaseClass implements IteratorAggregate {
      * @property-read dxQueryNode $ObjectOwner
      *
      *
-     * @property-read dxQueryReverseReferenceNodeClientAuthenticationToken $ClientAuthenticationTokenAsClientConnection
+     * @property-read dxQueryReverseReferenceNodeClientAuthenticationToken $ClientAuthenticationToken
 
      * @property-read dxQueryNode $_PrimaryKeyNode
      **/
@@ -1763,8 +1763,8 @@ class ClientConnectionGen extends dxBaseClass implements IteratorAggregate {
 					return new dxQueryNode('SearchMetaInfo', 'SearchMetaInfo', 'Blob', $this);
 				case 'ObjectOwner':
 					return new dxQueryNode('ObjectOwner', 'ObjectOwner', 'Integer', $this);
-				case 'ClientAuthenticationTokenAsClientConnection':
-					return new dxQueryReverseReferenceNodeClientAuthenticationToken($this, 'clientauthenticationtokenasclientconnection', 'reverse_reference', 'ClientConnection', 'ClientAuthenticationTokenAsClientConnection');
+				case 'ClientAuthenticationToken':
+					return new dxQueryReverseReferenceNodeClientAuthenticationToken($this, 'clientauthenticationtoken', 'reverse_reference', 'ClientConnection', 'ClientAuthenticationToken');
 
 				case '_PrimaryKeyNode':
 					return new dxQueryNode('Id', 'Id', 'Integer', $this);
@@ -1791,7 +1791,7 @@ class ClientConnectionGen extends dxBaseClass implements IteratorAggregate {
      * @property-read dxQueryNode $ObjectOwner
      *
      *
-     * @property-read dxQueryReverseReferenceNodeClientAuthenticationToken $ClientAuthenticationTokenAsClientConnection
+     * @property-read dxQueryReverseReferenceNodeClientAuthenticationToken $ClientAuthenticationToken
 
      * @property-read dxQueryNode $_PrimaryKeyNode
      **/
@@ -1819,8 +1819,8 @@ class ClientConnectionGen extends dxBaseClass implements IteratorAggregate {
 					return new dxQueryNode('SearchMetaInfo', 'SearchMetaInfo', 'string', $this);
 				case 'ObjectOwner':
 					return new dxQueryNode('ObjectOwner', 'ObjectOwner', 'integer', $this);
-				case 'ClientAuthenticationTokenAsClientConnection':
-					return new dxQueryReverseReferenceNodeClientAuthenticationToken($this, 'clientauthenticationtokenasclientconnection', 'reverse_reference', 'ClientConnection', 'ClientAuthenticationTokenAsClientConnection');
+				case 'ClientAuthenticationToken':
+					return new dxQueryReverseReferenceNodeClientAuthenticationToken($this, 'clientauthenticationtoken', 'reverse_reference', 'ClientConnection', 'ClientAuthenticationToken');
 
 				case '_PrimaryKeyNode':
 					return new dxQueryNode('Id', 'Id', 'integer', $this);

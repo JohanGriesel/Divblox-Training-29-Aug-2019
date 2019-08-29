@@ -24,8 +24,8 @@
  * @property dxDateTime $StartDateTime the value for dttStartDateTime 
  * @property-read string $LastUpdated the value for strLastUpdated (Read-Only Timestamp)
  * @property integer $ObjectOwner the value for intObjectOwner 
- * @property-read BackgroundProcessUpdate $_BackgroundProcessUpdateAsBackgroundProcess the value for the private _objBackgroundProcessUpdateAsBackgroundProcess (Read-Only) if set due to an expansion on the BackgroundProcessUpdate.BackgroundProcess reverse relationship
- * @property-read BackgroundProcessUpdate[] $_BackgroundProcessUpdateAsBackgroundProcessArray the value for the private _objBackgroundProcessUpdateAsBackgroundProcessArray (Read-Only) if set due to an ExpandAsArray on the BackgroundProcessUpdate.BackgroundProcess reverse relationship
+ * @property-read BackgroundProcessUpdate $_BackgroundProcessUpdate the value for the private _objBackgroundProcessUpdate (Read-Only) if set due to an expansion on the BackgroundProcessUpdate.BackgroundProcess reverse relationship
+ * @property-read BackgroundProcessUpdate[] $_BackgroundProcessUpdateArray the value for the private _objBackgroundProcessUpdateArray (Read-Only) if set due to an ExpandAsArray on the BackgroundProcessUpdate.BackgroundProcess reverse relationship
  * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
  */
 class BackgroundProcessGen extends dxBaseClass implements IteratorAggregate {
@@ -110,20 +110,20 @@ class BackgroundProcessGen extends dxBaseClass implements IteratorAggregate {
 
 
     /**
-     * Private member variable that stores a reference to a single BackgroundProcessUpdateAsBackgroundProcess object
+     * Private member variable that stores a reference to a single BackgroundProcessUpdate object
      * (of type BackgroundProcessUpdate), if this BackgroundProcess object was restored with
      * an expansion on the BackgroundProcessUpdate association table.
-     * @var BackgroundProcessUpdate _objBackgroundProcessUpdateAsBackgroundProcess;
+     * @var BackgroundProcessUpdate _objBackgroundProcessUpdate;
      */
-    private $_objBackgroundProcessUpdateAsBackgroundProcess;
+    private $_objBackgroundProcessUpdate;
 
     /**
-     * Private member variable that stores a reference to an array of BackgroundProcessUpdateAsBackgroundProcess objects
+     * Private member variable that stores a reference to an array of BackgroundProcessUpdate objects
      * (of type BackgroundProcessUpdate[]), if this BackgroundProcess object was restored with
      * an ExpandAsArray on the BackgroundProcessUpdate association table.
-     * @var BackgroundProcessUpdate[] _objBackgroundProcessUpdateAsBackgroundProcessArray;
+     * @var BackgroundProcessUpdate[] _objBackgroundProcessUpdateArray;
      */
-    private $_objBackgroundProcessUpdateAsBackgroundProcessArray = null;
+    private $_objBackgroundProcessUpdateArray = null;
 
     /**
      * Protected array of virtual attributes for this object (e.g. extra/other calculated and/or non-object bound
@@ -684,18 +684,18 @@ class BackgroundProcessGen extends dxBaseClass implements IteratorAggregate {
 
 
 
-        // Check for BackgroundProcessUpdateAsBackgroundProcess Virtual Binding
-        $strAlias = $strAliasPrefix . 'backgroundprocessupdateasbackgroundprocess__Id';
+        // Check for BackgroundProcessUpdate Virtual Binding
+        $strAlias = $strAliasPrefix . 'backgroundprocessupdate__Id';
         $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
-        $objExpansionNode = (empty($objExpansionAliasArray['backgroundprocessupdateasbackgroundprocess']) ? null : $objExpansionAliasArray['backgroundprocessupdateasbackgroundprocess']);
+        $objExpansionNode = (empty($objExpansionAliasArray['backgroundprocessupdate']) ? null : $objExpansionAliasArray['backgroundprocessupdate']);
         $blnExpanded = ($objExpansionNode && $objExpansionNode->ExpandAsArray);
-        if ($blnExpanded && null === $objToReturn->_objBackgroundProcessUpdateAsBackgroundProcessArray)
-            $objToReturn->_objBackgroundProcessUpdateAsBackgroundProcessArray = array();
+        if ($blnExpanded && null === $objToReturn->_objBackgroundProcessUpdateArray)
+            $objToReturn->_objBackgroundProcessUpdateArray = array();
         if (!is_null($objDbRow->GetColumn($strAliasName))) {
             if ($blnExpanded) {
-                $objToReturn->_objBackgroundProcessUpdateAsBackgroundProcessArray[] = BackgroundProcessUpdate::InstantiateDbRow($objDbRow, $strAliasPrefix . 'backgroundprocessupdateasbackgroundprocess__', $objExpansionNode, null, $strColumnAliasArray);
-            } elseif (is_null($objToReturn->_objBackgroundProcessUpdateAsBackgroundProcess)) {
-                $objToReturn->_objBackgroundProcessUpdateAsBackgroundProcess = BackgroundProcessUpdate::InstantiateDbRow($objDbRow, $strAliasPrefix . 'backgroundprocessupdateasbackgroundprocess__', $objExpansionNode, null, $strColumnAliasArray);
+                $objToReturn->_objBackgroundProcessUpdateArray[] = BackgroundProcessUpdate::InstantiateDbRow($objDbRow, $strAliasPrefix . 'backgroundprocessupdate__', $objExpansionNode, null, $strColumnAliasArray);
+            } elseif (is_null($objToReturn->_objBackgroundProcessUpdate)) {
+                $objToReturn->_objBackgroundProcessUpdate = BackgroundProcessUpdate::InstantiateDbRow($objDbRow, $strAliasPrefix . 'backgroundprocessupdate__', $objExpansionNode, null, $strColumnAliasArray);
             }
         }
 
@@ -1198,21 +1198,21 @@ class BackgroundProcessGen extends dxBaseClass implements IteratorAggregate {
             // (If restored via a "Many-to" expansion)
             ////////////////////////////
 
-            case '_BackgroundProcessUpdateAsBackgroundProcess':
+            case '_BackgroundProcessUpdate':
                 /**
-                 * Gets the value for the private _objBackgroundProcessUpdateAsBackgroundProcess (Read-Only)
+                 * Gets the value for the private _objBackgroundProcessUpdate (Read-Only)
                  * if set due to an expansion on the BackgroundProcessUpdate.BackgroundProcess reverse relationship
                  * @return BackgroundProcessUpdate
                  */
-                return $this->_objBackgroundProcessUpdateAsBackgroundProcess;
+                return $this->_objBackgroundProcessUpdate;
 
-            case '_BackgroundProcessUpdateAsBackgroundProcessArray':
+            case '_BackgroundProcessUpdateArray':
                 /**
-                 * Gets the value for the private _objBackgroundProcessUpdateAsBackgroundProcessArray (Read-Only)
+                 * Gets the value for the private _objBackgroundProcessUpdateArray (Read-Only)
                  * if set due to an ExpandAsArray on the BackgroundProcessUpdate.BackgroundProcess reverse relationship
                  * @return BackgroundProcessUpdate[]
                  */
-                return $this->_objBackgroundProcessUpdateAsBackgroundProcessArray;
+                return $this->_objBackgroundProcessUpdateArray;
 
 
             case '__Restored':
@@ -1361,15 +1361,15 @@ class BackgroundProcessGen extends dxBaseClass implements IteratorAggregate {
 
 
 
-    // Related Objects' Methods for BackgroundProcessUpdateAsBackgroundProcess
+    // Related Objects' Methods for BackgroundProcessUpdate
     //-------------------------------------------------------------------
 
     /**
-     * Gets all associated BackgroundProcessUpdatesAsBackgroundProcess as an array of BackgroundProcessUpdate objects
+     * Gets all associated BackgroundProcessUpdates as an array of BackgroundProcessUpdate objects
      * @param dxQueryClause[] $objOptionalClauses additional optional dxQueryClause objects for this query
      * @return BackgroundProcessUpdate[]
     */
-    public function GetBackgroundProcessUpdateAsBackgroundProcessArray($objOptionalClauses = null) {
+    public function GetBackgroundProcessUpdateArray($objOptionalClauses = null) {
         if ((is_null($this->intId)))
             return array();
 
@@ -1382,10 +1382,10 @@ class BackgroundProcessGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Counts all associated BackgroundProcessUpdatesAsBackgroundProcess
+     * Counts all associated BackgroundProcessUpdates
      * @return int
     */
-    public function CountBackgroundProcessUpdatesAsBackgroundProcess() {
+    public function CountBackgroundProcessUpdates() {
         if ((is_null($this->intId)))
             return 0;
 
@@ -1393,15 +1393,15 @@ class BackgroundProcessGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Associates a BackgroundProcessUpdateAsBackgroundProcess
+     * Associates a BackgroundProcessUpdate
      * @param BackgroundProcessUpdate $objBackgroundProcessUpdate
      * @return void
     */
-    public function AssociateBackgroundProcessUpdateAsBackgroundProcess(BackgroundProcessUpdate $objBackgroundProcessUpdate) {
+    public function AssociateBackgroundProcessUpdate(BackgroundProcessUpdate $objBackgroundProcessUpdate) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateBackgroundProcessUpdateAsBackgroundProcess on this unsaved BackgroundProcess.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateBackgroundProcessUpdate on this unsaved BackgroundProcess.');
         if ((is_null($objBackgroundProcessUpdate->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateBackgroundProcessUpdateAsBackgroundProcess on this BackgroundProcess with an unsaved BackgroundProcessUpdate.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateBackgroundProcessUpdate on this BackgroundProcess with an unsaved BackgroundProcessUpdate.');
 
         // Get the Database Object for this Class
         $objDatabase = BackgroundProcess::GetDatabase();
@@ -1418,15 +1418,15 @@ class BackgroundProcessGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Unassociates a BackgroundProcessUpdateAsBackgroundProcess
+     * Unassociates a BackgroundProcessUpdate
      * @param BackgroundProcessUpdate $objBackgroundProcessUpdate
      * @return void
     */
-    public function UnassociateBackgroundProcessUpdateAsBackgroundProcess(BackgroundProcessUpdate $objBackgroundProcessUpdate) {
+    public function UnassociateBackgroundProcessUpdate(BackgroundProcessUpdate $objBackgroundProcessUpdate) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateBackgroundProcessUpdateAsBackgroundProcess on this unsaved BackgroundProcess.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateBackgroundProcessUpdate on this unsaved BackgroundProcess.');
         if ((is_null($objBackgroundProcessUpdate->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateBackgroundProcessUpdateAsBackgroundProcess on this BackgroundProcess with an unsaved BackgroundProcessUpdate.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateBackgroundProcessUpdate on this BackgroundProcess with an unsaved BackgroundProcessUpdate.');
 
         // Get the Database Object for this Class
         $objDatabase = BackgroundProcess::GetDatabase();
@@ -1444,12 +1444,12 @@ class BackgroundProcessGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Unassociates all BackgroundProcessUpdatesAsBackgroundProcess
+     * Unassociates all BackgroundProcessUpdates
      * @return void
     */
-    public function UnassociateAllBackgroundProcessUpdatesAsBackgroundProcess() {
+    public function UnassociateAllBackgroundProcessUpdates() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateBackgroundProcessUpdateAsBackgroundProcess on this unsaved BackgroundProcess.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateBackgroundProcessUpdate on this unsaved BackgroundProcess.');
 
         // Get the Database Object for this Class
         $objDatabase = BackgroundProcess::GetDatabase();
@@ -1466,15 +1466,15 @@ class BackgroundProcessGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Deletes an associated BackgroundProcessUpdateAsBackgroundProcess
+     * Deletes an associated BackgroundProcessUpdate
      * @param BackgroundProcessUpdate $objBackgroundProcessUpdate
      * @return void
     */
-    public function DeleteAssociatedBackgroundProcessUpdateAsBackgroundProcess(BackgroundProcessUpdate $objBackgroundProcessUpdate) {
+    public function DeleteAssociatedBackgroundProcessUpdate(BackgroundProcessUpdate $objBackgroundProcessUpdate) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateBackgroundProcessUpdateAsBackgroundProcess on this unsaved BackgroundProcess.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateBackgroundProcessUpdate on this unsaved BackgroundProcess.');
         if ((is_null($objBackgroundProcessUpdate->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateBackgroundProcessUpdateAsBackgroundProcess on this BackgroundProcess with an unsaved BackgroundProcessUpdate.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateBackgroundProcessUpdate on this BackgroundProcess with an unsaved BackgroundProcessUpdate.');
 
         // Get the Database Object for this Class
         $objDatabase = BackgroundProcess::GetDatabase();
@@ -1490,12 +1490,12 @@ class BackgroundProcessGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Deletes all associated BackgroundProcessUpdatesAsBackgroundProcess
+     * Deletes all associated BackgroundProcessUpdates
      * @return void
     */
-    public function DeleteAllBackgroundProcessUpdatesAsBackgroundProcess() {
+    public function DeleteAllBackgroundProcessUpdates() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateBackgroundProcessUpdateAsBackgroundProcess on this unsaved BackgroundProcess.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateBackgroundProcessUpdate on this unsaved BackgroundProcess.');
 
         // Get the Database Object for this Class
         $objDatabase = BackgroundProcess::GetDatabase();
@@ -1687,7 +1687,7 @@ class BackgroundProcessGen extends dxBaseClass implements IteratorAggregate {
      * @property-read dxQueryNode $ObjectOwner
      *
      *
-     * @property-read dxQueryReverseReferenceNodeBackgroundProcessUpdate $BackgroundProcessUpdateAsBackgroundProcess
+     * @property-read dxQueryReverseReferenceNodeBackgroundProcessUpdate $BackgroundProcessUpdate
 
      * @property-read dxQueryNode $_PrimaryKeyNode
      **/
@@ -1715,8 +1715,8 @@ class BackgroundProcessGen extends dxBaseClass implements IteratorAggregate {
 					return new dxQueryNode('LastUpdated', 'LastUpdated', 'VarChar', $this);
 				case 'ObjectOwner':
 					return new dxQueryNode('ObjectOwner', 'ObjectOwner', 'Integer', $this);
-				case 'BackgroundProcessUpdateAsBackgroundProcess':
-					return new dxQueryReverseReferenceNodeBackgroundProcessUpdate($this, 'backgroundprocessupdateasbackgroundprocess', 'reverse_reference', 'BackgroundProcess', 'BackgroundProcessUpdateAsBackgroundProcess');
+				case 'BackgroundProcessUpdate':
+					return new dxQueryReverseReferenceNodeBackgroundProcessUpdate($this, 'backgroundprocessupdate', 'reverse_reference', 'BackgroundProcess', 'BackgroundProcessUpdate');
 
 				case '_PrimaryKeyNode':
 					return new dxQueryNode('Id', 'Id', 'Integer', $this);
@@ -1743,7 +1743,7 @@ class BackgroundProcessGen extends dxBaseClass implements IteratorAggregate {
      * @property-read dxQueryNode $ObjectOwner
      *
      *
-     * @property-read dxQueryReverseReferenceNodeBackgroundProcessUpdate $BackgroundProcessUpdateAsBackgroundProcess
+     * @property-read dxQueryReverseReferenceNodeBackgroundProcessUpdate $BackgroundProcessUpdate
 
      * @property-read dxQueryNode $_PrimaryKeyNode
      **/
@@ -1771,8 +1771,8 @@ class BackgroundProcessGen extends dxBaseClass implements IteratorAggregate {
 					return new dxQueryNode('LastUpdated', 'LastUpdated', 'string', $this);
 				case 'ObjectOwner':
 					return new dxQueryNode('ObjectOwner', 'ObjectOwner', 'integer', $this);
-				case 'BackgroundProcessUpdateAsBackgroundProcess':
-					return new dxQueryReverseReferenceNodeBackgroundProcessUpdate($this, 'backgroundprocessupdateasbackgroundprocess', 'reverse_reference', 'BackgroundProcess', 'BackgroundProcessUpdateAsBackgroundProcess');
+				case 'BackgroundProcessUpdate':
+					return new dxQueryReverseReferenceNodeBackgroundProcessUpdate($this, 'backgroundprocessupdate', 'reverse_reference', 'BackgroundProcess', 'BackgroundProcessUpdate');
 
 				case '_PrimaryKeyNode':
 					return new dxQueryNode('Id', 'Id', 'integer', $this);
