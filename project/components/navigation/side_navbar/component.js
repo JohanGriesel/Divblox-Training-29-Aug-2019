@@ -32,6 +32,10 @@ if (typeof component_classes['navigation_side_navbar'] === "undefined") {
 				loadPageComponent("feed");
 				return false;
 			});
+            getComponentElementById(this,'navigation_item_history').on("click", function () {
+				loadPageComponent("history");
+				return false;
+			});
 			registerEventHandler('.sidebar_toggle_left',"click");
 		}
 	}

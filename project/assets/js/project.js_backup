@@ -167,9 +167,9 @@ function doAfterInitActions() {
 function createStockPhotoRequest(request_text,callback) {
     dxRequestInternal(getServerRootPath()+'project/assets/php/global_request_handler.php',{f:'createStockPhotoRequest',request_text:request_text},
 		function(data_obj) {
-			callback("success");
+			callback();
 		},
 		function(data) {
-			callback("failed");
+			callback();
 		},true);
 }
