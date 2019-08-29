@@ -164,12 +164,3 @@ function doAfterInitActions() {
 	//JGL: Any actions that should happen once the document is ready and all dx dependencies have been loaded can be
 	// placed here.
 }
-function createStockPhotoRequest(request_text,callback) {
-    dxRequestInternal(getServerRootPath()+'project/assets/php/global_request_handler.php',{f:'createStockPhotoRequest',request_text:request_text},
-		function(data_obj) {
-			callback("success");
-		},
-		function(data) {
-			callback("failed");
-		},true);
-}

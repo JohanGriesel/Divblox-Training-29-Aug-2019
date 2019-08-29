@@ -1,6 +1,6 @@
 -- MySQL dump 10.16  Distrib 10.1.41-MariaDB, for debian-linux-gnu (x86_64)
 --
--- Host: ss-mysql-server-01.mysql.database.azure.com    Database: dx_sandbox_OmV6weMthrR7
+-- Host: ss-mysql-server-01.mysql.database.azure.com    Database: dx_sandbox_N4lud3gKwV07
 -- ------------------------------------------------------
 -- Server version	5.6.39.0
 
@@ -57,7 +57,7 @@ CREATE TABLE `Account` (
   UNIQUE KEY `Id` (`Id`),
   UNIQUE KEY `Username` (`Username`),
   KEY `UserRole` (`UserRole`),
-  CONSTRAINT `6a2da24856d255740c3182182ca5c60e` FOREIGN KEY (`UserRole`) REFERENCES `userrole` (`Id`) ON DELETE SET NULL ON UPDATE CASCADE
+  CONSTRAINT `de49ec773bba822671fad9853d03ca39` FOREIGN KEY (`UserRole`) REFERENCES `userrole` (`Id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -88,7 +88,7 @@ CREATE TABLE `AdditionalAccountInformation` (
   `ObjectOwner` int(11) DEFAULT NULL,
   UNIQUE KEY `Id` (`Id`),
   KEY `Account` (`Account`),
-  CONSTRAINT `f2c7efa609f33882ec16c38c0184af91` FOREIGN KEY (`Account`) REFERENCES `account` (`Id`) ON DELETE SET NULL ON UPDATE CASCADE
+  CONSTRAINT `71da56b0f315ba0638f3a680b7945617` FOREIGN KEY (`Account`) REFERENCES `account` (`Id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -178,7 +178,7 @@ CREATE TABLE `BackgroundProcessUpdate` (
   `ObjectOwner` int(11) DEFAULT NULL,
   UNIQUE KEY `Id` (`Id`),
   KEY `BackgroundProcess` (`BackgroundProcess`),
-  CONSTRAINT `833be56d0e361e2d332741b299e24fb7` FOREIGN KEY (`BackgroundProcess`) REFERENCES `backgroundprocess` (`Id`) ON DELETE SET NULL ON UPDATE CASCADE
+  CONSTRAINT `a26ac5ad6feb478f6f79e701dacab2dd` FOREIGN KEY (`BackgroundProcess`) REFERENCES `backgroundprocess` (`Id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -211,7 +211,7 @@ CREATE TABLE `ClientAuthenticationToken` (
   UNIQUE KEY `Token` (`Token`),
   UNIQUE KEY `ExpiredToken` (`ExpiredToken`),
   KEY `ClientConnection` (`ClientConnection`),
-  CONSTRAINT `f890a96dcf57efde47ddad9017c90751` FOREIGN KEY (`ClientConnection`) REFERENCES `clientconnection` (`Id`) ON DELETE SET NULL ON UPDATE CASCADE
+  CONSTRAINT `ecf95c31be005741581b54f0a5927391` FOREIGN KEY (`ClientConnection`) REFERENCES `clientconnection` (`Id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -242,7 +242,7 @@ CREATE TABLE `ClientConnection` (
   `ObjectOwner` int(11) DEFAULT NULL,
   UNIQUE KEY `Id` (`Id`),
   KEY `Account` (`Account`),
-  CONSTRAINT `71da56b0f315ba0638f3a680b7945617` FOREIGN KEY (`Account`) REFERENCES `account` (`Id`) ON DELETE SET NULL ON UPDATE CASCADE
+  CONSTRAINT `a41742e10e569904f11a7d223e29484a` FOREIGN KEY (`Account`) REFERENCES `account` (`Id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -367,7 +367,7 @@ CREATE TABLE `PasswordReset` (
   UNIQUE KEY `Id` (`Id`),
   UNIQUE KEY `Token` (`Token`),
   KEY `Account` (`Account`),
-  CONSTRAINT `a26ac5ad6feb478f6f79e701dacab2dd` FOREIGN KEY (`Account`) REFERENCES `account` (`Id`) ON DELETE SET NULL ON UPDATE CASCADE
+  CONSTRAINT `91ab7a05b6c47dd1896046b0316831d0` FOREIGN KEY (`Account`) REFERENCES `account` (`Id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -405,8 +405,8 @@ CREATE TABLE `PushRegistration` (
   UNIQUE KEY `InternalUniqueId` (`InternalUniqueId`),
   KEY `ClientAuthenticationToken` (`ClientAuthenticationToken`),
   KEY `Account` (`Account`),
-  CONSTRAINT `1d6df121e4788f9a57ee5f0d55126955` FOREIGN KEY (`Account`) REFERENCES `account` (`Id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `b12366cc3c7f6551cb92aa5aaacc6cd8` FOREIGN KEY (`ClientAuthenticationToken`) REFERENCES `clientauthenticationtoken` (`Id`) ON DELETE SET NULL ON UPDATE CASCADE
+  CONSTRAINT `b94d407bf7c256a281274b7b4874d1d6` FOREIGN KEY (`ClientAuthenticationToken`) REFERENCES `clientauthenticationtoken` (`Id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `c6c60c4011e350444a081f75c5236518` FOREIGN KEY (`Account`) REFERENCES `account` (`Id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -442,7 +442,7 @@ CREATE TABLE `UserRole` (
 
 LOCK TABLES `UserRole` WRITE;
 /*!40000 ALTER TABLE `UserRole` DISABLE KEYS */;
-INSERT INTO `UserRole` VALUES (1,'Administrator','2019-08-29 07:44:01',NULL),(2,'User','2019-08-29 07:44:01',NULL);
+INSERT INTO `UserRole` VALUES (1,'Administrator','2019-08-29 07:44:02',NULL),(2,'User','2019-08-29 07:44:02',NULL);
 /*!40000 ALTER TABLE `UserRole` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -455,4 +455,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-29 10:19:10
+-- Dump completed on 2019-08-29 10:19:06

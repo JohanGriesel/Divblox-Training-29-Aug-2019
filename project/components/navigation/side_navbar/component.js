@@ -27,8 +27,8 @@ if (typeof component_classes['navigation_side_navbar'] === "undefined") {
 			getComponentElementById(this,'navigation_item_my_profile').on("click", function () {
 				loadPageComponent("my_profile");
 				return false;
-			});
-            getComponentElementById(this,'navigation_item_feed').on("click", function () {
+             });
+			getComponentElementById(this,'navigation_item_feed').on("click", function () {
 				loadPageComponent("feed");
 				return false;
 			});

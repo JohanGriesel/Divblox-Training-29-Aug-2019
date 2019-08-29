@@ -1,5 +1,5 @@
-if (typeof component_classes['pages_request_view'] === "undefined") {
-	class pages_request_view extends DivbloxDomBaseComponent {
+if (typeof component_classes['pages_request_view_page'] === "undefined") {
+	class pages_request_view_page extends DivbloxDomBaseComponent {
 		constructor(inputs,supports_native,requires_native) {
 			super(inputs,supports_native,requires_native);
 			// Sub component config start
@@ -7,9 +7,9 @@ if (typeof component_classes['pages_request_view'] === "undefined") {
 			// Sub component config end
 		}
 		reset(inputs) {
-			setActivePage("request_view","Request View");
+			setActivePage("","Stock Photo Request");
 			super.reset(inputs);
 		}
 	}
-	component_classes['pages_request_view'] = pages_request_view;
+	component_classes['pages_request_view_page'] = pages_request_view_page;
 }

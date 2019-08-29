@@ -7,7 +7,7 @@ if (typeof component_classes['pages_history'] === "undefined") {
 			// Sub component config end
 		}
 		reset(inputs) {
-			setActivePage("history","My History");
+			setActivePage("history","History");
 			super.reset(inputs);
 		}
 	}

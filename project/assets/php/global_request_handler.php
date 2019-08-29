@@ -14,8 +14,6 @@ switch($_POST["f"]) {
         break;
     case 'updatePushRegistration': updatePushRegistration();
         break;
-    case 'createStockPhotoRequest': createStockPhotoRequest();
-        break;
         // TODO: Define custom function handlers here...
     default:  die(json_encode(array("Result" => "Failed","Message" => "Invalid function")));
 }
@@ -80,16 +78,4 @@ function updatePushRegistration() {
         die(json_encode(array("Result" => "Failed","Message" => $ErrorInfo)));
     }
     die(json_encode(array("Result" => "Success","InternalId" => $ErrorInfo[0])));
-}
-function createStockPhotoRequest() {
-    if (!isset($_POST["request_text"])) {
-        die(json_encode(array("Result" => "Failed","Message" => "Invalid request")));
-    }
-    $StockPhotoRequestObj = new StockPhotoRequest();
-    $StockPhotoRequestObj->AccountObject = Account::Load(ProjectFunctions::getCurrentAccountId());
-    $StockPhotoRequestObj->RequestText = $_POST["request_text"];
-    $StockPhotoRequestObj->RequestStatusObject = RequestStatus::QuerySingle(dxQ::Equal(dxQN::RequestStatus()->StatusLabel,"Open"));
-    $StockPhotoRequestObj->CreatedDateTime = dxDateTime::Now();
-    $StockPhotoRequestObj->Save();
-    die(json_encode(array("Result" => "Success")));
 }
