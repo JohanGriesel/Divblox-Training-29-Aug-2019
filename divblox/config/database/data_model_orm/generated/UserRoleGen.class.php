@@ -19,8 +19,8 @@
  * @property string $Role the value for strRole (Unique)
  * @property-read string $LastUpdated the value for strLastUpdated (Read-Only Timestamp)
  * @property integer $ObjectOwner the value for intObjectOwner 
- * @property-read Account $_Account the value for the private _objAccount (Read-Only) if set due to an expansion on the Account.UserRole reverse relationship
- * @property-read Account[] $_AccountArray the value for the private _objAccountArray (Read-Only) if set due to an ExpandAsArray on the Account.UserRole reverse relationship
+ * @property-read Account $_AccountAsUserRole the value for the private _objAccountAsUserRole (Read-Only) if set due to an expansion on the Account.UserRole reverse relationship
+ * @property-read Account[] $_AccountAsUserRoleArray the value for the private _objAccountAsUserRoleArray (Read-Only) if set due to an ExpandAsArray on the Account.UserRole reverse relationship
  * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
  */
 class UserRoleGen extends dxBaseClass implements IteratorAggregate {
@@ -63,20 +63,20 @@ class UserRoleGen extends dxBaseClass implements IteratorAggregate {
 
 
     /**
-     * Private member variable that stores a reference to a single Account object
+     * Private member variable that stores a reference to a single AccountAsUserRole object
      * (of type Account), if this UserRole object was restored with
      * an expansion on the Account association table.
-     * @var Account _objAccount;
+     * @var Account _objAccountAsUserRole;
      */
-    private $_objAccount;
+    private $_objAccountAsUserRole;
 
     /**
-     * Private member variable that stores a reference to an array of Account objects
+     * Private member variable that stores a reference to an array of AccountAsUserRole objects
      * (of type Account[]), if this UserRole object was restored with
      * an ExpandAsArray on the Account association table.
-     * @var Account[] _objAccountArray;
+     * @var Account[] _objAccountAsUserRoleArray;
      */
-    private $_objAccountArray = null;
+    private $_objAccountAsUserRoleArray = null;
 
     /**
      * Protected array of virtual attributes for this object (e.g. extra/other calculated and/or non-object bound
@@ -612,18 +612,18 @@ class UserRoleGen extends dxBaseClass implements IteratorAggregate {
 
 
 
-        // Check for Account Virtual Binding
-        $strAlias = $strAliasPrefix . 'account__Id';
+        // Check for AccountAsUserRole Virtual Binding
+        $strAlias = $strAliasPrefix . 'accountasuserrole__Id';
         $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
-        $objExpansionNode = (empty($objExpansionAliasArray['account']) ? null : $objExpansionAliasArray['account']);
+        $objExpansionNode = (empty($objExpansionAliasArray['accountasuserrole']) ? null : $objExpansionAliasArray['accountasuserrole']);
         $blnExpanded = ($objExpansionNode && $objExpansionNode->ExpandAsArray);
-        if ($blnExpanded && null === $objToReturn->_objAccountArray)
-            $objToReturn->_objAccountArray = array();
+        if ($blnExpanded && null === $objToReturn->_objAccountAsUserRoleArray)
+            $objToReturn->_objAccountAsUserRoleArray = array();
         if (!is_null($objDbRow->GetColumn($strAliasName))) {
             if ($blnExpanded) {
-                $objToReturn->_objAccountArray[] = Account::InstantiateDbRow($objDbRow, $strAliasPrefix . 'account__', $objExpansionNode, null, $strColumnAliasArray);
-            } elseif (is_null($objToReturn->_objAccount)) {
-                $objToReturn->_objAccount = Account::InstantiateDbRow($objDbRow, $strAliasPrefix . 'account__', $objExpansionNode, null, $strColumnAliasArray);
+                $objToReturn->_objAccountAsUserRoleArray[] = Account::InstantiateDbRow($objDbRow, $strAliasPrefix . 'accountasuserrole__', $objExpansionNode, null, $strColumnAliasArray);
+            } elseif (is_null($objToReturn->_objAccountAsUserRole)) {
+                $objToReturn->_objAccountAsUserRole = Account::InstantiateDbRow($objDbRow, $strAliasPrefix . 'accountasuserrole__', $objExpansionNode, null, $strColumnAliasArray);
             }
         }
 
@@ -1037,21 +1037,21 @@ class UserRoleGen extends dxBaseClass implements IteratorAggregate {
             // (If restored via a "Many-to" expansion)
             ////////////////////////////
 
-            case '_Account':
+            case '_AccountAsUserRole':
                 /**
-                 * Gets the value for the private _objAccount (Read-Only)
+                 * Gets the value for the private _objAccountAsUserRole (Read-Only)
                  * if set due to an expansion on the Account.UserRole reverse relationship
                  * @return Account
                  */
-                return $this->_objAccount;
+                return $this->_objAccountAsUserRole;
 
-            case '_AccountArray':
+            case '_AccountAsUserRoleArray':
                 /**
-                 * Gets the value for the private _objAccountArray (Read-Only)
+                 * Gets the value for the private _objAccountAsUserRoleArray (Read-Only)
                  * if set due to an ExpandAsArray on the Account.UserRole reverse relationship
                  * @return Account[]
                  */
-                return $this->_objAccountArray;
+                return $this->_objAccountAsUserRoleArray;
 
 
             case '__Restored':
@@ -1135,15 +1135,15 @@ class UserRoleGen extends dxBaseClass implements IteratorAggregate {
 
 
 
-    // Related Objects' Methods for Account
+    // Related Objects' Methods for AccountAsUserRole
     //-------------------------------------------------------------------
 
     /**
-     * Gets all associated Accounts as an array of Account objects
+     * Gets all associated AccountsAsUserRole as an array of Account objects
      * @param dxQueryClause[] $objOptionalClauses additional optional dxQueryClause objects for this query
      * @return Account[]
     */
-    public function GetAccountArray($objOptionalClauses = null) {
+    public function GetAccountAsUserRoleArray($objOptionalClauses = null) {
         if ((is_null($this->intId)))
             return array();
 
@@ -1156,10 +1156,10 @@ class UserRoleGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Counts all associated Accounts
+     * Counts all associated AccountsAsUserRole
      * @return int
     */
-    public function CountAccounts() {
+    public function CountAccountsAsUserRole() {
         if ((is_null($this->intId)))
             return 0;
 
@@ -1167,15 +1167,15 @@ class UserRoleGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Associates a Account
+     * Associates a AccountAsUserRole
      * @param Account $objAccount
      * @return void
     */
-    public function AssociateAccount(Account $objAccount) {
+    public function AssociateAccountAsUserRole(Account $objAccount) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateAccount on this unsaved UserRole.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateAccountAsUserRole on this unsaved UserRole.');
         if ((is_null($objAccount->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateAccount on this UserRole with an unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateAccountAsUserRole on this UserRole with an unsaved Account.');
 
         // Get the Database Object for this Class
         $objDatabase = UserRole::GetDatabase();
@@ -1192,15 +1192,15 @@ class UserRoleGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Unassociates a Account
+     * Unassociates a AccountAsUserRole
      * @param Account $objAccount
      * @return void
     */
-    public function UnassociateAccount(Account $objAccount) {
+    public function UnassociateAccountAsUserRole(Account $objAccount) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAccount on this unsaved UserRole.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAccountAsUserRole on this unsaved UserRole.');
         if ((is_null($objAccount->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAccount on this UserRole with an unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAccountAsUserRole on this UserRole with an unsaved Account.');
 
         // Get the Database Object for this Class
         $objDatabase = UserRole::GetDatabase();
@@ -1218,12 +1218,12 @@ class UserRoleGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Unassociates all Accounts
+     * Unassociates all AccountsAsUserRole
      * @return void
     */
-    public function UnassociateAllAccounts() {
+    public function UnassociateAllAccountsAsUserRole() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAccount on this unsaved UserRole.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAccountAsUserRole on this unsaved UserRole.');
 
         // Get the Database Object for this Class
         $objDatabase = UserRole::GetDatabase();
@@ -1240,15 +1240,15 @@ class UserRoleGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Deletes an associated Account
+     * Deletes an associated AccountAsUserRole
      * @param Account $objAccount
      * @return void
     */
-    public function DeleteAssociatedAccount(Account $objAccount) {
+    public function DeleteAssociatedAccountAsUserRole(Account $objAccount) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAccount on this unsaved UserRole.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAccountAsUserRole on this unsaved UserRole.');
         if ((is_null($objAccount->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAccount on this UserRole with an unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAccountAsUserRole on this UserRole with an unsaved Account.');
 
         // Get the Database Object for this Class
         $objDatabase = UserRole::GetDatabase();
@@ -1264,12 +1264,12 @@ class UserRoleGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Deletes all associated Accounts
+     * Deletes all associated AccountsAsUserRole
      * @return void
     */
-    public function DeleteAllAccounts() {
+    public function DeleteAllAccountsAsUserRole() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAccount on this unsaved UserRole.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAccountAsUserRole on this unsaved UserRole.');
 
         // Get the Database Object for this Class
         $objDatabase = UserRole::GetDatabase();
@@ -1432,7 +1432,7 @@ class UserRoleGen extends dxBaseClass implements IteratorAggregate {
      * @property-read dxQueryNode $ObjectOwner
      *
      *
-     * @property-read dxQueryReverseReferenceNodeAccount $Account
+     * @property-read dxQueryReverseReferenceNodeAccount $AccountAsUserRole
 
      * @property-read dxQueryNode $_PrimaryKeyNode
      **/
@@ -1450,8 +1450,8 @@ class UserRoleGen extends dxBaseClass implements IteratorAggregate {
 					return new dxQueryNode('LastUpdated', 'LastUpdated', 'VarChar', $this);
 				case 'ObjectOwner':
 					return new dxQueryNode('ObjectOwner', 'ObjectOwner', 'Integer', $this);
-				case 'Account':
-					return new dxQueryReverseReferenceNodeAccount($this, 'account', 'reverse_reference', 'UserRole', 'Account');
+				case 'AccountAsUserRole':
+					return new dxQueryReverseReferenceNodeAccount($this, 'accountasuserrole', 'reverse_reference', 'UserRole', 'AccountAsUserRole');
 
 				case '_PrimaryKeyNode':
 					return new dxQueryNode('Id', 'Id', 'Integer', $this);
@@ -1473,7 +1473,7 @@ class UserRoleGen extends dxBaseClass implements IteratorAggregate {
      * @property-read dxQueryNode $ObjectOwner
      *
      *
-     * @property-read dxQueryReverseReferenceNodeAccount $Account
+     * @property-read dxQueryReverseReferenceNodeAccount $AccountAsUserRole
 
      * @property-read dxQueryNode $_PrimaryKeyNode
      **/
@@ -1491,8 +1491,8 @@ class UserRoleGen extends dxBaseClass implements IteratorAggregate {
 					return new dxQueryNode('LastUpdated', 'LastUpdated', 'string', $this);
 				case 'ObjectOwner':
 					return new dxQueryNode('ObjectOwner', 'ObjectOwner', 'integer', $this);
-				case 'Account':
-					return new dxQueryReverseReferenceNodeAccount($this, 'account', 'reverse_reference', 'UserRole', 'Account');
+				case 'AccountAsUserRole':
+					return new dxQueryReverseReferenceNodeAccount($this, 'accountasuserrole', 'reverse_reference', 'UserRole', 'AccountAsUserRole');
 
 				case '_PrimaryKeyNode':
 					return new dxQueryNode('Id', 'Id', 'integer', $this);

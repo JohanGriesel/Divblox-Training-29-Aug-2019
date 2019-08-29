@@ -22,7 +22,7 @@
  * @property integer $BackgroundProcess the value for intBackgroundProcess 
  * @property string $SearchMetaInfo the value for strSearchMetaInfo 
  * @property integer $ObjectOwner the value for intObjectOwner 
- * @property BackgroundProcess $BackgroundProcessObject the value for the BackgroundProcess object referenced by intBackgroundProcess 
+ * @property Backgroundprocess $BackgroundProcessObject the value for the Backgroundprocess object referenced by intBackgroundProcess 
  * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
  */
 class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregate {
@@ -110,9 +110,9 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
      * Protected member variable that contains the object pointed by the reference
      * in the database column BackgroundProcessUpdate.BackgroundProcess.
      *
-     * NOTE: Always use the BackgroundProcessObject property getter to correctly retrieve this BackgroundProcess object.
+     * NOTE: Always use the BackgroundProcessObject property getter to correctly retrieve this Backgroundprocess object.
      * (Because this class implements late binding, this variable reference MAY be null.)
-     * @var BackgroundProcess objBackgroundProcessObject
+     * @var Backgroundprocess objBackgroundProcessObject
      */
     protected $objBackgroundProcessObject;
 
@@ -648,7 +648,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
         $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
         if (!is_null($objDbRow->GetColumn($strAliasName))) {
             $objExpansionNode = (empty($objExpansionAliasArray['BackgroundProcess']) ? null : $objExpansionAliasArray['BackgroundProcess']);
-            $objToReturn->objBackgroundProcessObject = BackgroundProcess::InstantiateDbRow($objDbRow, $strAliasPrefix . 'BackgroundProcess__', $objExpansionNode, null, $strColumnAliasArray);
+            $objToReturn->objBackgroundProcessObject = Backgroundprocess::InstantiateDbRow($objDbRow, $strAliasPrefix . 'BackgroundProcess__', $objExpansionNode, null, $strColumnAliasArray);
         }
 
 
@@ -1138,12 +1138,12 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
             ///////////////////
             case 'BackgroundProcessObject':
                 /**
-                 * Gets the value for the BackgroundProcess object referenced by intBackgroundProcess 
-                 * @return BackgroundProcess
+                 * Gets the value for the Backgroundprocess object referenced by intBackgroundProcess 
+                 * @return Backgroundprocess
                  */
                 try {
                     if ((!$this->objBackgroundProcessObject) && (!is_null($this->intBackgroundProcess)))
-                        $this->objBackgroundProcessObject = BackgroundProcess::Load($this->intBackgroundProcess);
+                        $this->objBackgroundProcessObject = Backgroundprocess::Load($this->intBackgroundProcess);
                     return $this->objBackgroundProcessObject;
                 } catch (dxCallerException $objExc) {
                     $objExc->IncrementOffset();
@@ -1254,24 +1254,24 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
             ///////////////////
             case 'BackgroundProcessObject':
                 /**
-                 * Sets the value for the BackgroundProcess object referenced by intBackgroundProcess 
-                 * @param BackgroundProcess $mixValue
-                 * @return BackgroundProcess
+                 * Sets the value for the Backgroundprocess object referenced by intBackgroundProcess 
+                 * @param Backgroundprocess $mixValue
+                 * @return Backgroundprocess
                  */
                 if (is_null($mixValue)) {
                     $this->intBackgroundProcess = null;
                     $this->objBackgroundProcessObject = null;
                     return null;
                 } else {
-                    // Make sure $mixValue actually is a BackgroundProcess object
+                    // Make sure $mixValue actually is a Backgroundprocess object
                     try {
-                        $mixValue = dxType::Cast($mixValue, 'BackgroundProcess');
+                        $mixValue = dxType::Cast($mixValue, 'Backgroundprocess');
                     } catch (dxInvalidCastException $objExc) {
                         $objExc->IncrementOffset();
                         throw $objExc;
                     }
 
-                    // Make sure $mixValue is a SAVED BackgroundProcess object
+                    // Make sure $mixValue is a SAVED Backgroundprocess object
                     if (is_null($mixValue->Id))
                         throw new dxCallerException('Unable to set an unsaved BackgroundProcessObject for this BackgroundProcessUpdate');
 
@@ -1352,7 +1352,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
         $strToReturn .= '<element name="UpdateDateTime" type="xsd:dateTime"/>';
         $strToReturn .= '<element name="UpdateMessage" type="xsd:string"/>';
         $strToReturn .= '<element name="LastUpdated" type="xsd:string"/>';
-        $strToReturn .= '<element name="BackgroundProcessObject" type="xsd1:BackgroundProcess"/>';
+        $strToReturn .= '<element name="BackgroundProcessObject" type="xsd1:Backgroundprocess"/>';
         $strToReturn .= '<element name="SearchMetaInfo" type="xsd:string"/>';
         $strToReturn .= '<element name="ObjectOwner" type="xsd:int"/>';
         $strToReturn .= '<element name="__blnRestored" type="xsd:boolean"/>';
@@ -1363,7 +1363,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
     public static function AlterSoapComplexTypeArray(&$strComplexTypeArray) {
         if (!array_key_exists('BackgroundProcessUpdate', $strComplexTypeArray)) {
             $strComplexTypeArray['BackgroundProcessUpdate'] = BackgroundProcessUpdate::GetSoapComplexTypeXml();
-            BackgroundProcess::AlterSoapComplexTypeArray($strComplexTypeArray);
+            Backgroundprocess::AlterSoapComplexTypeArray($strComplexTypeArray);
         }
     }
 
@@ -1388,7 +1388,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
             $objToReturn->strLastUpdated = $objSoapObject->LastUpdated;
         if ((property_exists($objSoapObject, 'BackgroundProcessObject')) &&
             ($objSoapObject->BackgroundProcessObject))
-            $objToReturn->BackgroundProcessObject = BackgroundProcess::GetObjectFromSoapObject($objSoapObject->BackgroundProcessObject);
+            $objToReturn->BackgroundProcessObject = Backgroundprocess::GetObjectFromSoapObject($objSoapObject->BackgroundProcessObject);
         if (property_exists($objSoapObject, 'SearchMetaInfo'))
             $objToReturn->strSearchMetaInfo = $objSoapObject->SearchMetaInfo;
         if (property_exists($objSoapObject, 'ObjectOwner'))
@@ -1414,7 +1414,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
         if ($objObject->dttUpdateDateTime)
             $objObject->dttUpdateDateTime = $objObject->dttUpdateDateTime->qFormat(dxDateTime::FormatSoap);
         if ($objObject->objBackgroundProcessObject)
-            $objObject->objBackgroundProcessObject = BackgroundProcess::GetSoapObjectFromObject($objObject->objBackgroundProcessObject, false);
+            $objObject->objBackgroundProcessObject = Backgroundprocess::GetSoapObjectFromObject($objObject->objBackgroundProcessObject, false);
         else if (!$blnBindRelatedObjects)
             $objObject->intBackgroundProcess = null;
         return $objObject;
@@ -1477,7 +1477,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
      * @property-read dxQueryNode $UpdateMessage
      * @property-read dxQueryNode $LastUpdated
      * @property-read dxQueryNode $BackgroundProcess
-     * @property-read dxQueryNodeBackgroundProcess $BackgroundProcessObject
+     * @property-read dxQueryNodeBackgroundprocess $BackgroundProcessObject
      * @property-read dxQueryNode $SearchMetaInfo
      * @property-read dxQueryNode $ObjectOwner
      *
@@ -1502,7 +1502,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
 				case 'BackgroundProcess':
 					return new dxQueryNode('BackgroundProcess', 'BackgroundProcess', 'Integer', $this);
 				case 'BackgroundProcessObject':
-					return new dxQueryNodeBackgroundProcess('BackgroundProcess', 'BackgroundProcessObject', 'Integer', $this);
+					return new dxQueryNodeBackgroundprocess('BackgroundProcess', 'BackgroundProcessObject', 'Integer', $this);
 				case 'SearchMetaInfo':
 					return new dxQueryNode('SearchMetaInfo', 'SearchMetaInfo', 'Blob', $this);
 				case 'ObjectOwner':
@@ -1527,7 +1527,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
      * @property-read dxQueryNode $UpdateMessage
      * @property-read dxQueryNode $LastUpdated
      * @property-read dxQueryNode $BackgroundProcess
-     * @property-read dxQueryNodeBackgroundProcess $BackgroundProcessObject
+     * @property-read dxQueryNodeBackgroundprocess $BackgroundProcessObject
      * @property-read dxQueryNode $SearchMetaInfo
      * @property-read dxQueryNode $ObjectOwner
      *
@@ -1552,7 +1552,7 @@ class BackgroundProcessUpdateGen extends dxBaseClass implements IteratorAggregat
 				case 'BackgroundProcess':
 					return new dxQueryNode('BackgroundProcess', 'BackgroundProcess', 'integer', $this);
 				case 'BackgroundProcessObject':
-					return new dxQueryNodeBackgroundProcess('BackgroundProcess', 'BackgroundProcessObject', 'integer', $this);
+					return new dxQueryNodeBackgroundprocess('BackgroundProcess', 'BackgroundProcessObject', 'integer', $this);
 				case 'SearchMetaInfo':
 					return new dxQueryNode('SearchMetaInfo', 'SearchMetaInfo', 'string', $this);
 				case 'ObjectOwner':

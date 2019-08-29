@@ -28,7 +28,7 @@
  * @property string $SearchMetaInfo the value for strSearchMetaInfo 
  * @property integer $Account the value for intAccount 
  * @property integer $ObjectOwner the value for intObjectOwner 
- * @property ClientAuthenticationToken $ClientAuthenticationTokenObject the value for the ClientAuthenticationToken object referenced by intClientAuthenticationToken 
+ * @property Clientauthenticationtoken $ClientAuthenticationTokenObject the value for the Clientauthenticationtoken object referenced by intClientAuthenticationToken 
  * @property Account $AccountObject the value for the Account object referenced by intAccount 
  * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
  */
@@ -170,9 +170,9 @@ class PushRegistrationGen extends dxBaseClass implements IteratorAggregate {
      * Protected member variable that contains the object pointed by the reference
      * in the database column PushRegistration.ClientAuthenticationToken.
      *
-     * NOTE: Always use the ClientAuthenticationTokenObject property getter to correctly retrieve this ClientAuthenticationToken object.
+     * NOTE: Always use the ClientAuthenticationTokenObject property getter to correctly retrieve this Clientauthenticationtoken object.
      * (Because this class implements late binding, this variable reference MAY be null.)
-     * @var ClientAuthenticationToken objClientAuthenticationTokenObject
+     * @var Clientauthenticationtoken objClientAuthenticationTokenObject
      */
     protected $objClientAuthenticationTokenObject;
 
@@ -748,7 +748,7 @@ class PushRegistrationGen extends dxBaseClass implements IteratorAggregate {
         $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
         if (!is_null($objDbRow->GetColumn($strAliasName))) {
             $objExpansionNode = (empty($objExpansionAliasArray['ClientAuthenticationToken']) ? null : $objExpansionAliasArray['ClientAuthenticationToken']);
-            $objToReturn->objClientAuthenticationTokenObject = ClientAuthenticationToken::InstantiateDbRow($objDbRow, $strAliasPrefix . 'ClientAuthenticationToken__', $objExpansionNode, null, $strColumnAliasArray);
+            $objToReturn->objClientAuthenticationTokenObject = Clientauthenticationtoken::InstantiateDbRow($objDbRow, $strAliasPrefix . 'ClientAuthenticationToken__', $objExpansionNode, null, $strColumnAliasArray);
         }
         // Check for AccountObject Early Binding
         $strAlias = $strAliasPrefix . 'Account__Id';
@@ -1419,12 +1419,12 @@ class PushRegistrationGen extends dxBaseClass implements IteratorAggregate {
             ///////////////////
             case 'ClientAuthenticationTokenObject':
                 /**
-                 * Gets the value for the ClientAuthenticationToken object referenced by intClientAuthenticationToken 
-                 * @return ClientAuthenticationToken
+                 * Gets the value for the Clientauthenticationtoken object referenced by intClientAuthenticationToken 
+                 * @return Clientauthenticationtoken
                  */
                 try {
                     if ((!$this->objClientAuthenticationTokenObject) && (!is_null($this->intClientAuthenticationToken)))
-                        $this->objClientAuthenticationTokenObject = ClientAuthenticationToken::Load($this->intClientAuthenticationToken);
+                        $this->objClientAuthenticationTokenObject = Clientauthenticationtoken::Load($this->intClientAuthenticationToken);
                     return $this->objClientAuthenticationTokenObject;
                 } catch (dxCallerException $objExc) {
                     $objExc->IncrementOffset();
@@ -1628,24 +1628,24 @@ class PushRegistrationGen extends dxBaseClass implements IteratorAggregate {
             ///////////////////
             case 'ClientAuthenticationTokenObject':
                 /**
-                 * Sets the value for the ClientAuthenticationToken object referenced by intClientAuthenticationToken 
-                 * @param ClientAuthenticationToken $mixValue
-                 * @return ClientAuthenticationToken
+                 * Sets the value for the Clientauthenticationtoken object referenced by intClientAuthenticationToken 
+                 * @param Clientauthenticationtoken $mixValue
+                 * @return Clientauthenticationtoken
                  */
                 if (is_null($mixValue)) {
                     $this->intClientAuthenticationToken = null;
                     $this->objClientAuthenticationTokenObject = null;
                     return null;
                 } else {
-                    // Make sure $mixValue actually is a ClientAuthenticationToken object
+                    // Make sure $mixValue actually is a Clientauthenticationtoken object
                     try {
-                        $mixValue = dxType::Cast($mixValue, 'ClientAuthenticationToken');
+                        $mixValue = dxType::Cast($mixValue, 'Clientauthenticationtoken');
                     } catch (dxInvalidCastException $objExc) {
                         $objExc->IncrementOffset();
                         throw $objExc;
                     }
 
-                    // Make sure $mixValue is a SAVED ClientAuthenticationToken object
+                    // Make sure $mixValue is a SAVED Clientauthenticationtoken object
                     if (is_null($mixValue->Id))
                         throw new dxCallerException('Unable to set an unsaved ClientAuthenticationTokenObject for this PushRegistration');
 
@@ -1763,7 +1763,7 @@ class PushRegistrationGen extends dxBaseClass implements IteratorAggregate {
         $strToReturn .= '<element name="RegistrationStatus" type="xsd:string"/>';
         $strToReturn .= '<element name="InternalUniqueId" type="xsd:string"/>';
         $strToReturn .= '<element name="LastUpdated" type="xsd:string"/>';
-        $strToReturn .= '<element name="ClientAuthenticationTokenObject" type="xsd1:ClientAuthenticationToken"/>';
+        $strToReturn .= '<element name="ClientAuthenticationTokenObject" type="xsd1:Clientauthenticationtoken"/>';
         $strToReturn .= '<element name="SearchMetaInfo" type="xsd:string"/>';
         $strToReturn .= '<element name="AccountObject" type="xsd1:Account"/>';
         $strToReturn .= '<element name="ObjectOwner" type="xsd:int"/>';
@@ -1775,7 +1775,7 @@ class PushRegistrationGen extends dxBaseClass implements IteratorAggregate {
     public static function AlterSoapComplexTypeArray(&$strComplexTypeArray) {
         if (!array_key_exists('PushRegistration', $strComplexTypeArray)) {
             $strComplexTypeArray['PushRegistration'] = PushRegistration::GetSoapComplexTypeXml();
-            ClientAuthenticationToken::AlterSoapComplexTypeArray($strComplexTypeArray);
+            Clientauthenticationtoken::AlterSoapComplexTypeArray($strComplexTypeArray);
             Account::AlterSoapComplexTypeArray($strComplexTypeArray);
         }
     }
@@ -1811,7 +1811,7 @@ class PushRegistrationGen extends dxBaseClass implements IteratorAggregate {
             $objToReturn->strLastUpdated = $objSoapObject->LastUpdated;
         if ((property_exists($objSoapObject, 'ClientAuthenticationTokenObject')) &&
             ($objSoapObject->ClientAuthenticationTokenObject))
-            $objToReturn->ClientAuthenticationTokenObject = ClientAuthenticationToken::GetObjectFromSoapObject($objSoapObject->ClientAuthenticationTokenObject);
+            $objToReturn->ClientAuthenticationTokenObject = Clientauthenticationtoken::GetObjectFromSoapObject($objSoapObject->ClientAuthenticationTokenObject);
         if (property_exists($objSoapObject, 'SearchMetaInfo'))
             $objToReturn->strSearchMetaInfo = $objSoapObject->SearchMetaInfo;
         if ((property_exists($objSoapObject, 'AccountObject')) &&
@@ -1840,7 +1840,7 @@ class PushRegistrationGen extends dxBaseClass implements IteratorAggregate {
         if ($objObject->dttRegistrationDateTime)
             $objObject->dttRegistrationDateTime = $objObject->dttRegistrationDateTime->qFormat(dxDateTime::FormatSoap);
         if ($objObject->objClientAuthenticationTokenObject)
-            $objObject->objClientAuthenticationTokenObject = ClientAuthenticationToken::GetSoapObjectFromObject($objObject->objClientAuthenticationTokenObject, false);
+            $objObject->objClientAuthenticationTokenObject = Clientauthenticationtoken::GetSoapObjectFromObject($objObject->objClientAuthenticationTokenObject, false);
         else if (!$blnBindRelatedObjects)
             $objObject->intClientAuthenticationToken = null;
         if ($objObject->objAccountObject)
@@ -1918,7 +1918,7 @@ class PushRegistrationGen extends dxBaseClass implements IteratorAggregate {
      * @property-read dxQueryNode $InternalUniqueId
      * @property-read dxQueryNode $LastUpdated
      * @property-read dxQueryNode $ClientAuthenticationToken
-     * @property-read dxQueryNodeClientAuthenticationToken $ClientAuthenticationTokenObject
+     * @property-read dxQueryNodeClientauthenticationtoken $ClientAuthenticationTokenObject
      * @property-read dxQueryNode $SearchMetaInfo
      * @property-read dxQueryNode $Account
      * @property-read dxQueryNodeAccount $AccountObject
@@ -1955,7 +1955,7 @@ class PushRegistrationGen extends dxBaseClass implements IteratorAggregate {
 				case 'ClientAuthenticationToken':
 					return new dxQueryNode('ClientAuthenticationToken', 'ClientAuthenticationToken', 'Integer', $this);
 				case 'ClientAuthenticationTokenObject':
-					return new dxQueryNodeClientAuthenticationToken('ClientAuthenticationToken', 'ClientAuthenticationTokenObject', 'Integer', $this);
+					return new dxQueryNodeClientauthenticationtoken('ClientAuthenticationToken', 'ClientAuthenticationTokenObject', 'Integer', $this);
 				case 'SearchMetaInfo':
 					return new dxQueryNode('SearchMetaInfo', 'SearchMetaInfo', 'Blob', $this);
 				case 'Account':
@@ -1989,7 +1989,7 @@ class PushRegistrationGen extends dxBaseClass implements IteratorAggregate {
      * @property-read dxQueryNode $InternalUniqueId
      * @property-read dxQueryNode $LastUpdated
      * @property-read dxQueryNode $ClientAuthenticationToken
-     * @property-read dxQueryNodeClientAuthenticationToken $ClientAuthenticationTokenObject
+     * @property-read dxQueryNodeClientauthenticationtoken $ClientAuthenticationTokenObject
      * @property-read dxQueryNode $SearchMetaInfo
      * @property-read dxQueryNode $Account
      * @property-read dxQueryNodeAccount $AccountObject
@@ -2026,7 +2026,7 @@ class PushRegistrationGen extends dxBaseClass implements IteratorAggregate {
 				case 'ClientAuthenticationToken':
 					return new dxQueryNode('ClientAuthenticationToken', 'ClientAuthenticationToken', 'integer', $this);
 				case 'ClientAuthenticationTokenObject':
-					return new dxQueryNodeClientAuthenticationToken('ClientAuthenticationToken', 'ClientAuthenticationTokenObject', 'integer', $this);
+					return new dxQueryNodeClientauthenticationtoken('ClientAuthenticationToken', 'ClientAuthenticationTokenObject', 'integer', $this);
 				case 'SearchMetaInfo':
 					return new dxQueryNode('SearchMetaInfo', 'SearchMetaInfo', 'string', $this);
 				case 'Account':

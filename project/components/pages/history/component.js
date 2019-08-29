@@ -3,8 +3,10 @@ if (typeof component_classes['pages_history'] === "undefined") {
 		constructor(inputs,supports_native,requires_native) {
 			super(inputs,supports_native,requires_native);
 			// Sub component config start
-			this.sub_component_definitions = [{"component_load_path":"navigation/side_navbar","parent_element":"s8gjT","arguments":{}}];
-			// Sub component config end
+            this.sub_component_definitions = 
+                [{"component_load_path":"navigation/side_navbar","parent_element":"s8gjT","arguments":{"uid":"navigation_side_navbar_1"}},
+            {"component_load_path":"data_model/my_request_list","parent_element":"LoL2E","arguments":{}}];
+            // Sub component config end
 		}
 		reset(inputs) {
 			setActivePage("history","My History");

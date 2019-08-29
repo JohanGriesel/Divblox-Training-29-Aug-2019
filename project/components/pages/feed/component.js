@@ -24,6 +24,18 @@ if (typeof component_classes['pages_feed'] === "undefined") {
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             
         }
+        eventTriggered(event_name,parameters_obj) {
+            switch(event_name) {
+                case 'stock_photo_request_clicked': 
+                    setGlobalConstrainById("StockPhotoRequest",parameters_obj.id);
+                    loadPageComponent("request_view");
+                    break;
+                default:
+                    dxLog("Event triggered: "+event_name+": "+JSON.stringify(parameters_obj));
+            }
+            // Let's pass the event to all sub components
+            this.propagateEventTriggered(event_name,parameters_obj);
+        }
    	}
 	component_classes['pages_feed'] = pages_feed;
 }

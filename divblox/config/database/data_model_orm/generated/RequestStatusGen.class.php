@@ -19,8 +19,8 @@
  * @property string $StatusLabel the value for strStatusLabel 
  * @property-read string $LastUpdated the value for strLastUpdated (Read-Only Timestamp)
  * @property integer $ObjectOwner the value for intObjectOwner 
- * @property-read StockPhotoRequest $_StockPhotoRequest the value for the private _objStockPhotoRequest (Read-Only) if set due to an expansion on the StockPhotoRequest.RequestStatus reverse relationship
- * @property-read StockPhotoRequest[] $_StockPhotoRequestArray the value for the private _objStockPhotoRequestArray (Read-Only) if set due to an ExpandAsArray on the StockPhotoRequest.RequestStatus reverse relationship
+ * @property-read StockPhotoRequest $_StockPhotoRequestAsRequestStatus the value for the private _objStockPhotoRequestAsRequestStatus (Read-Only) if set due to an expansion on the StockPhotoRequest.RequestStatus reverse relationship
+ * @property-read StockPhotoRequest[] $_StockPhotoRequestAsRequestStatusArray the value for the private _objStockPhotoRequestAsRequestStatusArray (Read-Only) if set due to an ExpandAsArray on the StockPhotoRequest.RequestStatus reverse relationship
  * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
  */
 class RequestStatusGen extends dxBaseClass implements IteratorAggregate {
@@ -63,20 +63,20 @@ class RequestStatusGen extends dxBaseClass implements IteratorAggregate {
 
 
     /**
-     * Private member variable that stores a reference to a single StockPhotoRequest object
+     * Private member variable that stores a reference to a single StockPhotoRequestAsRequestStatus object
      * (of type StockPhotoRequest), if this RequestStatus object was restored with
      * an expansion on the StockPhotoRequest association table.
-     * @var StockPhotoRequest _objStockPhotoRequest;
+     * @var StockPhotoRequest _objStockPhotoRequestAsRequestStatus;
      */
-    private $_objStockPhotoRequest;
+    private $_objStockPhotoRequestAsRequestStatus;
 
     /**
-     * Private member variable that stores a reference to an array of StockPhotoRequest objects
+     * Private member variable that stores a reference to an array of StockPhotoRequestAsRequestStatus objects
      * (of type StockPhotoRequest[]), if this RequestStatus object was restored with
      * an ExpandAsArray on the StockPhotoRequest association table.
-     * @var StockPhotoRequest[] _objStockPhotoRequestArray;
+     * @var StockPhotoRequest[] _objStockPhotoRequestAsRequestStatusArray;
      */
-    private $_objStockPhotoRequestArray = null;
+    private $_objStockPhotoRequestAsRequestStatusArray = null;
 
     /**
      * Protected array of virtual attributes for this object (e.g. extra/other calculated and/or non-object bound
@@ -612,18 +612,18 @@ class RequestStatusGen extends dxBaseClass implements IteratorAggregate {
 
 
 
-        // Check for StockPhotoRequest Virtual Binding
-        $strAlias = $strAliasPrefix . 'stockphotorequest__Id';
+        // Check for StockPhotoRequestAsRequestStatus Virtual Binding
+        $strAlias = $strAliasPrefix . 'stockphotorequestasrequeststatus__Id';
         $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
-        $objExpansionNode = (empty($objExpansionAliasArray['stockphotorequest']) ? null : $objExpansionAliasArray['stockphotorequest']);
+        $objExpansionNode = (empty($objExpansionAliasArray['stockphotorequestasrequeststatus']) ? null : $objExpansionAliasArray['stockphotorequestasrequeststatus']);
         $blnExpanded = ($objExpansionNode && $objExpansionNode->ExpandAsArray);
-        if ($blnExpanded && null === $objToReturn->_objStockPhotoRequestArray)
-            $objToReturn->_objStockPhotoRequestArray = array();
+        if ($blnExpanded && null === $objToReturn->_objStockPhotoRequestAsRequestStatusArray)
+            $objToReturn->_objStockPhotoRequestAsRequestStatusArray = array();
         if (!is_null($objDbRow->GetColumn($strAliasName))) {
             if ($blnExpanded) {
-                $objToReturn->_objStockPhotoRequestArray[] = StockPhotoRequest::InstantiateDbRow($objDbRow, $strAliasPrefix . 'stockphotorequest__', $objExpansionNode, null, $strColumnAliasArray);
-            } elseif (is_null($objToReturn->_objStockPhotoRequest)) {
-                $objToReturn->_objStockPhotoRequest = StockPhotoRequest::InstantiateDbRow($objDbRow, $strAliasPrefix . 'stockphotorequest__', $objExpansionNode, null, $strColumnAliasArray);
+                $objToReturn->_objStockPhotoRequestAsRequestStatusArray[] = StockPhotoRequest::InstantiateDbRow($objDbRow, $strAliasPrefix . 'stockphotorequestasrequeststatus__', $objExpansionNode, null, $strColumnAliasArray);
+            } elseif (is_null($objToReturn->_objStockPhotoRequestAsRequestStatus)) {
+                $objToReturn->_objStockPhotoRequestAsRequestStatus = StockPhotoRequest::InstantiateDbRow($objDbRow, $strAliasPrefix . 'stockphotorequestasrequeststatus__', $objExpansionNode, null, $strColumnAliasArray);
             }
         }
 
@@ -1021,21 +1021,21 @@ class RequestStatusGen extends dxBaseClass implements IteratorAggregate {
             // (If restored via a "Many-to" expansion)
             ////////////////////////////
 
-            case '_StockPhotoRequest':
+            case '_StockPhotoRequestAsRequestStatus':
                 /**
-                 * Gets the value for the private _objStockPhotoRequest (Read-Only)
+                 * Gets the value for the private _objStockPhotoRequestAsRequestStatus (Read-Only)
                  * if set due to an expansion on the StockPhotoRequest.RequestStatus reverse relationship
                  * @return StockPhotoRequest
                  */
-                return $this->_objStockPhotoRequest;
+                return $this->_objStockPhotoRequestAsRequestStatus;
 
-            case '_StockPhotoRequestArray':
+            case '_StockPhotoRequestAsRequestStatusArray':
                 /**
-                 * Gets the value for the private _objStockPhotoRequestArray (Read-Only)
+                 * Gets the value for the private _objStockPhotoRequestAsRequestStatusArray (Read-Only)
                  * if set due to an ExpandAsArray on the StockPhotoRequest.RequestStatus reverse relationship
                  * @return StockPhotoRequest[]
                  */
-                return $this->_objStockPhotoRequestArray;
+                return $this->_objStockPhotoRequestAsRequestStatusArray;
 
 
             case '__Restored':
@@ -1119,15 +1119,15 @@ class RequestStatusGen extends dxBaseClass implements IteratorAggregate {
 
 
 
-    // Related Objects' Methods for StockPhotoRequest
+    // Related Objects' Methods for StockPhotoRequestAsRequestStatus
     //-------------------------------------------------------------------
 
     /**
-     * Gets all associated StockPhotoRequests as an array of StockPhotoRequest objects
+     * Gets all associated StockPhotoRequestsAsRequestStatus as an array of StockPhotoRequest objects
      * @param dxQueryClause[] $objOptionalClauses additional optional dxQueryClause objects for this query
      * @return StockPhotoRequest[]
     */
-    public function GetStockPhotoRequestArray($objOptionalClauses = null) {
+    public function GetStockPhotoRequestAsRequestStatusArray($objOptionalClauses = null) {
         if ((is_null($this->intId)))
             return array();
 
@@ -1140,10 +1140,10 @@ class RequestStatusGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Counts all associated StockPhotoRequests
+     * Counts all associated StockPhotoRequestsAsRequestStatus
      * @return int
     */
-    public function CountStockPhotoRequests() {
+    public function CountStockPhotoRequestsAsRequestStatus() {
         if ((is_null($this->intId)))
             return 0;
 
@@ -1151,15 +1151,15 @@ class RequestStatusGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Associates a StockPhotoRequest
+     * Associates a StockPhotoRequestAsRequestStatus
      * @param StockPhotoRequest $objStockPhotoRequest
      * @return void
     */
-    public function AssociateStockPhotoRequest(StockPhotoRequest $objStockPhotoRequest) {
+    public function AssociateStockPhotoRequestAsRequestStatus(StockPhotoRequest $objStockPhotoRequest) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateStockPhotoRequest on this unsaved RequestStatus.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateStockPhotoRequestAsRequestStatus on this unsaved RequestStatus.');
         if ((is_null($objStockPhotoRequest->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateStockPhotoRequest on this RequestStatus with an unsaved StockPhotoRequest.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateStockPhotoRequestAsRequestStatus on this RequestStatus with an unsaved StockPhotoRequest.');
 
         // Get the Database Object for this Class
         $objDatabase = RequestStatus::GetDatabase();
@@ -1176,15 +1176,15 @@ class RequestStatusGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Unassociates a StockPhotoRequest
+     * Unassociates a StockPhotoRequestAsRequestStatus
      * @param StockPhotoRequest $objStockPhotoRequest
      * @return void
     */
-    public function UnassociateStockPhotoRequest(StockPhotoRequest $objStockPhotoRequest) {
+    public function UnassociateStockPhotoRequestAsRequestStatus(StockPhotoRequest $objStockPhotoRequest) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequest on this unsaved RequestStatus.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequestAsRequestStatus on this unsaved RequestStatus.');
         if ((is_null($objStockPhotoRequest->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequest on this RequestStatus with an unsaved StockPhotoRequest.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequestAsRequestStatus on this RequestStatus with an unsaved StockPhotoRequest.');
 
         // Get the Database Object for this Class
         $objDatabase = RequestStatus::GetDatabase();
@@ -1202,12 +1202,12 @@ class RequestStatusGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Unassociates all StockPhotoRequests
+     * Unassociates all StockPhotoRequestsAsRequestStatus
      * @return void
     */
-    public function UnassociateAllStockPhotoRequests() {
+    public function UnassociateAllStockPhotoRequestsAsRequestStatus() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequest on this unsaved RequestStatus.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequestAsRequestStatus on this unsaved RequestStatus.');
 
         // Get the Database Object for this Class
         $objDatabase = RequestStatus::GetDatabase();
@@ -1224,15 +1224,15 @@ class RequestStatusGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Deletes an associated StockPhotoRequest
+     * Deletes an associated StockPhotoRequestAsRequestStatus
      * @param StockPhotoRequest $objStockPhotoRequest
      * @return void
     */
-    public function DeleteAssociatedStockPhotoRequest(StockPhotoRequest $objStockPhotoRequest) {
+    public function DeleteAssociatedStockPhotoRequestAsRequestStatus(StockPhotoRequest $objStockPhotoRequest) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequest on this unsaved RequestStatus.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequestAsRequestStatus on this unsaved RequestStatus.');
         if ((is_null($objStockPhotoRequest->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequest on this RequestStatus with an unsaved StockPhotoRequest.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequestAsRequestStatus on this RequestStatus with an unsaved StockPhotoRequest.');
 
         // Get the Database Object for this Class
         $objDatabase = RequestStatus::GetDatabase();
@@ -1248,12 +1248,12 @@ class RequestStatusGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Deletes all associated StockPhotoRequests
+     * Deletes all associated StockPhotoRequestsAsRequestStatus
      * @return void
     */
-    public function DeleteAllStockPhotoRequests() {
+    public function DeleteAllStockPhotoRequestsAsRequestStatus() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequest on this unsaved RequestStatus.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequestAsRequestStatus on this unsaved RequestStatus.');
 
         // Get the Database Object for this Class
         $objDatabase = RequestStatus::GetDatabase();
@@ -1416,7 +1416,7 @@ class RequestStatusGen extends dxBaseClass implements IteratorAggregate {
      * @property-read dxQueryNode $ObjectOwner
      *
      *
-     * @property-read dxQueryReverseReferenceNodeStockPhotoRequest $StockPhotoRequest
+     * @property-read dxQueryReverseReferenceNodeStockPhotoRequest $StockPhotoRequestAsRequestStatus
 
      * @property-read dxQueryNode $_PrimaryKeyNode
      **/
@@ -1434,8 +1434,8 @@ class RequestStatusGen extends dxBaseClass implements IteratorAggregate {
 					return new dxQueryNode('LastUpdated', 'LastUpdated', 'VarChar', $this);
 				case 'ObjectOwner':
 					return new dxQueryNode('ObjectOwner', 'ObjectOwner', 'Integer', $this);
-				case 'StockPhotoRequest':
-					return new dxQueryReverseReferenceNodeStockPhotoRequest($this, 'stockphotorequest', 'reverse_reference', 'RequestStatus', 'StockPhotoRequest');
+				case 'StockPhotoRequestAsRequestStatus':
+					return new dxQueryReverseReferenceNodeStockPhotoRequest($this, 'stockphotorequestasrequeststatus', 'reverse_reference', 'RequestStatus', 'StockPhotoRequestAsRequestStatus');
 
 				case '_PrimaryKeyNode':
 					return new dxQueryNode('Id', 'Id', 'Integer', $this);
@@ -1457,7 +1457,7 @@ class RequestStatusGen extends dxBaseClass implements IteratorAggregate {
      * @property-read dxQueryNode $ObjectOwner
      *
      *
-     * @property-read dxQueryReverseReferenceNodeStockPhotoRequest $StockPhotoRequest
+     * @property-read dxQueryReverseReferenceNodeStockPhotoRequest $StockPhotoRequestAsRequestStatus
 
      * @property-read dxQueryNode $_PrimaryKeyNode
      **/
@@ -1475,8 +1475,8 @@ class RequestStatusGen extends dxBaseClass implements IteratorAggregate {
 					return new dxQueryNode('LastUpdated', 'LastUpdated', 'string', $this);
 				case 'ObjectOwner':
 					return new dxQueryNode('ObjectOwner', 'ObjectOwner', 'integer', $this);
-				case 'StockPhotoRequest':
-					return new dxQueryReverseReferenceNodeStockPhotoRequest($this, 'stockphotorequest', 'reverse_reference', 'RequestStatus', 'StockPhotoRequest');
+				case 'StockPhotoRequestAsRequestStatus':
+					return new dxQueryReverseReferenceNodeStockPhotoRequest($this, 'stockphotorequestasrequeststatus', 'reverse_reference', 'RequestStatus', 'StockPhotoRequestAsRequestStatus');
 
 				case '_PrimaryKeyNode':
 					return new dxQueryNode('Id', 'Id', 'integer', $this);

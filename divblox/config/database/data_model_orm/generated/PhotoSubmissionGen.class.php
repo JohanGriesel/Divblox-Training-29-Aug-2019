@@ -26,8 +26,8 @@
  * @property integer $FileDocument the value for intFileDocument 
  * @property integer $ObjectOwner the value for intObjectOwner 
  * @property Account $AccountObject the value for the Account object referenced by intAccount 
- * @property StockPhotoRequest $StockPhotoRequestObject the value for the StockPhotoRequest object referenced by intStockPhotoRequest 
- * @property FileDocument $FileDocumentObject the value for the FileDocument object referenced by intFileDocument 
+ * @property Stockphotorequest $StockPhotoRequestObject the value for the Stockphotorequest object referenced by intStockPhotoRequest 
+ * @property Filedocument $FileDocumentObject the value for the Filedocument object referenced by intFileDocument 
  * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
  */
 class PhotoSubmissionGen extends dxBaseClass implements IteratorAggregate {
@@ -149,9 +149,9 @@ class PhotoSubmissionGen extends dxBaseClass implements IteratorAggregate {
      * Protected member variable that contains the object pointed by the reference
      * in the database column PhotoSubmission.StockPhotoRequest.
      *
-     * NOTE: Always use the StockPhotoRequestObject property getter to correctly retrieve this StockPhotoRequest object.
+     * NOTE: Always use the StockPhotoRequestObject property getter to correctly retrieve this Stockphotorequest object.
      * (Because this class implements late binding, this variable reference MAY be null.)
-     * @var StockPhotoRequest objStockPhotoRequestObject
+     * @var Stockphotorequest objStockPhotoRequestObject
      */
     protected $objStockPhotoRequestObject;
 
@@ -159,9 +159,9 @@ class PhotoSubmissionGen extends dxBaseClass implements IteratorAggregate {
      * Protected member variable that contains the object pointed by the reference
      * in the database column PhotoSubmission.FileDocument.
      *
-     * NOTE: Always use the FileDocumentObject property getter to correctly retrieve this FileDocument object.
+     * NOTE: Always use the FileDocumentObject property getter to correctly retrieve this Filedocument object.
      * (Because this class implements late binding, this variable reference MAY be null.)
-     * @var FileDocument objFileDocumentObject
+     * @var Filedocument objFileDocumentObject
      */
     protected $objFileDocumentObject;
 
@@ -719,14 +719,14 @@ class PhotoSubmissionGen extends dxBaseClass implements IteratorAggregate {
         $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
         if (!is_null($objDbRow->GetColumn($strAliasName))) {
             $objExpansionNode = (empty($objExpansionAliasArray['StockPhotoRequest']) ? null : $objExpansionAliasArray['StockPhotoRequest']);
-            $objToReturn->objStockPhotoRequestObject = StockPhotoRequest::InstantiateDbRow($objDbRow, $strAliasPrefix . 'StockPhotoRequest__', $objExpansionNode, null, $strColumnAliasArray);
+            $objToReturn->objStockPhotoRequestObject = Stockphotorequest::InstantiateDbRow($objDbRow, $strAliasPrefix . 'StockPhotoRequest__', $objExpansionNode, null, $strColumnAliasArray);
         }
         // Check for FileDocumentObject Early Binding
         $strAlias = $strAliasPrefix . 'FileDocument__Id';
         $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
         if (!is_null($objDbRow->GetColumn($strAliasName))) {
             $objExpansionNode = (empty($objExpansionAliasArray['FileDocument']) ? null : $objExpansionAliasArray['FileDocument']);
-            $objToReturn->objFileDocumentObject = FileDocument::InstantiateDbRow($objDbRow, $strAliasPrefix . 'FileDocument__', $objExpansionNode, null, $strColumnAliasArray);
+            $objToReturn->objFileDocumentObject = Filedocument::InstantiateDbRow($objDbRow, $strAliasPrefix . 'FileDocument__', $objExpansionNode, null, $strColumnAliasArray);
         }
 
 
@@ -1357,12 +1357,12 @@ class PhotoSubmissionGen extends dxBaseClass implements IteratorAggregate {
 
             case 'StockPhotoRequestObject':
                 /**
-                 * Gets the value for the StockPhotoRequest object referenced by intStockPhotoRequest 
-                 * @return StockPhotoRequest
+                 * Gets the value for the Stockphotorequest object referenced by intStockPhotoRequest 
+                 * @return Stockphotorequest
                  */
                 try {
                     if ((!$this->objStockPhotoRequestObject) && (!is_null($this->intStockPhotoRequest)))
-                        $this->objStockPhotoRequestObject = StockPhotoRequest::Load($this->intStockPhotoRequest);
+                        $this->objStockPhotoRequestObject = Stockphotorequest::Load($this->intStockPhotoRequest);
                     return $this->objStockPhotoRequestObject;
                 } catch (dxCallerException $objExc) {
                     $objExc->IncrementOffset();
@@ -1371,12 +1371,12 @@ class PhotoSubmissionGen extends dxBaseClass implements IteratorAggregate {
 
             case 'FileDocumentObject':
                 /**
-                 * Gets the value for the FileDocument object referenced by intFileDocument 
-                 * @return FileDocument
+                 * Gets the value for the Filedocument object referenced by intFileDocument 
+                 * @return Filedocument
                  */
                 try {
                     if ((!$this->objFileDocumentObject) && (!is_null($this->intFileDocument)))
-                        $this->objFileDocumentObject = FileDocument::Load($this->intFileDocument);
+                        $this->objFileDocumentObject = Filedocument::Load($this->intFileDocument);
                     return $this->objFileDocumentObject;
                 } catch (dxCallerException $objExc) {
                     $objExc->IncrementOffset();
@@ -1560,24 +1560,24 @@ class PhotoSubmissionGen extends dxBaseClass implements IteratorAggregate {
 
             case 'StockPhotoRequestObject':
                 /**
-                 * Sets the value for the StockPhotoRequest object referenced by intStockPhotoRequest 
-                 * @param StockPhotoRequest $mixValue
-                 * @return StockPhotoRequest
+                 * Sets the value for the Stockphotorequest object referenced by intStockPhotoRequest 
+                 * @param Stockphotorequest $mixValue
+                 * @return Stockphotorequest
                  */
                 if (is_null($mixValue)) {
                     $this->intStockPhotoRequest = null;
                     $this->objStockPhotoRequestObject = null;
                     return null;
                 } else {
-                    // Make sure $mixValue actually is a StockPhotoRequest object
+                    // Make sure $mixValue actually is a Stockphotorequest object
                     try {
-                        $mixValue = dxType::Cast($mixValue, 'StockPhotoRequest');
+                        $mixValue = dxType::Cast($mixValue, 'Stockphotorequest');
                     } catch (dxInvalidCastException $objExc) {
                         $objExc->IncrementOffset();
                         throw $objExc;
                     }
 
-                    // Make sure $mixValue is a SAVED StockPhotoRequest object
+                    // Make sure $mixValue is a SAVED Stockphotorequest object
                     if (is_null($mixValue->Id))
                         throw new dxCallerException('Unable to set an unsaved StockPhotoRequestObject for this PhotoSubmission');
 
@@ -1592,24 +1592,24 @@ class PhotoSubmissionGen extends dxBaseClass implements IteratorAggregate {
 
             case 'FileDocumentObject':
                 /**
-                 * Sets the value for the FileDocument object referenced by intFileDocument 
-                 * @param FileDocument $mixValue
-                 * @return FileDocument
+                 * Sets the value for the Filedocument object referenced by intFileDocument 
+                 * @param Filedocument $mixValue
+                 * @return Filedocument
                  */
                 if (is_null($mixValue)) {
                     $this->intFileDocument = null;
                     $this->objFileDocumentObject = null;
                     return null;
                 } else {
-                    // Make sure $mixValue actually is a FileDocument object
+                    // Make sure $mixValue actually is a Filedocument object
                     try {
-                        $mixValue = dxType::Cast($mixValue, 'FileDocument');
+                        $mixValue = dxType::Cast($mixValue, 'Filedocument');
                     } catch (dxInvalidCastException $objExc) {
                         $objExc->IncrementOffset();
                         throw $objExc;
                     }
 
-                    // Make sure $mixValue is a SAVED FileDocument object
+                    // Make sure $mixValue is a SAVED Filedocument object
                     if (is_null($mixValue->Id))
                         throw new dxCallerException('Unable to set an unsaved FileDocumentObject for this PhotoSubmission');
 
@@ -1693,8 +1693,8 @@ class PhotoSubmissionGen extends dxBaseClass implements IteratorAggregate {
         $strToReturn .= '<element name="LastUpdated" type="xsd:string"/>';
         $strToReturn .= '<element name="AccountObject" type="xsd1:Account"/>';
         $strToReturn .= '<element name="SearchMetaInfo" type="xsd:string"/>';
-        $strToReturn .= '<element name="StockPhotoRequestObject" type="xsd1:StockPhotoRequest"/>';
-        $strToReturn .= '<element name="FileDocumentObject" type="xsd1:FileDocument"/>';
+        $strToReturn .= '<element name="StockPhotoRequestObject" type="xsd1:Stockphotorequest"/>';
+        $strToReturn .= '<element name="FileDocumentObject" type="xsd1:Filedocument"/>';
         $strToReturn .= '<element name="ObjectOwner" type="xsd:int"/>';
         $strToReturn .= '<element name="__blnRestored" type="xsd:boolean"/>';
         $strToReturn .= '</sequence></complexType>';
@@ -1705,8 +1705,8 @@ class PhotoSubmissionGen extends dxBaseClass implements IteratorAggregate {
         if (!array_key_exists('PhotoSubmission', $strComplexTypeArray)) {
             $strComplexTypeArray['PhotoSubmission'] = PhotoSubmission::GetSoapComplexTypeXml();
             Account::AlterSoapComplexTypeArray($strComplexTypeArray);
-            StockPhotoRequest::AlterSoapComplexTypeArray($strComplexTypeArray);
-            FileDocument::AlterSoapComplexTypeArray($strComplexTypeArray);
+            Stockphotorequest::AlterSoapComplexTypeArray($strComplexTypeArray);
+            Filedocument::AlterSoapComplexTypeArray($strComplexTypeArray);
         }
     }
 
@@ -1738,10 +1738,10 @@ class PhotoSubmissionGen extends dxBaseClass implements IteratorAggregate {
             $objToReturn->strSearchMetaInfo = $objSoapObject->SearchMetaInfo;
         if ((property_exists($objSoapObject, 'StockPhotoRequestObject')) &&
             ($objSoapObject->StockPhotoRequestObject))
-            $objToReturn->StockPhotoRequestObject = StockPhotoRequest::GetObjectFromSoapObject($objSoapObject->StockPhotoRequestObject);
+            $objToReturn->StockPhotoRequestObject = Stockphotorequest::GetObjectFromSoapObject($objSoapObject->StockPhotoRequestObject);
         if ((property_exists($objSoapObject, 'FileDocumentObject')) &&
             ($objSoapObject->FileDocumentObject))
-            $objToReturn->FileDocumentObject = FileDocument::GetObjectFromSoapObject($objSoapObject->FileDocumentObject);
+            $objToReturn->FileDocumentObject = Filedocument::GetObjectFromSoapObject($objSoapObject->FileDocumentObject);
         if (property_exists($objSoapObject, 'ObjectOwner'))
             $objToReturn->intObjectOwner = $objSoapObject->ObjectOwner;
         if (property_exists($objSoapObject, '__blnRestored'))
@@ -1769,11 +1769,11 @@ class PhotoSubmissionGen extends dxBaseClass implements IteratorAggregate {
         else if (!$blnBindRelatedObjects)
             $objObject->intAccount = null;
         if ($objObject->objStockPhotoRequestObject)
-            $objObject->objStockPhotoRequestObject = StockPhotoRequest::GetSoapObjectFromObject($objObject->objStockPhotoRequestObject, false);
+            $objObject->objStockPhotoRequestObject = Stockphotorequest::GetSoapObjectFromObject($objObject->objStockPhotoRequestObject, false);
         else if (!$blnBindRelatedObjects)
             $objObject->intStockPhotoRequest = null;
         if ($objObject->objFileDocumentObject)
-            $objObject->objFileDocumentObject = FileDocument::GetSoapObjectFromObject($objObject->objFileDocumentObject, false);
+            $objObject->objFileDocumentObject = Filedocument::GetSoapObjectFromObject($objObject->objFileDocumentObject, false);
         else if (!$blnBindRelatedObjects)
             $objObject->intFileDocument = null;
         return $objObject;
@@ -1843,9 +1843,9 @@ class PhotoSubmissionGen extends dxBaseClass implements IteratorAggregate {
      * @property-read dxQueryNodeAccount $AccountObject
      * @property-read dxQueryNode $SearchMetaInfo
      * @property-read dxQueryNode $StockPhotoRequest
-     * @property-read dxQueryNodeStockPhotoRequest $StockPhotoRequestObject
+     * @property-read dxQueryNodeStockphotorequest $StockPhotoRequestObject
      * @property-read dxQueryNode $FileDocument
-     * @property-read dxQueryNodeFileDocument $FileDocumentObject
+     * @property-read dxQueryNodeFiledocument $FileDocumentObject
      * @property-read dxQueryNode $ObjectOwner
      *
      *
@@ -1877,11 +1877,11 @@ class PhotoSubmissionGen extends dxBaseClass implements IteratorAggregate {
 				case 'StockPhotoRequest':
 					return new dxQueryNode('StockPhotoRequest', 'StockPhotoRequest', 'Integer', $this);
 				case 'StockPhotoRequestObject':
-					return new dxQueryNodeStockPhotoRequest('StockPhotoRequest', 'StockPhotoRequestObject', 'Integer', $this);
+					return new dxQueryNodeStockphotorequest('StockPhotoRequest', 'StockPhotoRequestObject', 'Integer', $this);
 				case 'FileDocument':
 					return new dxQueryNode('FileDocument', 'FileDocument', 'Integer', $this);
 				case 'FileDocumentObject':
-					return new dxQueryNodeFileDocument('FileDocument', 'FileDocumentObject', 'Integer', $this);
+					return new dxQueryNodeFiledocument('FileDocument', 'FileDocumentObject', 'Integer', $this);
 				case 'ObjectOwner':
 					return new dxQueryNode('ObjectOwner', 'ObjectOwner', 'Integer', $this);
 
@@ -1908,9 +1908,9 @@ class PhotoSubmissionGen extends dxBaseClass implements IteratorAggregate {
      * @property-read dxQueryNodeAccount $AccountObject
      * @property-read dxQueryNode $SearchMetaInfo
      * @property-read dxQueryNode $StockPhotoRequest
-     * @property-read dxQueryNodeStockPhotoRequest $StockPhotoRequestObject
+     * @property-read dxQueryNodeStockphotorequest $StockPhotoRequestObject
      * @property-read dxQueryNode $FileDocument
-     * @property-read dxQueryNodeFileDocument $FileDocumentObject
+     * @property-read dxQueryNodeFiledocument $FileDocumentObject
      * @property-read dxQueryNode $ObjectOwner
      *
      *
@@ -1942,11 +1942,11 @@ class PhotoSubmissionGen extends dxBaseClass implements IteratorAggregate {
 				case 'StockPhotoRequest':
 					return new dxQueryNode('StockPhotoRequest', 'StockPhotoRequest', 'integer', $this);
 				case 'StockPhotoRequestObject':
-					return new dxQueryNodeStockPhotoRequest('StockPhotoRequest', 'StockPhotoRequestObject', 'integer', $this);
+					return new dxQueryNodeStockphotorequest('StockPhotoRequest', 'StockPhotoRequestObject', 'integer', $this);
 				case 'FileDocument':
 					return new dxQueryNode('FileDocument', 'FileDocument', 'integer', $this);
 				case 'FileDocumentObject':
-					return new dxQueryNodeFileDocument('FileDocument', 'FileDocumentObject', 'integer', $this);
+					return new dxQueryNodeFiledocument('FileDocument', 'FileDocumentObject', 'integer', $this);
 				case 'ObjectOwner':
 					return new dxQueryNode('ObjectOwner', 'ObjectOwner', 'integer', $this);
 

@@ -46,19 +46,19 @@
  * @property integer $UserRole the value for intUserRole 
  * @property string $SearchMetaInfo the value for strSearchMetaInfo 
  * @property integer $ObjectOwner the value for intObjectOwner 
- * @property UserRole $UserRoleObject the value for the UserRole object referenced by intUserRole 
- * @property-read AdditionalAccountInformation $_AdditionalAccountInformation the value for the private _objAdditionalAccountInformation (Read-Only) if set due to an expansion on the AdditionalAccountInformation.Account reverse relationship
- * @property-read AdditionalAccountInformation[] $_AdditionalAccountInformationArray the value for the private _objAdditionalAccountInformationArray (Read-Only) if set due to an ExpandAsArray on the AdditionalAccountInformation.Account reverse relationship
- * @property-read ClientConnection $_ClientConnection the value for the private _objClientConnection (Read-Only) if set due to an expansion on the ClientConnection.Account reverse relationship
- * @property-read ClientConnection[] $_ClientConnectionArray the value for the private _objClientConnectionArray (Read-Only) if set due to an ExpandAsArray on the ClientConnection.Account reverse relationship
- * @property-read PasswordReset $_PasswordReset the value for the private _objPasswordReset (Read-Only) if set due to an expansion on the PasswordReset.Account reverse relationship
- * @property-read PasswordReset[] $_PasswordResetArray the value for the private _objPasswordResetArray (Read-Only) if set due to an ExpandAsArray on the PasswordReset.Account reverse relationship
- * @property-read PhotoSubmission $_PhotoSubmission the value for the private _objPhotoSubmission (Read-Only) if set due to an expansion on the PhotoSubmission.Account reverse relationship
- * @property-read PhotoSubmission[] $_PhotoSubmissionArray the value for the private _objPhotoSubmissionArray (Read-Only) if set due to an ExpandAsArray on the PhotoSubmission.Account reverse relationship
- * @property-read PushRegistration $_PushRegistration the value for the private _objPushRegistration (Read-Only) if set due to an expansion on the PushRegistration.Account reverse relationship
- * @property-read PushRegistration[] $_PushRegistrationArray the value for the private _objPushRegistrationArray (Read-Only) if set due to an ExpandAsArray on the PushRegistration.Account reverse relationship
- * @property-read StockPhotoRequest $_StockPhotoRequest the value for the private _objStockPhotoRequest (Read-Only) if set due to an expansion on the StockPhotoRequest.Account reverse relationship
- * @property-read StockPhotoRequest[] $_StockPhotoRequestArray the value for the private _objStockPhotoRequestArray (Read-Only) if set due to an ExpandAsArray on the StockPhotoRequest.Account reverse relationship
+ * @property Userrole $UserRoleObject the value for the Userrole object referenced by intUserRole 
+ * @property-read AdditionalAccountInformation $_AdditionalAccountInformationAsAccount the value for the private _objAdditionalAccountInformationAsAccount (Read-Only) if set due to an expansion on the AdditionalAccountInformation.Account reverse relationship
+ * @property-read AdditionalAccountInformation[] $_AdditionalAccountInformationAsAccountArray the value for the private _objAdditionalAccountInformationAsAccountArray (Read-Only) if set due to an ExpandAsArray on the AdditionalAccountInformation.Account reverse relationship
+ * @property-read ClientConnection $_ClientConnectionAsAccount the value for the private _objClientConnectionAsAccount (Read-Only) if set due to an expansion on the ClientConnection.Account reverse relationship
+ * @property-read ClientConnection[] $_ClientConnectionAsAccountArray the value for the private _objClientConnectionAsAccountArray (Read-Only) if set due to an ExpandAsArray on the ClientConnection.Account reverse relationship
+ * @property-read PasswordReset $_PasswordResetAsAccount the value for the private _objPasswordResetAsAccount (Read-Only) if set due to an expansion on the PasswordReset.Account reverse relationship
+ * @property-read PasswordReset[] $_PasswordResetAsAccountArray the value for the private _objPasswordResetAsAccountArray (Read-Only) if set due to an ExpandAsArray on the PasswordReset.Account reverse relationship
+ * @property-read PhotoSubmission $_PhotoSubmissionAsAccount the value for the private _objPhotoSubmissionAsAccount (Read-Only) if set due to an expansion on the PhotoSubmission.Account reverse relationship
+ * @property-read PhotoSubmission[] $_PhotoSubmissionAsAccountArray the value for the private _objPhotoSubmissionAsAccountArray (Read-Only) if set due to an ExpandAsArray on the PhotoSubmission.Account reverse relationship
+ * @property-read PushRegistration $_PushRegistrationAsAccount the value for the private _objPushRegistrationAsAccount (Read-Only) if set due to an expansion on the PushRegistration.Account reverse relationship
+ * @property-read PushRegistration[] $_PushRegistrationAsAccountArray the value for the private _objPushRegistrationAsAccountArray (Read-Only) if set due to an ExpandAsArray on the PushRegistration.Account reverse relationship
+ * @property-read StockPhotoRequest $_StockPhotoRequestAsAccount the value for the private _objStockPhotoRequestAsAccount (Read-Only) if set due to an expansion on the StockPhotoRequest.Account reverse relationship
+ * @property-read StockPhotoRequest[] $_StockPhotoRequestAsAccountArray the value for the private _objStockPhotoRequestAsAccountArray (Read-Only) if set due to an ExpandAsArray on the StockPhotoRequest.Account reverse relationship
  * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
  */
 class AccountGen extends dxBaseClass implements IteratorAggregate {
@@ -339,100 +339,100 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
 
 
     /**
-     * Private member variable that stores a reference to a single AdditionalAccountInformation object
+     * Private member variable that stores a reference to a single AdditionalAccountInformationAsAccount object
      * (of type AdditionalAccountInformation), if this Account object was restored with
      * an expansion on the AdditionalAccountInformation association table.
-     * @var AdditionalAccountInformation _objAdditionalAccountInformation;
+     * @var AdditionalAccountInformation _objAdditionalAccountInformationAsAccount;
      */
-    private $_objAdditionalAccountInformation;
+    private $_objAdditionalAccountInformationAsAccount;
 
     /**
-     * Private member variable that stores a reference to an array of AdditionalAccountInformation objects
+     * Private member variable that stores a reference to an array of AdditionalAccountInformationAsAccount objects
      * (of type AdditionalAccountInformation[]), if this Account object was restored with
      * an ExpandAsArray on the AdditionalAccountInformation association table.
-     * @var AdditionalAccountInformation[] _objAdditionalAccountInformationArray;
+     * @var AdditionalAccountInformation[] _objAdditionalAccountInformationAsAccountArray;
      */
-    private $_objAdditionalAccountInformationArray = null;
+    private $_objAdditionalAccountInformationAsAccountArray = null;
 
     /**
-     * Private member variable that stores a reference to a single ClientConnection object
+     * Private member variable that stores a reference to a single ClientConnectionAsAccount object
      * (of type ClientConnection), if this Account object was restored with
      * an expansion on the ClientConnection association table.
-     * @var ClientConnection _objClientConnection;
+     * @var ClientConnection _objClientConnectionAsAccount;
      */
-    private $_objClientConnection;
+    private $_objClientConnectionAsAccount;
 
     /**
-     * Private member variable that stores a reference to an array of ClientConnection objects
+     * Private member variable that stores a reference to an array of ClientConnectionAsAccount objects
      * (of type ClientConnection[]), if this Account object was restored with
      * an ExpandAsArray on the ClientConnection association table.
-     * @var ClientConnection[] _objClientConnectionArray;
+     * @var ClientConnection[] _objClientConnectionAsAccountArray;
      */
-    private $_objClientConnectionArray = null;
+    private $_objClientConnectionAsAccountArray = null;
 
     /**
-     * Private member variable that stores a reference to a single PasswordReset object
+     * Private member variable that stores a reference to a single PasswordResetAsAccount object
      * (of type PasswordReset), if this Account object was restored with
      * an expansion on the PasswordReset association table.
-     * @var PasswordReset _objPasswordReset;
+     * @var PasswordReset _objPasswordResetAsAccount;
      */
-    private $_objPasswordReset;
+    private $_objPasswordResetAsAccount;
 
     /**
-     * Private member variable that stores a reference to an array of PasswordReset objects
+     * Private member variable that stores a reference to an array of PasswordResetAsAccount objects
      * (of type PasswordReset[]), if this Account object was restored with
      * an ExpandAsArray on the PasswordReset association table.
-     * @var PasswordReset[] _objPasswordResetArray;
+     * @var PasswordReset[] _objPasswordResetAsAccountArray;
      */
-    private $_objPasswordResetArray = null;
+    private $_objPasswordResetAsAccountArray = null;
 
     /**
-     * Private member variable that stores a reference to a single PhotoSubmission object
+     * Private member variable that stores a reference to a single PhotoSubmissionAsAccount object
      * (of type PhotoSubmission), if this Account object was restored with
      * an expansion on the PhotoSubmission association table.
-     * @var PhotoSubmission _objPhotoSubmission;
+     * @var PhotoSubmission _objPhotoSubmissionAsAccount;
      */
-    private $_objPhotoSubmission;
+    private $_objPhotoSubmissionAsAccount;
 
     /**
-     * Private member variable that stores a reference to an array of PhotoSubmission objects
+     * Private member variable that stores a reference to an array of PhotoSubmissionAsAccount objects
      * (of type PhotoSubmission[]), if this Account object was restored with
      * an ExpandAsArray on the PhotoSubmission association table.
-     * @var PhotoSubmission[] _objPhotoSubmissionArray;
+     * @var PhotoSubmission[] _objPhotoSubmissionAsAccountArray;
      */
-    private $_objPhotoSubmissionArray = null;
+    private $_objPhotoSubmissionAsAccountArray = null;
 
     /**
-     * Private member variable that stores a reference to a single PushRegistration object
+     * Private member variable that stores a reference to a single PushRegistrationAsAccount object
      * (of type PushRegistration), if this Account object was restored with
      * an expansion on the PushRegistration association table.
-     * @var PushRegistration _objPushRegistration;
+     * @var PushRegistration _objPushRegistrationAsAccount;
      */
-    private $_objPushRegistration;
+    private $_objPushRegistrationAsAccount;
 
     /**
-     * Private member variable that stores a reference to an array of PushRegistration objects
+     * Private member variable that stores a reference to an array of PushRegistrationAsAccount objects
      * (of type PushRegistration[]), if this Account object was restored with
      * an ExpandAsArray on the PushRegistration association table.
-     * @var PushRegistration[] _objPushRegistrationArray;
+     * @var PushRegistration[] _objPushRegistrationAsAccountArray;
      */
-    private $_objPushRegistrationArray = null;
+    private $_objPushRegistrationAsAccountArray = null;
 
     /**
-     * Private member variable that stores a reference to a single StockPhotoRequest object
+     * Private member variable that stores a reference to a single StockPhotoRequestAsAccount object
      * (of type StockPhotoRequest), if this Account object was restored with
      * an expansion on the StockPhotoRequest association table.
-     * @var StockPhotoRequest _objStockPhotoRequest;
+     * @var StockPhotoRequest _objStockPhotoRequestAsAccount;
      */
-    private $_objStockPhotoRequest;
+    private $_objStockPhotoRequestAsAccount;
 
     /**
-     * Private member variable that stores a reference to an array of StockPhotoRequest objects
+     * Private member variable that stores a reference to an array of StockPhotoRequestAsAccount objects
      * (of type StockPhotoRequest[]), if this Account object was restored with
      * an ExpandAsArray on the StockPhotoRequest association table.
-     * @var StockPhotoRequest[] _objStockPhotoRequestArray;
+     * @var StockPhotoRequest[] _objStockPhotoRequestAsAccountArray;
      */
-    private $_objStockPhotoRequestArray = null;
+    private $_objStockPhotoRequestAsAccountArray = null;
 
     /**
      * Protected array of virtual attributes for this object (e.g. extra/other calculated and/or non-object bound
@@ -457,9 +457,9 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
      * Protected member variable that contains the object pointed by the reference
      * in the database column Account.UserRole.
      *
-     * NOTE: Always use the UserRoleObject property getter to correctly retrieve this UserRole object.
+     * NOTE: Always use the UserRoleObject property getter to correctly retrieve this Userrole object.
      * (Because this class implements late binding, this variable reference MAY be null.)
-     * @var UserRole objUserRoleObject
+     * @var Userrole objUserRoleObject
      */
     protected $objUserRoleObject;
 
@@ -1115,98 +1115,98 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
         $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
         if (!is_null($objDbRow->GetColumn($strAliasName))) {
             $objExpansionNode = (empty($objExpansionAliasArray['UserRole']) ? null : $objExpansionAliasArray['UserRole']);
-            $objToReturn->objUserRoleObject = UserRole::InstantiateDbRow($objDbRow, $strAliasPrefix . 'UserRole__', $objExpansionNode, null, $strColumnAliasArray);
+            $objToReturn->objUserRoleObject = Userrole::InstantiateDbRow($objDbRow, $strAliasPrefix . 'UserRole__', $objExpansionNode, null, $strColumnAliasArray);
         }
 
 
 
-        // Check for AdditionalAccountInformation Virtual Binding
-        $strAlias = $strAliasPrefix . 'additionalaccountinformation__Id';
+        // Check for AdditionalAccountInformationAsAccount Virtual Binding
+        $strAlias = $strAliasPrefix . 'additionalaccountinformationasaccount__Id';
         $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
-        $objExpansionNode = (empty($objExpansionAliasArray['additionalaccountinformation']) ? null : $objExpansionAliasArray['additionalaccountinformation']);
+        $objExpansionNode = (empty($objExpansionAliasArray['additionalaccountinformationasaccount']) ? null : $objExpansionAliasArray['additionalaccountinformationasaccount']);
         $blnExpanded = ($objExpansionNode && $objExpansionNode->ExpandAsArray);
-        if ($blnExpanded && null === $objToReturn->_objAdditionalAccountInformationArray)
-            $objToReturn->_objAdditionalAccountInformationArray = array();
+        if ($blnExpanded && null === $objToReturn->_objAdditionalAccountInformationAsAccountArray)
+            $objToReturn->_objAdditionalAccountInformationAsAccountArray = array();
         if (!is_null($objDbRow->GetColumn($strAliasName))) {
             if ($blnExpanded) {
-                $objToReturn->_objAdditionalAccountInformationArray[] = AdditionalAccountInformation::InstantiateDbRow($objDbRow, $strAliasPrefix . 'additionalaccountinformation__', $objExpansionNode, null, $strColumnAliasArray);
-            } elseif (is_null($objToReturn->_objAdditionalAccountInformation)) {
-                $objToReturn->_objAdditionalAccountInformation = AdditionalAccountInformation::InstantiateDbRow($objDbRow, $strAliasPrefix . 'additionalaccountinformation__', $objExpansionNode, null, $strColumnAliasArray);
+                $objToReturn->_objAdditionalAccountInformationAsAccountArray[] = AdditionalAccountInformation::InstantiateDbRow($objDbRow, $strAliasPrefix . 'additionalaccountinformationasaccount__', $objExpansionNode, null, $strColumnAliasArray);
+            } elseif (is_null($objToReturn->_objAdditionalAccountInformationAsAccount)) {
+                $objToReturn->_objAdditionalAccountInformationAsAccount = AdditionalAccountInformation::InstantiateDbRow($objDbRow, $strAliasPrefix . 'additionalaccountinformationasaccount__', $objExpansionNode, null, $strColumnAliasArray);
             }
         }
 
-        // Check for ClientConnection Virtual Binding
-        $strAlias = $strAliasPrefix . 'clientconnection__Id';
+        // Check for ClientConnectionAsAccount Virtual Binding
+        $strAlias = $strAliasPrefix . 'clientconnectionasaccount__Id';
         $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
-        $objExpansionNode = (empty($objExpansionAliasArray['clientconnection']) ? null : $objExpansionAliasArray['clientconnection']);
+        $objExpansionNode = (empty($objExpansionAliasArray['clientconnectionasaccount']) ? null : $objExpansionAliasArray['clientconnectionasaccount']);
         $blnExpanded = ($objExpansionNode && $objExpansionNode->ExpandAsArray);
-        if ($blnExpanded && null === $objToReturn->_objClientConnectionArray)
-            $objToReturn->_objClientConnectionArray = array();
+        if ($blnExpanded && null === $objToReturn->_objClientConnectionAsAccountArray)
+            $objToReturn->_objClientConnectionAsAccountArray = array();
         if (!is_null($objDbRow->GetColumn($strAliasName))) {
             if ($blnExpanded) {
-                $objToReturn->_objClientConnectionArray[] = ClientConnection::InstantiateDbRow($objDbRow, $strAliasPrefix . 'clientconnection__', $objExpansionNode, null, $strColumnAliasArray);
-            } elseif (is_null($objToReturn->_objClientConnection)) {
-                $objToReturn->_objClientConnection = ClientConnection::InstantiateDbRow($objDbRow, $strAliasPrefix . 'clientconnection__', $objExpansionNode, null, $strColumnAliasArray);
+                $objToReturn->_objClientConnectionAsAccountArray[] = ClientConnection::InstantiateDbRow($objDbRow, $strAliasPrefix . 'clientconnectionasaccount__', $objExpansionNode, null, $strColumnAliasArray);
+            } elseif (is_null($objToReturn->_objClientConnectionAsAccount)) {
+                $objToReturn->_objClientConnectionAsAccount = ClientConnection::InstantiateDbRow($objDbRow, $strAliasPrefix . 'clientconnectionasaccount__', $objExpansionNode, null, $strColumnAliasArray);
             }
         }
 
-        // Check for PasswordReset Virtual Binding
-        $strAlias = $strAliasPrefix . 'passwordreset__Id';
+        // Check for PasswordResetAsAccount Virtual Binding
+        $strAlias = $strAliasPrefix . 'passwordresetasaccount__Id';
         $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
-        $objExpansionNode = (empty($objExpansionAliasArray['passwordreset']) ? null : $objExpansionAliasArray['passwordreset']);
+        $objExpansionNode = (empty($objExpansionAliasArray['passwordresetasaccount']) ? null : $objExpansionAliasArray['passwordresetasaccount']);
         $blnExpanded = ($objExpansionNode && $objExpansionNode->ExpandAsArray);
-        if ($blnExpanded && null === $objToReturn->_objPasswordResetArray)
-            $objToReturn->_objPasswordResetArray = array();
+        if ($blnExpanded && null === $objToReturn->_objPasswordResetAsAccountArray)
+            $objToReturn->_objPasswordResetAsAccountArray = array();
         if (!is_null($objDbRow->GetColumn($strAliasName))) {
             if ($blnExpanded) {
-                $objToReturn->_objPasswordResetArray[] = PasswordReset::InstantiateDbRow($objDbRow, $strAliasPrefix . 'passwordreset__', $objExpansionNode, null, $strColumnAliasArray);
-            } elseif (is_null($objToReturn->_objPasswordReset)) {
-                $objToReturn->_objPasswordReset = PasswordReset::InstantiateDbRow($objDbRow, $strAliasPrefix . 'passwordreset__', $objExpansionNode, null, $strColumnAliasArray);
+                $objToReturn->_objPasswordResetAsAccountArray[] = PasswordReset::InstantiateDbRow($objDbRow, $strAliasPrefix . 'passwordresetasaccount__', $objExpansionNode, null, $strColumnAliasArray);
+            } elseif (is_null($objToReturn->_objPasswordResetAsAccount)) {
+                $objToReturn->_objPasswordResetAsAccount = PasswordReset::InstantiateDbRow($objDbRow, $strAliasPrefix . 'passwordresetasaccount__', $objExpansionNode, null, $strColumnAliasArray);
             }
         }
 
-        // Check for PhotoSubmission Virtual Binding
-        $strAlias = $strAliasPrefix . 'photosubmission__Id';
+        // Check for PhotoSubmissionAsAccount Virtual Binding
+        $strAlias = $strAliasPrefix . 'photosubmissionasaccount__Id';
         $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
-        $objExpansionNode = (empty($objExpansionAliasArray['photosubmission']) ? null : $objExpansionAliasArray['photosubmission']);
+        $objExpansionNode = (empty($objExpansionAliasArray['photosubmissionasaccount']) ? null : $objExpansionAliasArray['photosubmissionasaccount']);
         $blnExpanded = ($objExpansionNode && $objExpansionNode->ExpandAsArray);
-        if ($blnExpanded && null === $objToReturn->_objPhotoSubmissionArray)
-            $objToReturn->_objPhotoSubmissionArray = array();
+        if ($blnExpanded && null === $objToReturn->_objPhotoSubmissionAsAccountArray)
+            $objToReturn->_objPhotoSubmissionAsAccountArray = array();
         if (!is_null($objDbRow->GetColumn($strAliasName))) {
             if ($blnExpanded) {
-                $objToReturn->_objPhotoSubmissionArray[] = PhotoSubmission::InstantiateDbRow($objDbRow, $strAliasPrefix . 'photosubmission__', $objExpansionNode, null, $strColumnAliasArray);
-            } elseif (is_null($objToReturn->_objPhotoSubmission)) {
-                $objToReturn->_objPhotoSubmission = PhotoSubmission::InstantiateDbRow($objDbRow, $strAliasPrefix . 'photosubmission__', $objExpansionNode, null, $strColumnAliasArray);
+                $objToReturn->_objPhotoSubmissionAsAccountArray[] = PhotoSubmission::InstantiateDbRow($objDbRow, $strAliasPrefix . 'photosubmissionasaccount__', $objExpansionNode, null, $strColumnAliasArray);
+            } elseif (is_null($objToReturn->_objPhotoSubmissionAsAccount)) {
+                $objToReturn->_objPhotoSubmissionAsAccount = PhotoSubmission::InstantiateDbRow($objDbRow, $strAliasPrefix . 'photosubmissionasaccount__', $objExpansionNode, null, $strColumnAliasArray);
             }
         }
 
-        // Check for PushRegistration Virtual Binding
-        $strAlias = $strAliasPrefix . 'pushregistration__Id';
+        // Check for PushRegistrationAsAccount Virtual Binding
+        $strAlias = $strAliasPrefix . 'pushregistrationasaccount__Id';
         $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
-        $objExpansionNode = (empty($objExpansionAliasArray['pushregistration']) ? null : $objExpansionAliasArray['pushregistration']);
+        $objExpansionNode = (empty($objExpansionAliasArray['pushregistrationasaccount']) ? null : $objExpansionAliasArray['pushregistrationasaccount']);
         $blnExpanded = ($objExpansionNode && $objExpansionNode->ExpandAsArray);
-        if ($blnExpanded && null === $objToReturn->_objPushRegistrationArray)
-            $objToReturn->_objPushRegistrationArray = array();
+        if ($blnExpanded && null === $objToReturn->_objPushRegistrationAsAccountArray)
+            $objToReturn->_objPushRegistrationAsAccountArray = array();
         if (!is_null($objDbRow->GetColumn($strAliasName))) {
             if ($blnExpanded) {
-                $objToReturn->_objPushRegistrationArray[] = PushRegistration::InstantiateDbRow($objDbRow, $strAliasPrefix . 'pushregistration__', $objExpansionNode, null, $strColumnAliasArray);
-            } elseif (is_null($objToReturn->_objPushRegistration)) {
-                $objToReturn->_objPushRegistration = PushRegistration::InstantiateDbRow($objDbRow, $strAliasPrefix . 'pushregistration__', $objExpansionNode, null, $strColumnAliasArray);
+                $objToReturn->_objPushRegistrationAsAccountArray[] = PushRegistration::InstantiateDbRow($objDbRow, $strAliasPrefix . 'pushregistrationasaccount__', $objExpansionNode, null, $strColumnAliasArray);
+            } elseif (is_null($objToReturn->_objPushRegistrationAsAccount)) {
+                $objToReturn->_objPushRegistrationAsAccount = PushRegistration::InstantiateDbRow($objDbRow, $strAliasPrefix . 'pushregistrationasaccount__', $objExpansionNode, null, $strColumnAliasArray);
             }
         }
 
-        // Check for StockPhotoRequest Virtual Binding
-        $strAlias = $strAliasPrefix . 'stockphotorequest__Id';
+        // Check for StockPhotoRequestAsAccount Virtual Binding
+        $strAlias = $strAliasPrefix . 'stockphotorequestasaccount__Id';
         $strAliasName = !empty($strColumnAliasArray[$strAlias]) ? $strColumnAliasArray[$strAlias] : $strAlias;
-        $objExpansionNode = (empty($objExpansionAliasArray['stockphotorequest']) ? null : $objExpansionAliasArray['stockphotorequest']);
+        $objExpansionNode = (empty($objExpansionAliasArray['stockphotorequestasaccount']) ? null : $objExpansionAliasArray['stockphotorequestasaccount']);
         $blnExpanded = ($objExpansionNode && $objExpansionNode->ExpandAsArray);
-        if ($blnExpanded && null === $objToReturn->_objStockPhotoRequestArray)
-            $objToReturn->_objStockPhotoRequestArray = array();
+        if ($blnExpanded && null === $objToReturn->_objStockPhotoRequestAsAccountArray)
+            $objToReturn->_objStockPhotoRequestAsAccountArray = array();
         if (!is_null($objDbRow->GetColumn($strAliasName))) {
             if ($blnExpanded) {
-                $objToReturn->_objStockPhotoRequestArray[] = StockPhotoRequest::InstantiateDbRow($objDbRow, $strAliasPrefix . 'stockphotorequest__', $objExpansionNode, null, $strColumnAliasArray);
-            } elseif (is_null($objToReturn->_objStockPhotoRequest)) {
-                $objToReturn->_objStockPhotoRequest = StockPhotoRequest::InstantiateDbRow($objDbRow, $strAliasPrefix . 'stockphotorequest__', $objExpansionNode, null, $strColumnAliasArray);
+                $objToReturn->_objStockPhotoRequestAsAccountArray[] = StockPhotoRequest::InstantiateDbRow($objDbRow, $strAliasPrefix . 'stockphotorequestasaccount__', $objExpansionNode, null, $strColumnAliasArray);
+            } elseif (is_null($objToReturn->_objStockPhotoRequestAsAccount)) {
+                $objToReturn->_objStockPhotoRequestAsAccount = StockPhotoRequest::InstantiateDbRow($objDbRow, $strAliasPrefix . 'stockphotorequestasaccount__', $objExpansionNode, null, $strColumnAliasArray);
             }
         }
 
@@ -2215,12 +2215,12 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
             ///////////////////
             case 'UserRoleObject':
                 /**
-                 * Gets the value for the UserRole object referenced by intUserRole 
-                 * @return UserRole
+                 * Gets the value for the Userrole object referenced by intUserRole 
+                 * @return Userrole
                  */
                 try {
                     if ((!$this->objUserRoleObject) && (!is_null($this->intUserRole)))
-                        $this->objUserRoleObject = UserRole::Load($this->intUserRole);
+                        $this->objUserRoleObject = Userrole::Load($this->intUserRole);
                     return $this->objUserRoleObject;
                 } catch (dxCallerException $objExc) {
                     $objExc->IncrementOffset();
@@ -2233,101 +2233,101 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
             // (If restored via a "Many-to" expansion)
             ////////////////////////////
 
-            case '_AdditionalAccountInformation':
+            case '_AdditionalAccountInformationAsAccount':
                 /**
-                 * Gets the value for the private _objAdditionalAccountInformation (Read-Only)
+                 * Gets the value for the private _objAdditionalAccountInformationAsAccount (Read-Only)
                  * if set due to an expansion on the AdditionalAccountInformation.Account reverse relationship
                  * @return AdditionalAccountInformation
                  */
-                return $this->_objAdditionalAccountInformation;
+                return $this->_objAdditionalAccountInformationAsAccount;
 
-            case '_AdditionalAccountInformationArray':
+            case '_AdditionalAccountInformationAsAccountArray':
                 /**
-                 * Gets the value for the private _objAdditionalAccountInformationArray (Read-Only)
+                 * Gets the value for the private _objAdditionalAccountInformationAsAccountArray (Read-Only)
                  * if set due to an ExpandAsArray on the AdditionalAccountInformation.Account reverse relationship
                  * @return AdditionalAccountInformation[]
                  */
-                return $this->_objAdditionalAccountInformationArray;
+                return $this->_objAdditionalAccountInformationAsAccountArray;
 
-            case '_ClientConnection':
+            case '_ClientConnectionAsAccount':
                 /**
-                 * Gets the value for the private _objClientConnection (Read-Only)
+                 * Gets the value for the private _objClientConnectionAsAccount (Read-Only)
                  * if set due to an expansion on the ClientConnection.Account reverse relationship
                  * @return ClientConnection
                  */
-                return $this->_objClientConnection;
+                return $this->_objClientConnectionAsAccount;
 
-            case '_ClientConnectionArray':
+            case '_ClientConnectionAsAccountArray':
                 /**
-                 * Gets the value for the private _objClientConnectionArray (Read-Only)
+                 * Gets the value for the private _objClientConnectionAsAccountArray (Read-Only)
                  * if set due to an ExpandAsArray on the ClientConnection.Account reverse relationship
                  * @return ClientConnection[]
                  */
-                return $this->_objClientConnectionArray;
+                return $this->_objClientConnectionAsAccountArray;
 
-            case '_PasswordReset':
+            case '_PasswordResetAsAccount':
                 /**
-                 * Gets the value for the private _objPasswordReset (Read-Only)
+                 * Gets the value for the private _objPasswordResetAsAccount (Read-Only)
                  * if set due to an expansion on the PasswordReset.Account reverse relationship
                  * @return PasswordReset
                  */
-                return $this->_objPasswordReset;
+                return $this->_objPasswordResetAsAccount;
 
-            case '_PasswordResetArray':
+            case '_PasswordResetAsAccountArray':
                 /**
-                 * Gets the value for the private _objPasswordResetArray (Read-Only)
+                 * Gets the value for the private _objPasswordResetAsAccountArray (Read-Only)
                  * if set due to an ExpandAsArray on the PasswordReset.Account reverse relationship
                  * @return PasswordReset[]
                  */
-                return $this->_objPasswordResetArray;
+                return $this->_objPasswordResetAsAccountArray;
 
-            case '_PhotoSubmission':
+            case '_PhotoSubmissionAsAccount':
                 /**
-                 * Gets the value for the private _objPhotoSubmission (Read-Only)
+                 * Gets the value for the private _objPhotoSubmissionAsAccount (Read-Only)
                  * if set due to an expansion on the PhotoSubmission.Account reverse relationship
                  * @return PhotoSubmission
                  */
-                return $this->_objPhotoSubmission;
+                return $this->_objPhotoSubmissionAsAccount;
 
-            case '_PhotoSubmissionArray':
+            case '_PhotoSubmissionAsAccountArray':
                 /**
-                 * Gets the value for the private _objPhotoSubmissionArray (Read-Only)
+                 * Gets the value for the private _objPhotoSubmissionAsAccountArray (Read-Only)
                  * if set due to an ExpandAsArray on the PhotoSubmission.Account reverse relationship
                  * @return PhotoSubmission[]
                  */
-                return $this->_objPhotoSubmissionArray;
+                return $this->_objPhotoSubmissionAsAccountArray;
 
-            case '_PushRegistration':
+            case '_PushRegistrationAsAccount':
                 /**
-                 * Gets the value for the private _objPushRegistration (Read-Only)
+                 * Gets the value for the private _objPushRegistrationAsAccount (Read-Only)
                  * if set due to an expansion on the PushRegistration.Account reverse relationship
                  * @return PushRegistration
                  */
-                return $this->_objPushRegistration;
+                return $this->_objPushRegistrationAsAccount;
 
-            case '_PushRegistrationArray':
+            case '_PushRegistrationAsAccountArray':
                 /**
-                 * Gets the value for the private _objPushRegistrationArray (Read-Only)
+                 * Gets the value for the private _objPushRegistrationAsAccountArray (Read-Only)
                  * if set due to an ExpandAsArray on the PushRegistration.Account reverse relationship
                  * @return PushRegistration[]
                  */
-                return $this->_objPushRegistrationArray;
+                return $this->_objPushRegistrationAsAccountArray;
 
-            case '_StockPhotoRequest':
+            case '_StockPhotoRequestAsAccount':
                 /**
-                 * Gets the value for the private _objStockPhotoRequest (Read-Only)
+                 * Gets the value for the private _objStockPhotoRequestAsAccount (Read-Only)
                  * if set due to an expansion on the StockPhotoRequest.Account reverse relationship
                  * @return StockPhotoRequest
                  */
-                return $this->_objStockPhotoRequest;
+                return $this->_objStockPhotoRequestAsAccount;
 
-            case '_StockPhotoRequestArray':
+            case '_StockPhotoRequestAsAccountArray':
                 /**
-                 * Gets the value for the private _objStockPhotoRequestArray (Read-Only)
+                 * Gets the value for the private _objStockPhotoRequestAsAccountArray (Read-Only)
                  * if set due to an ExpandAsArray on the StockPhotoRequest.Account reverse relationship
                  * @return StockPhotoRequest[]
                  */
-                return $this->_objStockPhotoRequestArray;
+                return $this->_objStockPhotoRequestAsAccountArray;
 
 
             case '__Restored':
@@ -2739,24 +2739,24 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
             ///////////////////
             case 'UserRoleObject':
                 /**
-                 * Sets the value for the UserRole object referenced by intUserRole 
-                 * @param UserRole $mixValue
-                 * @return UserRole
+                 * Sets the value for the Userrole object referenced by intUserRole 
+                 * @param Userrole $mixValue
+                 * @return Userrole
                  */
                 if (is_null($mixValue)) {
                     $this->intUserRole = null;
                     $this->objUserRoleObject = null;
                     return null;
                 } else {
-                    // Make sure $mixValue actually is a UserRole object
+                    // Make sure $mixValue actually is a Userrole object
                     try {
-                        $mixValue = dxType::Cast($mixValue, 'UserRole');
+                        $mixValue = dxType::Cast($mixValue, 'Userrole');
                     } catch (dxInvalidCastException $objExc) {
                         $objExc->IncrementOffset();
                         throw $objExc;
                     }
 
-                    // Make sure $mixValue is a SAVED UserRole object
+                    // Make sure $mixValue is a SAVED Userrole object
                     if (is_null($mixValue->Id))
                         throw new dxCallerException('Unable to set an unsaved UserRoleObject for this Account');
 
@@ -2795,15 +2795,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
 
 
 
-    // Related Objects' Methods for AdditionalAccountInformation
+    // Related Objects' Methods for AdditionalAccountInformationAsAccount
     //-------------------------------------------------------------------
 
     /**
-     * Gets all associated AdditionalAccountInformations as an array of AdditionalAccountInformation objects
+     * Gets all associated AdditionalAccountInformationsAsAccount as an array of AdditionalAccountInformation objects
      * @param dxQueryClause[] $objOptionalClauses additional optional dxQueryClause objects for this query
      * @return AdditionalAccountInformation[]
     */
-    public function GetAdditionalAccountInformationArray($objOptionalClauses = null) {
+    public function GetAdditionalAccountInformationAsAccountArray($objOptionalClauses = null) {
         if ((is_null($this->intId)))
             return array();
 
@@ -2816,10 +2816,10 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Counts all associated AdditionalAccountInformations
+     * Counts all associated AdditionalAccountInformationsAsAccount
      * @return int
     */
-    public function CountAdditionalAccountInformations() {
+    public function CountAdditionalAccountInformationsAsAccount() {
         if ((is_null($this->intId)))
             return 0;
 
@@ -2827,15 +2827,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Associates a AdditionalAccountInformation
+     * Associates a AdditionalAccountInformationAsAccount
      * @param AdditionalAccountInformation $objAdditionalAccountInformation
      * @return void
     */
-    public function AssociateAdditionalAccountInformation(AdditionalAccountInformation $objAdditionalAccountInformation) {
+    public function AssociateAdditionalAccountInformationAsAccount(AdditionalAccountInformation $objAdditionalAccountInformation) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateAdditionalAccountInformation on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateAdditionalAccountInformationAsAccount on this unsaved Account.');
         if ((is_null($objAdditionalAccountInformation->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateAdditionalAccountInformation on this Account with an unsaved AdditionalAccountInformation.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateAdditionalAccountInformationAsAccount on this Account with an unsaved AdditionalAccountInformation.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -2852,15 +2852,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Unassociates a AdditionalAccountInformation
+     * Unassociates a AdditionalAccountInformationAsAccount
      * @param AdditionalAccountInformation $objAdditionalAccountInformation
      * @return void
     */
-    public function UnassociateAdditionalAccountInformation(AdditionalAccountInformation $objAdditionalAccountInformation) {
+    public function UnassociateAdditionalAccountInformationAsAccount(AdditionalAccountInformation $objAdditionalAccountInformation) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAdditionalAccountInformation on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAdditionalAccountInformationAsAccount on this unsaved Account.');
         if ((is_null($objAdditionalAccountInformation->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAdditionalAccountInformation on this Account with an unsaved AdditionalAccountInformation.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAdditionalAccountInformationAsAccount on this Account with an unsaved AdditionalAccountInformation.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -2878,12 +2878,12 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Unassociates all AdditionalAccountInformations
+     * Unassociates all AdditionalAccountInformationsAsAccount
      * @return void
     */
-    public function UnassociateAllAdditionalAccountInformations() {
+    public function UnassociateAllAdditionalAccountInformationsAsAccount() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAdditionalAccountInformation on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAdditionalAccountInformationAsAccount on this unsaved Account.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -2900,15 +2900,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Deletes an associated AdditionalAccountInformation
+     * Deletes an associated AdditionalAccountInformationAsAccount
      * @param AdditionalAccountInformation $objAdditionalAccountInformation
      * @return void
     */
-    public function DeleteAssociatedAdditionalAccountInformation(AdditionalAccountInformation $objAdditionalAccountInformation) {
+    public function DeleteAssociatedAdditionalAccountInformationAsAccount(AdditionalAccountInformation $objAdditionalAccountInformation) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAdditionalAccountInformation on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAdditionalAccountInformationAsAccount on this unsaved Account.');
         if ((is_null($objAdditionalAccountInformation->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAdditionalAccountInformation on this Account with an unsaved AdditionalAccountInformation.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAdditionalAccountInformationAsAccount on this Account with an unsaved AdditionalAccountInformation.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -2924,12 +2924,12 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Deletes all associated AdditionalAccountInformations
+     * Deletes all associated AdditionalAccountInformationsAsAccount
      * @return void
     */
-    public function DeleteAllAdditionalAccountInformations() {
+    public function DeleteAllAdditionalAccountInformationsAsAccount() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAdditionalAccountInformation on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateAdditionalAccountInformationAsAccount on this unsaved Account.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -2944,15 +2944,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
 
-    // Related Objects' Methods for ClientConnection
+    // Related Objects' Methods for ClientConnectionAsAccount
     //-------------------------------------------------------------------
 
     /**
-     * Gets all associated ClientConnections as an array of ClientConnection objects
+     * Gets all associated ClientConnectionsAsAccount as an array of ClientConnection objects
      * @param dxQueryClause[] $objOptionalClauses additional optional dxQueryClause objects for this query
      * @return ClientConnection[]
     */
-    public function GetClientConnectionArray($objOptionalClauses = null) {
+    public function GetClientConnectionAsAccountArray($objOptionalClauses = null) {
         if ((is_null($this->intId)))
             return array();
 
@@ -2965,10 +2965,10 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Counts all associated ClientConnections
+     * Counts all associated ClientConnectionsAsAccount
      * @return int
     */
-    public function CountClientConnections() {
+    public function CountClientConnectionsAsAccount() {
         if ((is_null($this->intId)))
             return 0;
 
@@ -2976,15 +2976,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Associates a ClientConnection
+     * Associates a ClientConnectionAsAccount
      * @param ClientConnection $objClientConnection
      * @return void
     */
-    public function AssociateClientConnection(ClientConnection $objClientConnection) {
+    public function AssociateClientConnectionAsAccount(ClientConnection $objClientConnection) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateClientConnection on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateClientConnectionAsAccount on this unsaved Account.');
         if ((is_null($objClientConnection->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateClientConnection on this Account with an unsaved ClientConnection.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateClientConnectionAsAccount on this Account with an unsaved ClientConnection.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3001,15 +3001,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Unassociates a ClientConnection
+     * Unassociates a ClientConnectionAsAccount
      * @param ClientConnection $objClientConnection
      * @return void
     */
-    public function UnassociateClientConnection(ClientConnection $objClientConnection) {
+    public function UnassociateClientConnectionAsAccount(ClientConnection $objClientConnection) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientConnection on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientConnectionAsAccount on this unsaved Account.');
         if ((is_null($objClientConnection->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientConnection on this Account with an unsaved ClientConnection.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientConnectionAsAccount on this Account with an unsaved ClientConnection.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3027,12 +3027,12 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Unassociates all ClientConnections
+     * Unassociates all ClientConnectionsAsAccount
      * @return void
     */
-    public function UnassociateAllClientConnections() {
+    public function UnassociateAllClientConnectionsAsAccount() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientConnection on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientConnectionAsAccount on this unsaved Account.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3049,15 +3049,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Deletes an associated ClientConnection
+     * Deletes an associated ClientConnectionAsAccount
      * @param ClientConnection $objClientConnection
      * @return void
     */
-    public function DeleteAssociatedClientConnection(ClientConnection $objClientConnection) {
+    public function DeleteAssociatedClientConnectionAsAccount(ClientConnection $objClientConnection) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientConnection on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientConnectionAsAccount on this unsaved Account.');
         if ((is_null($objClientConnection->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientConnection on this Account with an unsaved ClientConnection.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientConnectionAsAccount on this Account with an unsaved ClientConnection.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3073,12 +3073,12 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Deletes all associated ClientConnections
+     * Deletes all associated ClientConnectionsAsAccount
      * @return void
     */
-    public function DeleteAllClientConnections() {
+    public function DeleteAllClientConnectionsAsAccount() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientConnection on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateClientConnectionAsAccount on this unsaved Account.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3093,15 +3093,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
 
-    // Related Objects' Methods for PasswordReset
+    // Related Objects' Methods for PasswordResetAsAccount
     //-------------------------------------------------------------------
 
     /**
-     * Gets all associated PasswordResets as an array of PasswordReset objects
+     * Gets all associated PasswordResetsAsAccount as an array of PasswordReset objects
      * @param dxQueryClause[] $objOptionalClauses additional optional dxQueryClause objects for this query
      * @return PasswordReset[]
     */
-    public function GetPasswordResetArray($objOptionalClauses = null) {
+    public function GetPasswordResetAsAccountArray($objOptionalClauses = null) {
         if ((is_null($this->intId)))
             return array();
 
@@ -3114,10 +3114,10 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Counts all associated PasswordResets
+     * Counts all associated PasswordResetsAsAccount
      * @return int
     */
-    public function CountPasswordResets() {
+    public function CountPasswordResetsAsAccount() {
         if ((is_null($this->intId)))
             return 0;
 
@@ -3125,15 +3125,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Associates a PasswordReset
+     * Associates a PasswordResetAsAccount
      * @param PasswordReset $objPasswordReset
      * @return void
     */
-    public function AssociatePasswordReset(PasswordReset $objPasswordReset) {
+    public function AssociatePasswordResetAsAccount(PasswordReset $objPasswordReset) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call AssociatePasswordReset on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociatePasswordResetAsAccount on this unsaved Account.');
         if ((is_null($objPasswordReset->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call AssociatePasswordReset on this Account with an unsaved PasswordReset.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociatePasswordResetAsAccount on this Account with an unsaved PasswordReset.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3150,15 +3150,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Unassociates a PasswordReset
+     * Unassociates a PasswordResetAsAccount
      * @param PasswordReset $objPasswordReset
      * @return void
     */
-    public function UnassociatePasswordReset(PasswordReset $objPasswordReset) {
+    public function UnassociatePasswordResetAsAccount(PasswordReset $objPasswordReset) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePasswordReset on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePasswordResetAsAccount on this unsaved Account.');
         if ((is_null($objPasswordReset->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePasswordReset on this Account with an unsaved PasswordReset.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePasswordResetAsAccount on this Account with an unsaved PasswordReset.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3176,12 +3176,12 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Unassociates all PasswordResets
+     * Unassociates all PasswordResetsAsAccount
      * @return void
     */
-    public function UnassociateAllPasswordResets() {
+    public function UnassociateAllPasswordResetsAsAccount() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePasswordReset on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePasswordResetAsAccount on this unsaved Account.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3198,15 +3198,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Deletes an associated PasswordReset
+     * Deletes an associated PasswordResetAsAccount
      * @param PasswordReset $objPasswordReset
      * @return void
     */
-    public function DeleteAssociatedPasswordReset(PasswordReset $objPasswordReset) {
+    public function DeleteAssociatedPasswordResetAsAccount(PasswordReset $objPasswordReset) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePasswordReset on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePasswordResetAsAccount on this unsaved Account.');
         if ((is_null($objPasswordReset->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePasswordReset on this Account with an unsaved PasswordReset.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePasswordResetAsAccount on this Account with an unsaved PasswordReset.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3222,12 +3222,12 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Deletes all associated PasswordResets
+     * Deletes all associated PasswordResetsAsAccount
      * @return void
     */
-    public function DeleteAllPasswordResets() {
+    public function DeleteAllPasswordResetsAsAccount() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePasswordReset on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePasswordResetAsAccount on this unsaved Account.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3242,15 +3242,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
 
-    // Related Objects' Methods for PhotoSubmission
+    // Related Objects' Methods for PhotoSubmissionAsAccount
     //-------------------------------------------------------------------
 
     /**
-     * Gets all associated PhotoSubmissions as an array of PhotoSubmission objects
+     * Gets all associated PhotoSubmissionsAsAccount as an array of PhotoSubmission objects
      * @param dxQueryClause[] $objOptionalClauses additional optional dxQueryClause objects for this query
      * @return PhotoSubmission[]
     */
-    public function GetPhotoSubmissionArray($objOptionalClauses = null) {
+    public function GetPhotoSubmissionAsAccountArray($objOptionalClauses = null) {
         if ((is_null($this->intId)))
             return array();
 
@@ -3263,10 +3263,10 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Counts all associated PhotoSubmissions
+     * Counts all associated PhotoSubmissionsAsAccount
      * @return int
     */
-    public function CountPhotoSubmissions() {
+    public function CountPhotoSubmissionsAsAccount() {
         if ((is_null($this->intId)))
             return 0;
 
@@ -3274,15 +3274,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Associates a PhotoSubmission
+     * Associates a PhotoSubmissionAsAccount
      * @param PhotoSubmission $objPhotoSubmission
      * @return void
     */
-    public function AssociatePhotoSubmission(PhotoSubmission $objPhotoSubmission) {
+    public function AssociatePhotoSubmissionAsAccount(PhotoSubmission $objPhotoSubmission) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call AssociatePhotoSubmission on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociatePhotoSubmissionAsAccount on this unsaved Account.');
         if ((is_null($objPhotoSubmission->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call AssociatePhotoSubmission on this Account with an unsaved PhotoSubmission.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociatePhotoSubmissionAsAccount on this Account with an unsaved PhotoSubmission.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3299,15 +3299,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Unassociates a PhotoSubmission
+     * Unassociates a PhotoSubmissionAsAccount
      * @param PhotoSubmission $objPhotoSubmission
      * @return void
     */
-    public function UnassociatePhotoSubmission(PhotoSubmission $objPhotoSubmission) {
+    public function UnassociatePhotoSubmissionAsAccount(PhotoSubmission $objPhotoSubmission) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePhotoSubmission on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePhotoSubmissionAsAccount on this unsaved Account.');
         if ((is_null($objPhotoSubmission->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePhotoSubmission on this Account with an unsaved PhotoSubmission.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePhotoSubmissionAsAccount on this Account with an unsaved PhotoSubmission.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3325,12 +3325,12 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Unassociates all PhotoSubmissions
+     * Unassociates all PhotoSubmissionsAsAccount
      * @return void
     */
-    public function UnassociateAllPhotoSubmissions() {
+    public function UnassociateAllPhotoSubmissionsAsAccount() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePhotoSubmission on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePhotoSubmissionAsAccount on this unsaved Account.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3347,15 +3347,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Deletes an associated PhotoSubmission
+     * Deletes an associated PhotoSubmissionAsAccount
      * @param PhotoSubmission $objPhotoSubmission
      * @return void
     */
-    public function DeleteAssociatedPhotoSubmission(PhotoSubmission $objPhotoSubmission) {
+    public function DeleteAssociatedPhotoSubmissionAsAccount(PhotoSubmission $objPhotoSubmission) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePhotoSubmission on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePhotoSubmissionAsAccount on this unsaved Account.');
         if ((is_null($objPhotoSubmission->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePhotoSubmission on this Account with an unsaved PhotoSubmission.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePhotoSubmissionAsAccount on this Account with an unsaved PhotoSubmission.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3371,12 +3371,12 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Deletes all associated PhotoSubmissions
+     * Deletes all associated PhotoSubmissionsAsAccount
      * @return void
     */
-    public function DeleteAllPhotoSubmissions() {
+    public function DeleteAllPhotoSubmissionsAsAccount() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePhotoSubmission on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePhotoSubmissionAsAccount on this unsaved Account.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3391,15 +3391,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
 
-    // Related Objects' Methods for PushRegistration
+    // Related Objects' Methods for PushRegistrationAsAccount
     //-------------------------------------------------------------------
 
     /**
-     * Gets all associated PushRegistrations as an array of PushRegistration objects
+     * Gets all associated PushRegistrationsAsAccount as an array of PushRegistration objects
      * @param dxQueryClause[] $objOptionalClauses additional optional dxQueryClause objects for this query
      * @return PushRegistration[]
     */
-    public function GetPushRegistrationArray($objOptionalClauses = null) {
+    public function GetPushRegistrationAsAccountArray($objOptionalClauses = null) {
         if ((is_null($this->intId)))
             return array();
 
@@ -3412,10 +3412,10 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Counts all associated PushRegistrations
+     * Counts all associated PushRegistrationsAsAccount
      * @return int
     */
-    public function CountPushRegistrations() {
+    public function CountPushRegistrationsAsAccount() {
         if ((is_null($this->intId)))
             return 0;
 
@@ -3423,15 +3423,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Associates a PushRegistration
+     * Associates a PushRegistrationAsAccount
      * @param PushRegistration $objPushRegistration
      * @return void
     */
-    public function AssociatePushRegistration(PushRegistration $objPushRegistration) {
+    public function AssociatePushRegistrationAsAccount(PushRegistration $objPushRegistration) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call AssociatePushRegistration on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociatePushRegistrationAsAccount on this unsaved Account.');
         if ((is_null($objPushRegistration->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call AssociatePushRegistration on this Account with an unsaved PushRegistration.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociatePushRegistrationAsAccount on this Account with an unsaved PushRegistration.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3448,15 +3448,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Unassociates a PushRegistration
+     * Unassociates a PushRegistrationAsAccount
      * @param PushRegistration $objPushRegistration
      * @return void
     */
-    public function UnassociatePushRegistration(PushRegistration $objPushRegistration) {
+    public function UnassociatePushRegistrationAsAccount(PushRegistration $objPushRegistration) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePushRegistration on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePushRegistrationAsAccount on this unsaved Account.');
         if ((is_null($objPushRegistration->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePushRegistration on this Account with an unsaved PushRegistration.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePushRegistrationAsAccount on this Account with an unsaved PushRegistration.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3474,12 +3474,12 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Unassociates all PushRegistrations
+     * Unassociates all PushRegistrationsAsAccount
      * @return void
     */
-    public function UnassociateAllPushRegistrations() {
+    public function UnassociateAllPushRegistrationsAsAccount() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePushRegistration on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePushRegistrationAsAccount on this unsaved Account.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3496,15 +3496,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Deletes an associated PushRegistration
+     * Deletes an associated PushRegistrationAsAccount
      * @param PushRegistration $objPushRegistration
      * @return void
     */
-    public function DeleteAssociatedPushRegistration(PushRegistration $objPushRegistration) {
+    public function DeleteAssociatedPushRegistrationAsAccount(PushRegistration $objPushRegistration) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePushRegistration on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePushRegistrationAsAccount on this unsaved Account.');
         if ((is_null($objPushRegistration->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePushRegistration on this Account with an unsaved PushRegistration.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePushRegistrationAsAccount on this Account with an unsaved PushRegistration.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3520,12 +3520,12 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Deletes all associated PushRegistrations
+     * Deletes all associated PushRegistrationsAsAccount
      * @return void
     */
-    public function DeleteAllPushRegistrations() {
+    public function DeleteAllPushRegistrationsAsAccount() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePushRegistration on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociatePushRegistrationAsAccount on this unsaved Account.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3540,15 +3540,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
 
-    // Related Objects' Methods for StockPhotoRequest
+    // Related Objects' Methods for StockPhotoRequestAsAccount
     //-------------------------------------------------------------------
 
     /**
-     * Gets all associated StockPhotoRequests as an array of StockPhotoRequest objects
+     * Gets all associated StockPhotoRequestsAsAccount as an array of StockPhotoRequest objects
      * @param dxQueryClause[] $objOptionalClauses additional optional dxQueryClause objects for this query
      * @return StockPhotoRequest[]
     */
-    public function GetStockPhotoRequestArray($objOptionalClauses = null) {
+    public function GetStockPhotoRequestAsAccountArray($objOptionalClauses = null) {
         if ((is_null($this->intId)))
             return array();
 
@@ -3561,10 +3561,10 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Counts all associated StockPhotoRequests
+     * Counts all associated StockPhotoRequestsAsAccount
      * @return int
     */
-    public function CountStockPhotoRequests() {
+    public function CountStockPhotoRequestsAsAccount() {
         if ((is_null($this->intId)))
             return 0;
 
@@ -3572,15 +3572,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Associates a StockPhotoRequest
+     * Associates a StockPhotoRequestAsAccount
      * @param StockPhotoRequest $objStockPhotoRequest
      * @return void
     */
-    public function AssociateStockPhotoRequest(StockPhotoRequest $objStockPhotoRequest) {
+    public function AssociateStockPhotoRequestAsAccount(StockPhotoRequest $objStockPhotoRequest) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateStockPhotoRequest on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateStockPhotoRequestAsAccount on this unsaved Account.');
         if ((is_null($objStockPhotoRequest->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateStockPhotoRequest on this Account with an unsaved StockPhotoRequest.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call AssociateStockPhotoRequestAsAccount on this Account with an unsaved StockPhotoRequest.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3597,15 +3597,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Unassociates a StockPhotoRequest
+     * Unassociates a StockPhotoRequestAsAccount
      * @param StockPhotoRequest $objStockPhotoRequest
      * @return void
     */
-    public function UnassociateStockPhotoRequest(StockPhotoRequest $objStockPhotoRequest) {
+    public function UnassociateStockPhotoRequestAsAccount(StockPhotoRequest $objStockPhotoRequest) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequest on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequestAsAccount on this unsaved Account.');
         if ((is_null($objStockPhotoRequest->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequest on this Account with an unsaved StockPhotoRequest.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequestAsAccount on this Account with an unsaved StockPhotoRequest.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3623,12 +3623,12 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Unassociates all StockPhotoRequests
+     * Unassociates all StockPhotoRequestsAsAccount
      * @return void
     */
-    public function UnassociateAllStockPhotoRequests() {
+    public function UnassociateAllStockPhotoRequestsAsAccount() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequest on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequestAsAccount on this unsaved Account.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3645,15 +3645,15 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Deletes an associated StockPhotoRequest
+     * Deletes an associated StockPhotoRequestAsAccount
      * @param StockPhotoRequest $objStockPhotoRequest
      * @return void
     */
-    public function DeleteAssociatedStockPhotoRequest(StockPhotoRequest $objStockPhotoRequest) {
+    public function DeleteAssociatedStockPhotoRequestAsAccount(StockPhotoRequest $objStockPhotoRequest) {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequest on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequestAsAccount on this unsaved Account.');
         if ((is_null($objStockPhotoRequest->Id)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequest on this Account with an unsaved StockPhotoRequest.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequestAsAccount on this Account with an unsaved StockPhotoRequest.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3669,12 +3669,12 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     }
 
     /**
-     * Deletes all associated StockPhotoRequests
+     * Deletes all associated StockPhotoRequestsAsAccount
      * @return void
     */
-    public function DeleteAllStockPhotoRequests() {
+    public function DeleteAllStockPhotoRequestsAsAccount() {
         if ((is_null($this->intId)))
-            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequest on this unsaved Account.');
+            throw new dxUndefinedPrimaryKeyException('Unable to call UnassociateStockPhotoRequestAsAccount on this unsaved Account.');
 
         // Get the Database Object for this Class
         $objDatabase = Account::GetDatabase();
@@ -3755,7 +3755,7 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
         $strToReturn .= '<element name="AccessBlocked" type="xsd:boolean"/>';
         $strToReturn .= '<element name="BlockedReason" type="xsd:string"/>';
         $strToReturn .= '<element name="LastUpdated" type="xsd:string"/>';
-        $strToReturn .= '<element name="UserRoleObject" type="xsd1:UserRole"/>';
+        $strToReturn .= '<element name="UserRoleObject" type="xsd1:Userrole"/>';
         $strToReturn .= '<element name="SearchMetaInfo" type="xsd:string"/>';
         $strToReturn .= '<element name="ObjectOwner" type="xsd:int"/>';
         $strToReturn .= '<element name="__blnRestored" type="xsd:boolean"/>';
@@ -3766,7 +3766,7 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
     public static function AlterSoapComplexTypeArray(&$strComplexTypeArray) {
         if (!array_key_exists('Account', $strComplexTypeArray)) {
             $strComplexTypeArray['Account'] = Account::GetSoapComplexTypeXml();
-            UserRole::AlterSoapComplexTypeArray($strComplexTypeArray);
+            Userrole::AlterSoapComplexTypeArray($strComplexTypeArray);
         }
     }
 
@@ -3839,7 +3839,7 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
             $objToReturn->strLastUpdated = $objSoapObject->LastUpdated;
         if ((property_exists($objSoapObject, 'UserRoleObject')) &&
             ($objSoapObject->UserRoleObject))
-            $objToReturn->UserRoleObject = UserRole::GetObjectFromSoapObject($objSoapObject->UserRoleObject);
+            $objToReturn->UserRoleObject = Userrole::GetObjectFromSoapObject($objSoapObject->UserRoleObject);
         if (property_exists($objSoapObject, 'SearchMetaInfo'))
             $objToReturn->strSearchMetaInfo = $objSoapObject->SearchMetaInfo;
         if (property_exists($objSoapObject, 'ObjectOwner'))
@@ -3865,7 +3865,7 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
         if ($objObject->dttDateOfBirth)
             $objObject->dttDateOfBirth = $objObject->dttDateOfBirth->qFormat(dxDateTime::FormatSoap);
         if ($objObject->objUserRoleObject)
-            $objObject->objUserRoleObject = UserRole::GetSoapObjectFromObject($objObject->objUserRoleObject, false);
+            $objObject->objUserRoleObject = Userrole::GetSoapObjectFromObject($objObject->objUserRoleObject, false);
         else if (!$blnBindRelatedObjects)
             $objObject->intUserRole = null;
         return $objObject;
@@ -3976,17 +3976,17 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
      * @property-read dxQueryNode $BlockedReason
      * @property-read dxQueryNode $LastUpdated
      * @property-read dxQueryNode $UserRole
-     * @property-read dxQueryNodeUserRole $UserRoleObject
+     * @property-read dxQueryNodeUserrole $UserRoleObject
      * @property-read dxQueryNode $SearchMetaInfo
      * @property-read dxQueryNode $ObjectOwner
      *
      *
-     * @property-read dxQueryReverseReferenceNodeAdditionalAccountInformation $AdditionalAccountInformation
-     * @property-read dxQueryReverseReferenceNodeClientConnection $ClientConnection
-     * @property-read dxQueryReverseReferenceNodePasswordReset $PasswordReset
-     * @property-read dxQueryReverseReferenceNodePhotoSubmission $PhotoSubmission
-     * @property-read dxQueryReverseReferenceNodePushRegistration $PushRegistration
-     * @property-read dxQueryReverseReferenceNodeStockPhotoRequest $StockPhotoRequest
+     * @property-read dxQueryReverseReferenceNodeAdditionalAccountInformation $AdditionalAccountInformationAsAccount
+     * @property-read dxQueryReverseReferenceNodeClientConnection $ClientConnectionAsAccount
+     * @property-read dxQueryReverseReferenceNodePasswordReset $PasswordResetAsAccount
+     * @property-read dxQueryReverseReferenceNodePhotoSubmission $PhotoSubmissionAsAccount
+     * @property-read dxQueryReverseReferenceNodePushRegistration $PushRegistrationAsAccount
+     * @property-read dxQueryReverseReferenceNodeStockPhotoRequest $StockPhotoRequestAsAccount
 
      * @property-read dxQueryNode $_PrimaryKeyNode
      **/
@@ -4055,23 +4055,23 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
 				case 'UserRole':
 					return new dxQueryNode('UserRole', 'UserRole', 'Integer', $this);
 				case 'UserRoleObject':
-					return new dxQueryNodeUserRole('UserRole', 'UserRoleObject', 'Integer', $this);
+					return new dxQueryNodeUserrole('UserRole', 'UserRoleObject', 'Integer', $this);
 				case 'SearchMetaInfo':
 					return new dxQueryNode('SearchMetaInfo', 'SearchMetaInfo', 'Blob', $this);
 				case 'ObjectOwner':
 					return new dxQueryNode('ObjectOwner', 'ObjectOwner', 'Integer', $this);
-				case 'AdditionalAccountInformation':
-					return new dxQueryReverseReferenceNodeAdditionalAccountInformation($this, 'additionalaccountinformation', 'reverse_reference', 'Account', 'AdditionalAccountInformation');
-				case 'ClientConnection':
-					return new dxQueryReverseReferenceNodeClientConnection($this, 'clientconnection', 'reverse_reference', 'Account', 'ClientConnection');
-				case 'PasswordReset':
-					return new dxQueryReverseReferenceNodePasswordReset($this, 'passwordreset', 'reverse_reference', 'Account', 'PasswordReset');
-				case 'PhotoSubmission':
-					return new dxQueryReverseReferenceNodePhotoSubmission($this, 'photosubmission', 'reverse_reference', 'Account', 'PhotoSubmission');
-				case 'PushRegistration':
-					return new dxQueryReverseReferenceNodePushRegistration($this, 'pushregistration', 'reverse_reference', 'Account', 'PushRegistration');
-				case 'StockPhotoRequest':
-					return new dxQueryReverseReferenceNodeStockPhotoRequest($this, 'stockphotorequest', 'reverse_reference', 'Account', 'StockPhotoRequest');
+				case 'AdditionalAccountInformationAsAccount':
+					return new dxQueryReverseReferenceNodeAdditionalAccountInformation($this, 'additionalaccountinformationasaccount', 'reverse_reference', 'Account', 'AdditionalAccountInformationAsAccount');
+				case 'ClientConnectionAsAccount':
+					return new dxQueryReverseReferenceNodeClientConnection($this, 'clientconnectionasaccount', 'reverse_reference', 'Account', 'ClientConnectionAsAccount');
+				case 'PasswordResetAsAccount':
+					return new dxQueryReverseReferenceNodePasswordReset($this, 'passwordresetasaccount', 'reverse_reference', 'Account', 'PasswordResetAsAccount');
+				case 'PhotoSubmissionAsAccount':
+					return new dxQueryReverseReferenceNodePhotoSubmission($this, 'photosubmissionasaccount', 'reverse_reference', 'Account', 'PhotoSubmissionAsAccount');
+				case 'PushRegistrationAsAccount':
+					return new dxQueryReverseReferenceNodePushRegistration($this, 'pushregistrationasaccount', 'reverse_reference', 'Account', 'PushRegistrationAsAccount');
+				case 'StockPhotoRequestAsAccount':
+					return new dxQueryReverseReferenceNodeStockPhotoRequest($this, 'stockphotorequestasaccount', 'reverse_reference', 'Account', 'StockPhotoRequestAsAccount');
 
 				case '_PrimaryKeyNode':
 					return new dxQueryNode('Id', 'Id', 'Integer', $this);
@@ -4116,17 +4116,17 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
      * @property-read dxQueryNode $BlockedReason
      * @property-read dxQueryNode $LastUpdated
      * @property-read dxQueryNode $UserRole
-     * @property-read dxQueryNodeUserRole $UserRoleObject
+     * @property-read dxQueryNodeUserrole $UserRoleObject
      * @property-read dxQueryNode $SearchMetaInfo
      * @property-read dxQueryNode $ObjectOwner
      *
      *
-     * @property-read dxQueryReverseReferenceNodeAdditionalAccountInformation $AdditionalAccountInformation
-     * @property-read dxQueryReverseReferenceNodeClientConnection $ClientConnection
-     * @property-read dxQueryReverseReferenceNodePasswordReset $PasswordReset
-     * @property-read dxQueryReverseReferenceNodePhotoSubmission $PhotoSubmission
-     * @property-read dxQueryReverseReferenceNodePushRegistration $PushRegistration
-     * @property-read dxQueryReverseReferenceNodeStockPhotoRequest $StockPhotoRequest
+     * @property-read dxQueryReverseReferenceNodeAdditionalAccountInformation $AdditionalAccountInformationAsAccount
+     * @property-read dxQueryReverseReferenceNodeClientConnection $ClientConnectionAsAccount
+     * @property-read dxQueryReverseReferenceNodePasswordReset $PasswordResetAsAccount
+     * @property-read dxQueryReverseReferenceNodePhotoSubmission $PhotoSubmissionAsAccount
+     * @property-read dxQueryReverseReferenceNodePushRegistration $PushRegistrationAsAccount
+     * @property-read dxQueryReverseReferenceNodeStockPhotoRequest $StockPhotoRequestAsAccount
 
      * @property-read dxQueryNode $_PrimaryKeyNode
      **/
@@ -4195,23 +4195,23 @@ class AccountGen extends dxBaseClass implements IteratorAggregate {
 				case 'UserRole':
 					return new dxQueryNode('UserRole', 'UserRole', 'integer', $this);
 				case 'UserRoleObject':
-					return new dxQueryNodeUserRole('UserRole', 'UserRoleObject', 'integer', $this);
+					return new dxQueryNodeUserrole('UserRole', 'UserRoleObject', 'integer', $this);
 				case 'SearchMetaInfo':
 					return new dxQueryNode('SearchMetaInfo', 'SearchMetaInfo', 'string', $this);
 				case 'ObjectOwner':
 					return new dxQueryNode('ObjectOwner', 'ObjectOwner', 'integer', $this);
-				case 'AdditionalAccountInformation':
-					return new dxQueryReverseReferenceNodeAdditionalAccountInformation($this, 'additionalaccountinformation', 'reverse_reference', 'Account', 'AdditionalAccountInformation');
-				case 'ClientConnection':
-					return new dxQueryReverseReferenceNodeClientConnection($this, 'clientconnection', 'reverse_reference', 'Account', 'ClientConnection');
-				case 'PasswordReset':
-					return new dxQueryReverseReferenceNodePasswordReset($this, 'passwordreset', 'reverse_reference', 'Account', 'PasswordReset');
-				case 'PhotoSubmission':
-					return new dxQueryReverseReferenceNodePhotoSubmission($this, 'photosubmission', 'reverse_reference', 'Account', 'PhotoSubmission');
-				case 'PushRegistration':
-					return new dxQueryReverseReferenceNodePushRegistration($this, 'pushregistration', 'reverse_reference', 'Account', 'PushRegistration');
-				case 'StockPhotoRequest':
-					return new dxQueryReverseReferenceNodeStockPhotoRequest($this, 'stockphotorequest', 'reverse_reference', 'Account', 'StockPhotoRequest');
+				case 'AdditionalAccountInformationAsAccount':
+					return new dxQueryReverseReferenceNodeAdditionalAccountInformation($this, 'additionalaccountinformationasaccount', 'reverse_reference', 'Account', 'AdditionalAccountInformationAsAccount');
+				case 'ClientConnectionAsAccount':
+					return new dxQueryReverseReferenceNodeClientConnection($this, 'clientconnectionasaccount', 'reverse_reference', 'Account', 'ClientConnectionAsAccount');
+				case 'PasswordResetAsAccount':
+					return new dxQueryReverseReferenceNodePasswordReset($this, 'passwordresetasaccount', 'reverse_reference', 'Account', 'PasswordResetAsAccount');
+				case 'PhotoSubmissionAsAccount':
+					return new dxQueryReverseReferenceNodePhotoSubmission($this, 'photosubmissionasaccount', 'reverse_reference', 'Account', 'PhotoSubmissionAsAccount');
+				case 'PushRegistrationAsAccount':
+					return new dxQueryReverseReferenceNodePushRegistration($this, 'pushregistrationasaccount', 'reverse_reference', 'Account', 'PushRegistrationAsAccount');
+				case 'StockPhotoRequestAsAccount':
+					return new dxQueryReverseReferenceNodeStockPhotoRequest($this, 'stockphotorequestasaccount', 'reverse_reference', 'Account', 'StockPhotoRequestAsAccount');
 
 				case '_PrimaryKeyNode':
 					return new dxQueryNode('Id', 'Id', 'integer', $this);
